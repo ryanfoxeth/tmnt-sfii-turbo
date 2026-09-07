@@ -1,0 +1,48 @@
+{
+  "version": "v13",
+  "date": "2026-09-07",
+  "game": "Street Fighter II Turbo",
+  "platform": "SNES",
+  "region_revision": "Europe/PAL 1.0",
+  "target_sha256": "461290feac2c13846a50b30bf8b69a744a8f0f7b8aca9c5421d1413b619455ae",
+  "target_bytes": 4194304,
+  "snes_checksum": "C77F",
+  "patches": [
+    {
+      "path": "patches/tmnt-sfii-turbo-v12-to-v13.bps",
+      "bytes": 37,
+      "sha256": "13329af6049b750b3a969c36133eb56eec7730d4ef40295b2e4b6c13c826f1e7",
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 3457999353,
+      "target_crc32": 576569937,
+      "patch_crc32": 1119527305,
+      "command_counts": {
+        "source_read": 3,
+        "target_read": 2,
+        "source_copy": 0,
+        "target_copy": 0
+      },
+      "literal_bytes": 2,
+      "moved_source_bytes": 0
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v13.bps",
+      "bytes": 1337720,
+      "sha256": "c2a07f402fb51e05b2c7dfadc3ea8075edaaeb57a98a56ebbb4033f476ba52fc",
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 576569937,
+      "patch_crc32": 1393382261,
+      "command_counts": {
+        "source_read": 204,
+        "target_read": 36428,
+        "source_copy": 33633,
+        "target_copy": 31792
+      },
+      "literal_bytes": 1026544,
+      "moved_source_bytes": 388354
+    }
+  ]
+}
