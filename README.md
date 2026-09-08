@@ -94,7 +94,9 @@ original, and their story artwork still needs a later pass. Most replacement
 fighters retain their original voices; Shredder has the earlier lowered
 voice treatment. Some original world-map/biography identity fields remain.
 V18 repairs the transparent belt/waist pixels confirmed in Super Shredder's
-idle and early walking art. This is a work in progress.
+poses 000–003. A subsequent Day 3 video review found that walking poses
+004/005 still have a horizontal waist separation; those two poses remain
+open in the current v18 patch. This is a work in progress.
 
 The v18 regression run replays Super Shredder's gameplay in Normal and Turbo
 on both sides, checks six select-grid routes and four outcome routes, then

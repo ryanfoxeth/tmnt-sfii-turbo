@@ -111,3 +111,14 @@ These are representative emulator checks, not exhaustive animation,
 all-emulator or original-hardware validation. The README lists known art
 limitations. Public CI tests the patch parser with synthetic inputs; it
 does not secretly download a game ROM or repeat gameplay tests.
+
+## Day 3 video follow-up — 2026-09-08
+
+Fresh controller-only v18 footage exposes a remaining Super Shredder waist
+separation around 3.2 seconds into the idle/walk review route. Native pose
+004/005 inspection confirms the separation is in authored pose data. The
+v18 repair covered poses 000–003; it did not repair 004/005. The same defect
+is present in the source capture, so it is not a video-compositor artifact.
+No ROM or patch bytes changed in this documentation follow-up. The earlier
+regression checks establish the documented preservation and route coverage,
+not that every visible pose has finished art.
