@@ -1,5 +1,21 @@
 # Releases
 
+## v18 — 2026-09-08
+
+Removes empty lower bands from seven select icons using full-height, face-centered
+bust crops. Updates Normal/Turbo and the two custom gray variants; the same icon
+art also appears on the Arcade map. All large portraits remain unchanged.
+
+Repairs 192 transparent waist pixels in Super Shredder poses 000–003. Previously
+opaque pixel colors, all other body packets, palettes, OAM/DMA, animation timing,
+moves and stages are preserved. The observed OAM/VRAM mismatch during debugging
+was emulator snapshot timing, not a game DMA defect; no timing patch was made.
+
+Target SHA-256: `0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20`. SNES checksum: `A353`.
+Includes original-to-v18 and v17-to-v18 BPS patches. The Python patcher accepts
+the verified original/headered input and v12–v17 releases. Historical patches
+remain available. See [verification](verification.md) for coverage and limits.
+
 ## v17 — 2026-09-08
 
 Corrects Leatherhead and Slash sprite presentation without changing moves,

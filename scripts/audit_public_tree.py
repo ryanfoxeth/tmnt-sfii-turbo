@@ -70,6 +70,9 @@ PATCHES={
 ALLOW.update({'patches/tmnt-sfii-turbo-v17.bps', 'art/v17/geometry-review.json', 'art/v17/README.md', 'patches/tmnt-sfii-turbo-v16-to-v17.bps', 'assets/consistency-v17.png'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v17.bps': '41272fcffd6785b504df73494ab6b3c903f320f94a6b5e5cc9598dd89562266c', 'patches/tmnt-sfii-turbo-v16-to-v17.bps': '5e26d62d89066ae89f606671582b16b661e90edbe6bd38ef6620f08457ef0a04'})
 
+ALLOW.update({'patches/tmnt-sfii-turbo-v18.bps', 'patches/tmnt-sfii-turbo-v17-to-v18.bps'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v18.bps': '4a4be276c845b43b9e9a36ee09ffbbc198233f8f8b89d81acf85de76c546e86f', 'patches/tmnt-sfii-turbo-v17-to-v18.bps': '3a4b815ec4ec1aa54e805a3bf11a145825ad92b46d4296c48576272ea381f5a6'})
+ALLOW.update({'assets/select-v18.png','assets/cleanup-v18.png'})
 
 def audit():
     if (ROOT/'.git').is_dir():

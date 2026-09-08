@@ -4,10 +4,10 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, ten custom stages, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v17.** This repository distributes patches and tools.
+**Current version: v18.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
-![Leatherhead and Slash consistency review](assets/consistency-v17.png)
+![Repaired select grid](assets/select-v18.png)
 
 ## Play
 
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v17.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v18.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v16 releases. Older releases are
-validated through the v16 intermediate; v16 uses its direct v17 increment.
+512-byte-headered form) and v12 through v17 releases. Older releases are
+validated through the v16 and v17 intermediates; v17 uses its direct v18 increment.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
@@ -58,13 +58,21 @@ Leatherhead and Slash use their original-cartoon designs and retain Blanka's
 and Zangief's moves and stages. The design references the original
 TMNT cartoon and the NES/SNES games. Leonardo has a tight Japanese night
 backstreet; Shredder, Super Shredder and Krang have distinct Technodrome rooms.
-The original cage and wall-jump mechanics remain on Shredder's stage. V17
+The original cage and wall-jump mechanics remain on Shredder's stage. V18
 includes the v14 icon-framing and v15 background-animation corrections.
+
+## V18 cleanup
+
+Seven select icons now use the full bust height, removing the empty bands
+while preserving gray borders and opaque backgrounds. Super Shredder's four
+affected waist poses are repaired without changing moves or animation timing.
+
+![Super Shredder before and after](assets/cleanup-v18.png)
 
 ## What is included
 
-- Full original-to-v17 and direct v16-to-v17 BPS patches, plus patcher support
-  for original/headered and v12–v16 inputs.
+- Full original-to-v18 and direct v17-to-v18 BPS patches, plus patcher support
+  for original/headered and v12–v17 inputs.
 - Earlier BPS patches, including the historical v13 patches, remain available.
 - A portable, hash-checked Python patcher and format-level tests.
 - Standalone source for v13's scrolling repair and v15's stage-animation fix.
@@ -85,12 +93,12 @@ Turtle idle animation still needs polish. Endings and credits are mostly
 original, and their story artwork still needs a later pass. Most replacement
 fighters retain their original voices; Shredder has the earlier lowered
 voice treatment. Some original world-map/biography identity fields remain.
-Super Shredder's separately reported body gaps were not reproduced in the
-inspected poses, so they are not claimed fixed. This is a work in progress.
+V18 repairs the transparent belt/waist pixels confirmed in Super Shredder's
+idle and early walking art. This is a work in progress.
 
-The v17 regression run covers Normal and Turbo combat on both sides,
-24 UI captures, eight outcome routes, all twelve fighting stages, 24 knockouts
-and all three bonus stages. See [verification](docs/verification.md) for the
+The v18 regression run replays Super Shredder's gameplay in Normal and Turbo
+on both sides, checks six select-grid routes and four outcome routes, then
+all twelve fighting stages, 24 knockouts and all three bonus stages. See [verification](docs/verification.md) for the
 scope and limits; this is not an original-hardware certification.
 
 ## Rights and distribution

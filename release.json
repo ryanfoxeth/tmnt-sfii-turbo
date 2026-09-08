@@ -1,13 +1,57 @@
 {
-  "version": "v17",
+  "version": "v18",
   "date": "2026-09-08",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa",
+  "target_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
   "target_bytes": 4194304,
-  "snes_checksum": "0DEB",
+  "snes_checksum": "A353",
   "patches": [
+    {
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
+      "path": "patches/tmnt-sfii-turbo-v18.bps",
+      "sha256": "4a4be276c845b43b9e9a36ee09ffbbc198233f8f8b89d81acf85de76c546e86f",
+      "bytes": 1640887,
+      "roundtrip_exact": true,
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 27192782,
+      "patch_crc32": 1091810244,
+      "command_counts": {
+        "source_read": 203,
+        "target_read": 46872,
+        "source_copy": 43198,
+        "target_copy": 42454
+      },
+      "literal_bytes": 1234774,
+      "moved_source_bytes": 473800
+    },
+    {
+      "source_sha256": "f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa",
+      "target_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
+      "path": "patches/tmnt-sfii-turbo-v17-to-v18.bps",
+      "sha256": "3a4b815ec4ec1aa54e805a3bf11a145825ad92b46d4296c48576272ea381f5a6",
+      "bytes": 3432,
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 2629151726,
+      "target_crc32": 27192782,
+      "patch_crc32": 2862289250,
+      "command_counts": {
+        "source_read": 61,
+        "target_read": 174,
+        "source_copy": 189,
+        "target_copy": 44
+      },
+      "literal_bytes": 2124,
+      "moved_source_bytes": 1991
+    }
+  ],
+  "historical_patches": [
     {
       "source_version": "original",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
@@ -51,9 +95,7 @@
       },
       "literal_bytes": 103502,
       "moved_source_bytes": 266689
-    }
-  ],
-  "historical_patches": [
+    },
     {
       "source_version": "original",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
@@ -207,5 +249,5 @@
     "Blanka/Leatherhead",
     "Zangief/Slash"
   ],
-  "older_input_upgrade": "The Python patcher applies the existing v12/v13/v14/v15-to-v16 patch, validates v16, then upgrades to v17."
+  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v16 inputs through v17, then applies v17-to-v18."
 }

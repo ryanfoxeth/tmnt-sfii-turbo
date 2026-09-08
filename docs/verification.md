@@ -1,5 +1,36 @@
 # Verification of the game build
 
+## V18 — 2026-09-08
+
+Tested SHA-256: `0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20`.
+
+- Four Super Shredder source poses receive 192 newly opaque waist pixels. All
+  original opaque native palette indices and other fighter-9 packets are exact.
+- Four 1,728-frame controller replays match v17 gameplay state and OAM in Normal/
+  Turbo, both player sides. An additional replay uses a different stage.
+- All 24 Normal/Turbo icon decodes match their expected repaired or preserved
+  pixels. Six live Arcade/VS grids and four real-KO outcome paths were reviewed.
+- Full Arcade: 45,000 frames, all twelve stages, 24 KOs and all three bonuses.
+  Events and KO timing match v17. All 16 bonus captures are unchanged; 228 of
+  251 campaign captures are identical. The other 23 change only intended icons
+  (including the floating Arcade-map icon) or Super Shredder's waist.
+- Public distribution: 14 unit tests, eight real CLI input round-trips and
+  both new BPS round-trips pass. The 60-file public tree is allowlisted; patches
+  are hash-pinned and no ROM or emulator state is included.
+- The disjoint component merge reproduces the exact final hash; all 27 scene
+  resource sets, other fighters, large portraits, palettes and game code remain
+  exact. No new graphics allocation is required.
+
+Controller replays use no state or RAM shortcuts. Outcome/campaign traversal
+uses logged health fixtures and actual game-generated KOs. The source seam
+scan covers 61 importable masters; it is not every animation combination.
+This is representative emulator coverage, not original-hardware certification.
+
+At idle transitions, previous OAM plus current VRAM matches the displayed
+frame's sprite colors exactly; a current/current dump can mix snapshot phases.
+Framebuffer correlation ruled out an apparent DMA tear. Native round-trip
+success alone had also missed malformed source transparency.
+
 ## V17 — 2026-09-08
 
 Tested target SHA-256:
