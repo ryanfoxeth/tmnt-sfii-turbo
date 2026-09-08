@@ -1,13 +1,59 @@
 {
-  "version": "v16",
+  "version": "v17",
   "date": "2026-09-08",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+  "target_sha256": "f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa",
   "target_bytes": 4194304,
-  "snes_checksum": "67B3",
+  "snes_checksum": "0DEB",
   "patches": [
+    {
+      "source_version": "original",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "path": "patches/tmnt-sfii-turbo-v17.bps",
+      "sha256": "41272fcffd6785b504df73494ab6b3c903f320f94a6b5e5cc9598dd89562266c",
+      "bytes": 1640397,
+      "target_sha256": "f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa",
+      "roundtrip_exact": true,
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 2629151726,
+      "patch_crc32": 3171385816,
+      "command_counts": {
+        "source_read": 206,
+        "target_read": 46853,
+        "source_copy": 43150,
+        "target_copy": 42474
+      },
+      "literal_bytes": 1234394,
+      "moved_source_bytes": 473511
+    },
+    {
+      "source_version": "v16",
+      "source_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+      "path": "patches/tmnt-sfii-turbo-v16-to-v17.bps",
+      "sha256": "5e26d62d89066ae89f606671582b16b661e90edbe6bd38ef6620f08457ef0a04",
+      "bytes": 150574,
+      "target_sha256": "f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa",
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 550786976,
+      "target_crc32": 2629151726,
+      "patch_crc32": 1673163355,
+      "command_counts": {
+        "source_read": 61,
+        "target_read": 5181,
+        "source_copy": 7201,
+        "target_copy": 2424
+      },
+      "literal_bytes": 103502,
+      "moved_source_bytes": 266689
+    }
+  ],
+  "historical_patches": [
     {
       "source_version": "original",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
@@ -117,9 +163,7 @@
       },
       "literal_bytes": 195420,
       "moved_source_bytes": 135563
-    }
-  ],
-  "historical_patches": [
+    },
     {
       "path": "patches/tmnt-sfii-turbo-v12-to-v13.bps",
       "bytes": 37,
@@ -162,5 +206,6 @@
   "original_stages_retained": [
     "Blanka/Leatherhead",
     "Zangief/Slash"
-  ]
+  ],
+  "older_input_upgrade": "The Python patcher applies the existing v12/v13/v14/v15-to-v16 patch, validates v16, then upgrades to v17."
 }

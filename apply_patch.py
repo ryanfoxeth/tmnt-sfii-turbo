@@ -30,6 +30,10 @@ PATCH_SHA256 = {
 }
 V16_PATCHES = {BASE_SHA256: "tmnt-sfii-turbo-v16.bps", V12_SHA256: "tmnt-sfii-turbo-v12-to-v16.bps", V13_SHA256: "tmnt-sfii-turbo-v13-to-v16.bps", V14_SHA256: "tmnt-sfii-turbo-v14-to-v16.bps", V15_SHA256: "tmnt-sfii-turbo-v15-to-v16.bps"}
 
+V17_SHA256 = 'f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa'
+V17_PATCH = "tmnt-sfii-turbo-v16-to-v17.bps"
+PATCH_SHA256.update({'tmnt-sfii-turbo-v17.bps': '41272fcffd6785b504df73494ab6b3c903f320f94a6b5e5cc9598dd89562266c', 'tmnt-sfii-turbo-v16-to-v17.bps': '5e26d62d89066ae89f606671582b16b661e90edbe6bd38ef6620f08457ef0a04'})
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -37,19 +41,21 @@ def sha256(data: bytes) -> str:
 
 def choose_patch(input_bytes: bytes):
     digest = sha256(input_bytes)
+    if digest == V16_SHA256:
+        return input_bytes, PATCHES / V17_PATCH
     if digest in V16_PATCHES:
         return input_bytes, PATCHES / V16_PATCHES[digest]
     if digest == HEADERED_BASE_SHA256:
         if len(input_bytes) < 512 or sha256(input_bytes[512:]) != BASE_SHA256:
             raise BPSError("recognized headered ROM did not yield the expected base ROM")
         return input_bytes[512:], PATCHES / V16_PATCHES[BASE_SHA256]
-    raise BPSError("input SHA-256 is not a supported original, v12, v13, v14, or v15 revision")
+    raise BPSError("input SHA-256 is not a supported original, v12, v13, v14, v15, or v16 revision")
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", type=Path, help="supported original, v12, v13, v14, or v15 ROM")
-    parser.add_argument("--out", required=True, type=Path, help="new v16 output file")
+    parser.add_argument("input", type=Path, help="supported original, v12, v13, v14, v15, or v16 ROM")
+    parser.add_argument("--out", required=True, type=Path, help="new v17 output file")
     args = parser.parse_args(argv)
     if args.out.exists():
         parser.error("refusing to overwrite existing output: {}".format(args.out))
@@ -62,8 +68,15 @@ def main(argv=None) -> int:
         if sha256(patch) != expected_patch:
             raise BPSError("patch SHA-256 does not match the published release")
         target, _ = apply_bps(source, patch)
-        if not V16_SHA256 or sha256(target) != V16_SHA256:
-            raise BPSError("patched ROM SHA-256 does not match the v16 release")
+        if patch_path.name != V17_PATCH:
+            if sha256(target) != V16_SHA256:
+                raise BPSError("intermediate ROM SHA-256 does not match v16")
+            upgrade = (PATCHES / V17_PATCH).read_bytes()
+            if sha256(upgrade) != PATCH_SHA256[V17_PATCH]:
+                raise BPSError("v17 upgrade patch SHA-256 does not match")
+            target, _ = apply_bps(target, upgrade)
+        if sha256(target) != V17_SHA256:
+            raise BPSError("patched ROM SHA-256 does not match the v17 release")
         # Exclusive creation keeps the no-overwrite guarantee even if another
         # process creates the destination after the check above.
         with args.out.open("xb") as output:
@@ -71,7 +84,7 @@ def main(argv=None) -> int:
     except (OSError, BPSError) as error:
         print("error: {}".format(error), file=sys.stderr)
         return 1
-    print("Wrote {} (SHA-256: {})".format(args.out, V16_SHA256))
+    print("Wrote {} (SHA-256: {})".format(args.out, V17_SHA256))
     return 0
 
 

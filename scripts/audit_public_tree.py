@@ -67,6 +67,9 @@ PATCHES={
     'patches/tmnt-sfii-turbo-v15-to-v16.bps':'55bf6e3e788044b2d5f2cb21388b51ddc0ee3b7c0b4489bb19af898547fb0c8b',
     'patches/tmnt-sfii-turbo-v16.bps':'86b0da6c612e31c17dc7e75e338836bce30b69a31b5634cc2fd6f1d84fb9640a',
 }
+ALLOW.update({'patches/tmnt-sfii-turbo-v17.bps', 'art/v17/geometry-review.json', 'art/v17/README.md', 'patches/tmnt-sfii-turbo-v16-to-v17.bps', 'assets/consistency-v17.png'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v17.bps': '41272fcffd6785b504df73494ab6b3c903f320f94a6b5e5cc9598dd89562266c', 'patches/tmnt-sfii-turbo-v16-to-v17.bps': '5e26d62d89066ae89f606671582b16b661e90edbe6bd38ef6620f08457ef0a04'})
+
 
 def audit():
     if (ROOT/'.git').is_dir():

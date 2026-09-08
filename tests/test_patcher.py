@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch as mock_patch
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -104,6 +105,41 @@ class CommandTests(unittest.TestCase):
             self.assertEqual(patch_path.name, "tmnt-sfii-turbo-v16.bps")
         finally:
             apply_patch.sha256 = original_sha
+
+    def test_v17_upgrade_chain_and_direct_input(self):
+        original, v16, v17 = b"original", b"v16 fixture", b"v17 fixture"
+        digest = lambda data: hashlib.sha256(data).hexdigest()
+        first, second = bps(original, v16), bps(v16, v17)
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            (directory / "first.bps").write_bytes(first)
+            (directory / "upgrade.bps").write_bytes(second)
+            with mock_patch.multiple(apply_patch, PATCHES=directory,
+                    V16_SHA256=digest(v16), V17_SHA256=digest(v17),
+                    V17_PATCH="upgrade.bps", V16_PATCHES={digest(original): "first.bps"},
+                    PATCH_SHA256={"first.bps": digest(first), "upgrade.bps": digest(second)}):
+                for number, source in enumerate((original, v16)):
+                    input_path = directory / f"input{number}.sfc"
+                    out = directory / f"output{number}.sfc"
+                    input_path.write_bytes(source)
+                    self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 0)
+                    self.assertEqual(out.read_bytes(), v17)
+
+    def test_unexpected_intermediate_is_rejected_before_upgrade(self):
+        source, intermediate = b"source", b"unexpected intermediate"
+        digest = lambda data: hashlib.sha256(data).hexdigest()
+        first = bps(source, intermediate)
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            input_path, out = directory / "input.sfc", directory / "output.sfc"
+            input_path.write_bytes(source)
+            (directory / "first.bps").write_bytes(first)
+            with mock_patch.multiple(apply_patch, PATCHES=directory,
+                    V16_SHA256=digest(b"expected intermediate"),
+                    V16_PATCHES={digest(source): "first.bps"},
+                    PATCH_SHA256={"first.bps": digest(first)}):
+                self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 1)
+                self.assertFalse(out.exists())
 
     def test_wrong_revision_does_not_create_output(self):
         with tempfile.TemporaryDirectory() as directory:

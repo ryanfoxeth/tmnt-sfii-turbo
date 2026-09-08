@@ -1,5 +1,29 @@
 # Releases
 
+## v17 — 2026-09-08
+
+Corrects Leatherhead and Slash sprite presentation without changing moves,
+hitboxes, animation scripts, body palettes or stages. All 85 Leatherhead and
+104 Slash body poses were reviewed at fixed native scale. Twenty-nine
+Leatherhead poses received source-registration corrections. Slash's importer
+now extracts complete connected figures before measuring them, removing source
+labels and neighboring fragments that had shrunk the real character; 69 Slash
+imports were corrected. Pose 084 is restored from complete predecessor art,
+and the kneeling art shared by poses 099/100 is used at one scale.
+
+Seven select icons were reframed: Bebop, Leatherhead, Casey, April, Slash,
+Krang and Rocksteady. All twelve large neutral and defeated portraits remain
+unchanged from v16. The read-only review of the other ten fighters covers
+1,136 OAM entries, including intentional partial and effect cases; it is an
+inventory, not an exhaustive live-animation claim.
+
+Target SHA-256:
+`f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa`.
+SNES checksum: `0DEB`. The patcher accepts the verified original (headered or
+headerless) and v12–v16 outputs. Original and v16 BPS patches are included;
+v12–v15 inputs are validated through v16, while v16 takes its direct v17
+increment. Earlier patches remain available.
+
 ## v16 — 2026-09-08
 
 Completes the twelve selected roster slots: Blanka becomes Leatherhead and

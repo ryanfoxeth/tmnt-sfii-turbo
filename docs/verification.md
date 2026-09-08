@@ -1,5 +1,29 @@
 # Verification of the game build
 
+## V17 — 2026-09-08
+
+Tested target SHA-256:
+`f0cf0064765bef202e75d5c7a664ff9406cfdba6e55bbaad16813d7d8ccd9daa`.
+
+| Check | Result |
+| --- | --- |
+| Leatherhead and Slash fixed-scale review | All 85 Leatherhead and 104 Slash body poses reviewed; 29 Leatherhead and 69 Slash source corrections verified |
+| Other-fighter inventory | 1,136 OAM entries across the other ten fighters recorded, including partial, effect and unmapped-tail cases; this is not exhaustive live coverage |
+| Normal/Turbo combat | 19 Leatherhead and 18 Slash controller checks pass in each mode, with both player sides covered |
+| Select, VS and battle UI | 24 cold-boot captures pass across Normal/Turbo and both sides |
+| Outcome routes | Eight cold-boot win/loss/continue routes pass; health-only shortcuts are logged and real-KO transitions are checked |
+| Full Arcade | 45,000 frames, all twelve fighting stages, 24 KOs and all three bonus stages pass; health-only shortcuts are logged |
+| Visual review | Final fixed-zoom and live review passes; all twelve large neutral/defeated portraits remain v16-exact |
+| Public distribution | Twelve unit tests, seven real CLI input round-trips and both new BPS round-trips pass; tracked files are allowlisted and patches are hash-pinned |
+| Component merge | Repeating the recorded component merge produced the same final hash; this does not claim a second full source-pipeline rebuild |
+
+The other-ten-fighter OAM inventory includes intentional partials and entries
+that are not a complete live animation/VRAM exercise. Save states do not cross
+ROM versions. These representative emulator checks do not certify original
+hardware or every two-character interaction. Turtle idle polish, the separate
+Super Shredder body concerns, voices, endings and credits remain outside this
+release.
+
 ## V16 — 2026-09-08
 
 Tested target SHA-256:
