@@ -1,0 +1,35 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "style-transfer",
+  "identity_references": [
+    "../../references/slash-neca-cartoon.jpg",
+    "../../references/slash-cartoon-body.jpg"
+  ],
+  "outputs": {
+    "contact-000.png": {
+      "source_template": "../templates/contact-000.png",
+      "source_sha256": "4ee50e7f5df6045c483ae258ac80a1d457525ab8ddf118968612cbe22b726eea",
+      "prompt": "Replace the Zangief fighter inside every pose cell with Slash, Bebop's mutated pet turtle from the original 1987 Teenage Mutant Ninja Turtles cartoon, preserving each existing silhouette's gesture, action direction, feet placement, registration, scale, and each cell's empty space. Frames 000\u2013023: standing, crouching, walking, jumps, punches and wrestling actions. Clean hand-drawn 16-bit SNES pixel art, crisp dark outlines, no anti-aliasing, limited 16-color sprite palette. Huge squat olive-green pockmarked mutant turtle; broad cheeks and irregular ivory teeth; rigid pale blue/silver metal eye mask with round gold side disc; ochre-yellow plastron; purple belt with white skull buckle; blue-silver wrist gauntlets and kneepads with purple spikes; dark elbow wraps; ivory claws; compact spiked shell/backpack. Retain exactly: 1200x880 canvas, 6x4 grid, small white POSE labels, dark blue-gray background, 24 pose locations and native allocation rectangles. Change only character pixels. No weapons, text, background scenery, shadows, effects, other characters, UI, borders, labels, watermark, toy or plastic texture."
+    },
+    "contact-024.png": {
+      "source_template": "../templates/contact-024.png",
+      "source_sha256": "523af7bbe64aa1e423fb045eee1135b8dc7c8e371c80f2f8689513bc213b0a53",
+      "prompt": "Replace every Zangief fighter inside the 24 labeled cells with 1987 TMNT cartoon Slash, preserving every original action silhouette, position, direction, scale, registration, and empty allocation footprint. Frames 024\u2013047 include wrestling throws, crouch and attack transitions. Clean 16-bit SNES pixel art, original 1987 TMNT cartoon look, sharp dark outlines, limited 16-color palette, no anti-aliasing. Giant squat olive-green pockmarked mutant turtle; wide cheeked head, crooked ivory teeth and tongue; rigid pale blue/silver metal eye mask with gold circular side disc; ochre plastron; purple belt with white skull buckle; blue-silver gauntlets and kneepads with purple spikes; dark elbow wraps; ivory claws; compact spiked back shell. Preserve 1200x880, 6x4 grid, POSE labels, gray-blue background and every character bound. Change only character pixels. No weapons, scenery, shadows, effects, extra characters, UI, new text, border, watermark, photo or toy texture."
+    },
+    "contact-048.png": {
+      "source_template": "../templates/contact-048.png",
+      "source_sha256": "92e60cb613c74f3388a22da567b6a1c239678015d1e8e7bb2f8a97ba2f68c9c8",
+      "prompt": "Replace every Zangief fighter in the 24 cells with the original 1987 TMNT cartoon Slash. Preserve each pose's existing action, silhouette, direction, scale, registration, and native allocation footprint exactly. Frames 048\u2013071 cover airborne wrestling, hit/recovery and lariat-like actions. Crisp 16-bit SNES pixel art, hand-drawn original 1987 cartoon, limited palette and hard dark outline, no anti-aliasing. Hulking olive-green pockmarked mutant turtle, broad cheeks, uneven ivory teeth and tongue; pale blue/silver rigid metal eye-mask with gold round side disc; ochre plastron; purple belt and white skull buckle; blue-silver gauntlets and kneepads with purple spikes; dark elbow wraps; ivory claws; spiked shell pack. Retain 1200x880, 6x4 grid, POSE labels, dark gray-blue background and all pose bounds. Change only character pixels. Avoid effects, weapons, scenery, shadows, new text, UI, watermark, photorealism and plastic toy texture."
+    },
+    "contact-072.png": {
+      "source_template": "../templates/contact-072.png",
+      "source_sha256": "929e2a13380c5bb63c419f564fdf8ceaa6b12da5fc63339c1072f00381f69798",
+      "prompt": "Replace every Zangief fighter inside all 24 labeled cells with Slash from the original 1987 TMNT cartoon, maintaining each original pose gesture, motion direction, bounds, scale, feet/ground registration, and empty space. Frames 072\u2013095 include spinning lariat, throws, knockdown, recovery, and win actions. Authentic clean 16-bit SNES pixel art; crisp dark contour, limited 16-color palette, no anti-aliasing. Enormous squat olive-green turtle with pockmarks, oversized cheeky head, crooked ivory teeth; rigid pale blue/silver metal eye mask and gold round side disc; ochre chest shell, purple skull-buckle belt, blue-silver gauntlets/kneepads with purple spikes, dark elbow bands, ivory claws, small spiked shell backpack. Retain Image 1's 1200x880 6x4 grid, every white POSE label, dark gray-blue background, and each pose allocation rectangle. Change only character pixels. Avoid projectiles/electricity/effects, weapons, scenery, text changes, UI, shadows, watermark, toy/plastic or photo texture."
+    },
+    "contact-096.png": {
+      "source_template": "../templates/contact-096.png",
+      "source_sha256": "85a48bb3046d52789f999f5fc9c926d41c2a7cc502aed9a826249191e13bab23",
+      "prompt": "Replace every Zangief character with Slash, the huge feral mutated pet turtle from the original 1987 TMNT cartoon, maintaining original action, silhouette direction, scale, registration and empty allocation footprint. Frames 096\u2013108 include victory, recovery, knockdown and final wrestling poses. Crisp 16-bit SNES sprite art, original 1987 cartoon appearance, hard dark outline, deliberately limited 16-color palette, no anti-aliasing. Olive pockmarked skin; oversized broad cheeked turtle head, irregular ivory teeth; rigid pale blue/silver metal eye mask with gold round side disc; ochre plastron; purple belt with white skull buckle; blue-silver spiked gauntlets and kneepads; dark elbow wraps; ivory claws; compact yellow-spiked back shell. Preserve 1200x880 canvas, dark gray-blue background, six-column grid, all white POSE labels and each existing bounding allocation. Only replace character pixels. Leave empty cells empty. Avoid effects, weapons, scenery, new text/UI, watermarks, photo quality, plastic/toy texture."
+    }
+  }
+}

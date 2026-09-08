@@ -1,5 +1,33 @@
 # Technical notes
 
+## V16 character and cache contracts
+
+Leatherhead occupies Blanka's ID2 slot; Slash occupies Zangief's ID6 slot.
+Both use private body-packet allocations with shared effects protected, and
+all raw DMA sources stay inside a 64 KiB bank. Their original stages remain.
+The other ten fighters and all 27 original/custom scene resource streams are
+checked for preservation before merging independent components.
+
+The complete portrait cache is 55,936 bytes starting at 7F:0100. Both temporary
+map buffers move to 7F:E000/E100 through four stores and two queued DMA-source
+operands, leaving 1,152 bytes of slack. An unrelated static C000 descriptor
+must not move. The large portraits are separate neutral/defeated images stored
+facing right; the original renderer mirrors right-side screen positions.
+
+Small icons use opaque 19×30 interiors, gray borders and transparent allocation
+padding. Two previously unused regions within the existing 64-tile gray-icon
+buffer hold Leatherhead and Slash's defeated icons. This does not enlarge that
+VRAM allocation. Leatherhead uses `LEATHER` where narrow captions cannot fit
+his full name; `LEATHERHEAD` is retained in the HUD and records.
+
+Static importer round-trips alone do not establish visible correctness. The
+first Slash source crop clipped limbs to the old Zangief rectangle, yet the
+truncated art round-tripped perfectly. Whole-cell extraction before native
+registration fixed the actual cause; live DMA and animation were then checked.
+See [generated art](../art/v16/README.md) and [verification](verification.md).
+
+## Base-game contract
+
 This remains the SNES game engine. Replacement art follows existing gameplay,
 move timing, hitboxes and character slots. It is not a new engine or an extra
 roster-slot implementation.

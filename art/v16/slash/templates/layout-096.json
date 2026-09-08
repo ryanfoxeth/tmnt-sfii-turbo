@@ -1,0 +1,347 @@
+{
+  "schema": "tmnt-contact-layout-v2",
+  "contact": "slash/contact-096.png",
+  "sheet_size": [
+    1200,
+    880
+  ],
+  "columns": 6,
+  "rows": 4,
+  "cell_size": [
+    200,
+    220
+  ],
+  "background": [
+    55,
+    62,
+    75
+  ],
+  "cells": [
+    {
+      "pose_id": 96,
+      "row": 0,
+      "column": 0,
+      "cell_bbox": [
+        0,
+        0,
+        200,
+        220
+      ],
+      "native_paste_bbox": [
+        64,
+        28,
+        136,
+        124
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        72,
+        96
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-096.png"
+    },
+    {
+      "pose_id": 97,
+      "row": 0,
+      "column": 1,
+      "cell_bbox": [
+        200,
+        0,
+        400,
+        220
+      ],
+      "native_paste_bbox": [
+        264,
+        28,
+        335,
+        116
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        71,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-097.png"
+    },
+    {
+      "pose_id": 98,
+      "row": 0,
+      "column": 2,
+      "cell_bbox": [
+        400,
+        0,
+        600,
+        220
+      ],
+      "native_paste_bbox": [
+        464,
+        28,
+        535,
+        116
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        71,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-098.png"
+    },
+    {
+      "pose_id": 99,
+      "row": 0,
+      "column": 3,
+      "cell_bbox": [
+        600,
+        0,
+        800,
+        220
+      ],
+      "native_paste_bbox": [
+        635,
+        28,
+        765,
+        188
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        65,
+        80
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-099.png"
+    },
+    {
+      "pose_id": 100,
+      "row": 0,
+      "column": 4,
+      "cell_bbox": [
+        800,
+        0,
+        1000,
+        220
+      ],
+      "native_paste_bbox": [
+        892,
+        28,
+        908,
+        44
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        8,
+        8
+      ],
+      "classification": "partial_attachment",
+      "importable": false,
+      "required_master": "masters/slash/pose-100.png"
+    },
+    {
+      "pose_id": 101,
+      "row": 0,
+      "column": 5,
+      "cell_bbox": [
+        1000,
+        0,
+        1200,
+        220
+      ],
+      "native_paste_bbox": [
+        1072,
+        28,
+        1128,
+        124
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        56,
+        96
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-101.png"
+    },
+    {
+      "pose_id": 102,
+      "row": 1,
+      "column": 0,
+      "cell_bbox": [
+        0,
+        220,
+        200,
+        440
+      ],
+      "native_paste_bbox": [
+        72,
+        248,
+        128,
+        336
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        56,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-102.png"
+    },
+    {
+      "pose_id": 103,
+      "row": 1,
+      "column": 1,
+      "cell_bbox": [
+        200,
+        220,
+        400,
+        440
+      ],
+      "native_paste_bbox": [
+        275,
+        248,
+        325,
+        336
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        50,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-103.png"
+    },
+    {
+      "pose_id": 104,
+      "row": 1,
+      "column": 2,
+      "cell_bbox": [
+        400,
+        220,
+        600,
+        440
+      ],
+      "native_paste_bbox": [
+        428,
+        248,
+        572,
+        408
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        72,
+        80
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-104.png"
+    },
+    {
+      "pose_id": 105,
+      "row": 1,
+      "column": 3,
+      "cell_bbox": [
+        600,
+        220,
+        800,
+        440
+      ],
+      "native_paste_bbox": [
+        620,
+        248,
+        780,
+        344
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        80,
+        48
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-105.png"
+    },
+    {
+      "pose_id": 106,
+      "row": 1,
+      "column": 4,
+      "cell_bbox": [
+        800,
+        220,
+        1000,
+        440
+      ],
+      "native_paste_bbox": [
+        872,
+        248,
+        928,
+        352
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        56,
+        104
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-106.png"
+    },
+    {
+      "pose_id": 107,
+      "row": 1,
+      "column": 5,
+      "cell_bbox": [
+        1000,
+        220,
+        1200,
+        440
+      ],
+      "native_paste_bbox": [
+        1070,
+        248,
+        1129,
+        344
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        59,
+        96
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-107.png"
+    },
+    {
+      "pose_id": 108,
+      "row": 2,
+      "column": 0,
+      "cell_bbox": [
+        0,
+        440,
+        200,
+        660
+      ],
+      "native_paste_bbox": [
+        60,
+        468,
+        140,
+        564
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        80,
+        96
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/slash/pose-108.png"
+    }
+  ],
+  "master_rule": "The generated sheet must retain the 1200x880 grid and each pose's gray allocation rectangle. Registration uses native_paste_bbox/integer_scale, then emits exact native-size masters. Do not draw a generated body in protected_fx or partial_attachment cells."
+}

@@ -1,0 +1,580 @@
+{
+  "schema": "tmnt-contact-layout-v2",
+  "contact": "leatherhead/contact-072.png",
+  "sheet_size": [
+    1200,
+    880
+  ],
+  "columns": 6,
+  "rows": 4,
+  "cell_size": [
+    200,
+    220
+  ],
+  "background": [
+    55,
+    62,
+    75
+  ],
+  "cells": [
+    {
+      "pose_id": 72,
+      "row": 0,
+      "column": 0,
+      "cell_bbox": [
+        0,
+        0,
+        200,
+        220
+      ],
+      "native_paste_bbox": [
+        52,
+        28,
+        148,
+        77
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        96,
+        49
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-072.png",
+      "contact_cell_bbox": [
+        0,
+        0,
+        200,
+        220
+      ]
+    },
+    {
+      "pose_id": 73,
+      "row": 0,
+      "column": 1,
+      "cell_bbox": [
+        200,
+        0,
+        400,
+        220
+      ],
+      "native_paste_bbox": [
+        244,
+        28,
+        356,
+        76
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        112,
+        48
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-073.png",
+      "contact_cell_bbox": [
+        200,
+        0,
+        400,
+        220
+      ]
+    },
+    {
+      "pose_id": 74,
+      "row": 0,
+      "column": 2,
+      "cell_bbox": [
+        400,
+        0,
+        600,
+        220
+      ],
+      "native_paste_bbox": [
+        436,
+        28,
+        564,
+        188
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        64,
+        80
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-074.png",
+      "contact_cell_bbox": [
+        400,
+        0,
+        600,
+        220
+      ]
+    },
+    {
+      "pose_id": 75,
+      "row": 0,
+      "column": 3,
+      "cell_bbox": [
+        600,
+        0,
+        800,
+        220
+      ],
+      "native_paste_bbox": [
+        636,
+        28,
+        764,
+        188
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        64,
+        80
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-075.png",
+      "contact_cell_bbox": [
+        600,
+        0,
+        800,
+        220
+      ]
+    },
+    {
+      "pose_id": 76,
+      "row": 0,
+      "column": 4,
+      "cell_bbox": [
+        800,
+        0,
+        1000,
+        220
+      ],
+      "native_paste_bbox": [
+        820,
+        28,
+        980,
+        188
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        80,
+        80
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-076.png",
+      "contact_cell_bbox": [
+        800,
+        0,
+        1000,
+        220
+      ]
+    },
+    {
+      "pose_id": 77,
+      "row": 0,
+      "column": 5,
+      "cell_bbox": [
+        1000,
+        0,
+        1200,
+        220
+      ],
+      "native_paste_bbox": [
+        1068,
+        28,
+        1132,
+        132
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        64,
+        104
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-077.png",
+      "contact_cell_bbox": [
+        1000,
+        0,
+        1200,
+        220
+      ]
+    },
+    {
+      "pose_id": 78,
+      "row": 1,
+      "column": 0,
+      "cell_bbox": [
+        0,
+        220,
+        200,
+        440
+      ],
+      "native_paste_bbox": [
+        52,
+        248,
+        148,
+        362
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        48,
+        57
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-078.png",
+      "contact_cell_bbox": [
+        0,
+        220,
+        200,
+        440
+      ]
+    },
+    {
+      "pose_id": 79,
+      "row": 1,
+      "column": 1,
+      "cell_bbox": [
+        200,
+        220,
+        400,
+        440
+      ],
+      "native_paste_bbox": [
+        244,
+        248,
+        356,
+        360
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        56,
+        56
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-079.png",
+      "contact_cell_bbox": [
+        200,
+        220,
+        400,
+        440
+      ]
+    },
+    {
+      "pose_id": 80,
+      "row": 1,
+      "column": 2,
+      "cell_bbox": [
+        400,
+        220,
+        600,
+        440
+      ],
+      "native_paste_bbox": [
+        444,
+        248,
+        556,
+        376
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        56,
+        64
+      ],
+      "classification": "protected_fx",
+      "importable": false,
+      "required_master": "masters/leatherhead/pose-080.png",
+      "contact_cell_bbox": [
+        400,
+        220,
+        600,
+        440
+      ]
+    },
+    {
+      "pose_id": 81,
+      "row": 1,
+      "column": 3,
+      "cell_bbox": [
+        600,
+        220,
+        800,
+        440
+      ],
+      "native_paste_bbox": [
+        644,
+        248,
+        756,
+        360
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        56,
+        56
+      ],
+      "classification": "protected_fx",
+      "importable": false,
+      "required_master": "masters/leatherhead/pose-081.png",
+      "contact_cell_bbox": [
+        600,
+        220,
+        800,
+        440
+      ]
+    },
+    {
+      "pose_id": 82,
+      "row": 1,
+      "column": 4,
+      "cell_bbox": [
+        800,
+        220,
+        1000,
+        440
+      ],
+      "native_paste_bbox": [
+        868,
+        248,
+        932,
+        336
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        64,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-082.png",
+      "contact_cell_bbox": [
+        800,
+        220,
+        1000,
+        440
+      ]
+    },
+    {
+      "pose_id": 83,
+      "row": 1,
+      "column": 5,
+      "cell_bbox": [
+        1000,
+        220,
+        1200,
+        440
+      ],
+      "native_paste_bbox": [
+        1068,
+        248,
+        1131,
+        336
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        63,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-083.png",
+      "contact_cell_bbox": [
+        1000,
+        220,
+        1200,
+        440
+      ]
+    },
+    {
+      "pose_id": 84,
+      "row": 2,
+      "column": 0,
+      "cell_bbox": [
+        0,
+        440,
+        200,
+        660
+      ],
+      "native_paste_bbox": [
+        72,
+        468,
+        128,
+        556
+      ],
+      "integer_scale": 1,
+      "native_size": [
+        56,
+        88
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-084.png",
+      "contact_cell_bbox": [
+        0,
+        440,
+        200,
+        660
+      ]
+    },
+    {
+      "pose_id": 85,
+      "row": 2,
+      "column": 1,
+      "cell_bbox": [
+        200,
+        440,
+        400,
+        660
+      ],
+      "native_paste_bbox": [
+        236,
+        468,
+        364,
+        628
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        64,
+        80
+      ],
+      "classification": "body",
+      "importable": true,
+      "required_master": "masters/leatherhead/pose-085.png",
+      "contact_cell_bbox": [
+        200,
+        440,
+        400,
+        660
+      ]
+    },
+    {
+      "pose_id": 86,
+      "row": 2,
+      "column": 2,
+      "cell_bbox": [
+        400,
+        440,
+        600,
+        660
+      ],
+      "native_paste_bbox": [
+        428,
+        468,
+        572,
+        596
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        72,
+        64
+      ],
+      "classification": "protected_fx",
+      "importable": false,
+      "required_master": "masters/leatherhead/pose-086.png",
+      "contact_cell_bbox": [
+        400,
+        440,
+        600,
+        660
+      ]
+    },
+    {
+      "pose_id": 87,
+      "row": 2,
+      "column": 3,
+      "cell_bbox": [
+        600,
+        440,
+        800,
+        660
+      ],
+      "native_paste_bbox": [
+        628,
+        468,
+        772,
+        596
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        72,
+        64
+      ],
+      "classification": "protected_fx",
+      "importable": false,
+      "required_master": "masters/leatherhead/pose-087.png",
+      "contact_cell_bbox": [
+        600,
+        440,
+        800,
+        660
+      ]
+    },
+    {
+      "pose_id": 88,
+      "row": 2,
+      "column": 4,
+      "cell_bbox": [
+        800,
+        440,
+        1000,
+        660
+      ],
+      "native_paste_bbox": [
+        828,
+        468,
+        972,
+        596
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        72,
+        64
+      ],
+      "classification": "protected_fx",
+      "importable": false,
+      "required_master": "masters/leatherhead/pose-088.png",
+      "contact_cell_bbox": [
+        800,
+        440,
+        1000,
+        660
+      ]
+    },
+    {
+      "pose_id": 89,
+      "row": 2,
+      "column": 5,
+      "cell_bbox": [
+        1000,
+        440,
+        1200,
+        660
+      ],
+      "native_paste_bbox": [
+        1092,
+        468,
+        1108,
+        484
+      ],
+      "integer_scale": 2,
+      "native_size": [
+        8,
+        8
+      ],
+      "classification": "partial_attachment",
+      "importable": false,
+      "required_master": "masters/leatherhead/pose-089.png",
+      "contact_cell_bbox": [
+        1000,
+        440,
+        1200,
+        660
+      ]
+    }
+  ],
+  "master_rule": "The generated sheet must retain the 1200x880 grid and each pose's gray allocation rectangle. Registration uses native_paste_bbox/integer_scale, then emits exact native-size masters. Do not draw a generated body in protected_fx or partial_attachment cells."
+}

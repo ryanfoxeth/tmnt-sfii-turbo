@@ -1,5 +1,46 @@
 # Releases
 
+## v16 — 2026-09-08
+
+Completes the twelve selected roster slots: Blanka becomes Leatherhead and
+Zangief becomes Slash, using the original cartoon designs. Adds body art,
+color and defeated icons, independent intact/defeated portraits, names and
+quotes. Existing moves and the two original stages remain. Includes all v14
+and v15 corrections described below.
+
+The portrait cache moves its temporary map buffers to 7F:E000/E100 to fit
+the larger drawings. A Slash source-crop defect and extra crouching sprite
+pressure were repaired before release. Normal/Turbo and final mixed Arcade,
+bonus and outcome checks are documented in verification.md.
+
+Target SHA-256:
+`389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71`.
+SNES checksum: `67B3`. The patcher accepts the exact original or v12–v15
+directly; no sequence of upgrade patches is required.
+
+## v15 — 2026-09-07
+
+Retires 87 old decorative stage-animation lists, containing 376 map commands,
+across the ten replacement rooms. It uses the game's existing empty list and
+preserves Shredder's cage, room scrolling and bonus/ending lists. The patch
+changes 176 pointer/checksum bytes. Original Blanka/Zangief animations remain.
+The standalone `fix_stage_animation_v15.py` reproduces this change from v14.
+
+Target SHA-256:
+`789a855967a399e10590e500566a5a400d775fe32452a6777201d836afb315f7`.
+SNES checksum: `56E1`. Stationary, camera, late-KO and full Arcade checks pass.
+
+## v14 — 2026-09-07
+
+Reframes all ten existing TMNT select icons to fill their 19×30 interiors,
+preserving opaque backgrounds, gray borders, palettes and allocation padding.
+Normal and Turbo sheets are updated. Full portraits and fighting art stay
+unchanged. Menu, wall-attack, full Arcade and all three bonus checks pass.
+
+Target SHA-256:
+`aacc2ada6569d35711227d83f179f7ff232a442a1a07b534d0499f0971792d91`.
+SNES checksum: `54C9`.
+
 ## v13 — 2026-09-07
 
 Fixes the remaining horizontal split on Shredder's Technodrome stage. The

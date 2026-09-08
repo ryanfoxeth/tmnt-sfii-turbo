@@ -1,13 +1,125 @@
 {
-  "version": "v13",
-  "date": "2026-09-07",
+  "version": "v16",
+  "date": "2026-09-08",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "461290feac2c13846a50b30bf8b69a744a8f0f7b8aca9c5421d1413b619455ae",
+  "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
   "target_bytes": 4194304,
-  "snes_checksum": "C77F",
+  "snes_checksum": "67B3",
   "patches": [
+    {
+      "source_version": "original",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "path": "patches/tmnt-sfii-turbo-v16.bps",
+      "sha256": "86b0da6c612e31c17dc7e75e338836bce30b69a31b5634cc2fd6f1d84fb9640a",
+      "bytes": 1615515,
+      "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+      "roundtrip_exact": true,
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 550786976,
+      "patch_crc32": 1001958114,
+      "command_counts": {
+        "source_read": 199,
+        "target_read": 46243,
+        "source_copy": 42909,
+        "target_copy": 41747
+      },
+      "literal_bytes": 1214515,
+      "moved_source_bytes": 473409
+    },
+    {
+      "source_version": "v12",
+      "source_sha256": "8811ac47e3dd3a7535383fe561108929aa583e715aa7157aa166b50566141796",
+      "path": "patches/tmnt-sfii-turbo-v12-to-v16.bps",
+      "sha256": "209ee33de43780a3a6dd5ae18c5f7d209baff7cbaa1e2262eb57fe5997e1eadb",
+      "bytes": 287002,
+      "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 3457999353,
+      "target_crc32": 550786976,
+      "patch_crc32": 2507068049,
+      "command_counts": {
+        "source_read": 102,
+        "target_read": 9521,
+        "source_copy": 11926,
+        "target_copy": 6393
+      },
+      "literal_bytes": 197206,
+      "moved_source_bytes": 136017
+    },
+    {
+      "source_version": "v13",
+      "source_sha256": "461290feac2c13846a50b30bf8b69a744a8f0f7b8aca9c5421d1413b619455ae",
+      "path": "patches/tmnt-sfii-turbo-v13-to-v16.bps",
+      "sha256": "d9629bf2d61c8466265791b90970212720c6db40f020cbf438c8110eff25c225",
+      "bytes": 286994,
+      "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 576569937,
+      "target_crc32": 550786976,
+      "patch_crc32": 2779096238,
+      "command_counts": {
+        "source_read": 100,
+        "target_read": 9519,
+        "source_copy": 11926,
+        "target_copy": 6393
+      },
+      "literal_bytes": 197204,
+      "moved_source_bytes": 136017
+    },
+    {
+      "source_version": "v14",
+      "source_sha256": "aacc2ada6569d35711227d83f179f7ff232a442a1a07b534d0499f0971792d91",
+      "path": "patches/tmnt-sfii-turbo-v14-to-v16.bps",
+      "sha256": "9d72cfc01b1fc678ce4a462034f56580bafffeea61b56fdb51e57b67db6ce0e0",
+      "bytes": 284309,
+      "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 923969332,
+      "target_crc32": 550786976,
+      "patch_crc32": 1087512446,
+      "command_counts": {
+        "source_read": 86,
+        "target_read": 9393,
+        "source_copy": 11784,
+        "target_copy": 6348
+      },
+      "literal_bytes": 195423,
+      "moved_source_bytes": 135563
+    },
+    {
+      "source_version": "v15",
+      "source_sha256": "789a855967a399e10590e500566a5a400d775fe32452a6777201d836afb315f7",
+      "path": "patches/tmnt-sfii-turbo-v15-to-v16.bps",
+      "sha256": "55bf6e3e788044b2d5f2cb21388b51ddc0ee3b7c0b4489bb19af898547fb0c8b",
+      "bytes": 284286,
+      "target_sha256": "389c89355c252d3ad5e8dca5f73e66ad23a27254e094e30ce310b1a37371de71",
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 3736653953,
+      "target_crc32": 550786976,
+      "patch_crc32": 3632461710,
+      "command_counts": {
+        "source_read": 83,
+        "target_read": 9392,
+        "source_copy": 11784,
+        "target_copy": 6344
+      },
+      "literal_bytes": 195420,
+      "moved_source_bytes": 135563
+    }
+  ],
+  "historical_patches": [
     {
       "path": "patches/tmnt-sfii-turbo-v12-to-v13.bps",
       "bytes": 37,
@@ -44,5 +156,11 @@
       "literal_bytes": 1026544,
       "moved_source_bytes": 388354
     }
+  ],
+  "replaces_all_twelve_fighter_slots": true,
+  "custom_stages": 10,
+  "original_stages_retained": [
+    "Blanka/Leatherhead",
+    "Zangief/Slash"
   ]
 }

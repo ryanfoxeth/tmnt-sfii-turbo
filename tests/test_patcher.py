@@ -83,6 +83,28 @@ class BPSReaderTests(unittest.TestCase):
 
 
 class CommandTests(unittest.TestCase):
+    def test_supported_release_hashes_select_v16_incremental_patches(self):
+        original_sha = apply_patch.sha256
+        try:
+            for digest, filename in apply_patch.V16_PATCHES.items():
+                apply_patch.sha256 = lambda _data, digest=digest: digest
+                source, patch_path = apply_patch.choose_patch(b"fixture")
+                self.assertEqual(source, b"fixture")
+                self.assertEqual(patch_path.name, filename)
+        finally:
+            apply_patch.sha256 = original_sha
+
+    def test_headered_original_strips_copier_header_before_v16_patch(self):
+        original_sha = apply_patch.sha256
+        calls = iter([apply_patch.HEADERED_BASE_SHA256, apply_patch.BASE_SHA256])
+        try:
+            apply_patch.sha256 = lambda _data: next(calls)
+            source, patch_path = apply_patch.choose_patch(b"H" * 512 + b"ROM")
+            self.assertEqual(source, b"ROM")
+            self.assertEqual(patch_path.name, "tmnt-sfii-turbo-v16.bps")
+        finally:
+            apply_patch.sha256 = original_sha
+
     def test_wrong_revision_does_not_create_output(self):
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
