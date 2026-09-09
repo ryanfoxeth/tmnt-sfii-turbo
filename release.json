@@ -1,13 +1,55 @@
 {
-  "version": "v20",
+  "version": "v21",
   "date": "2026-09-09",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
+  "target_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
   "target_bytes": 4194304,
-  "snes_checksum": "67D6",
+  "snes_checksum": "1913",
   "patches": [
+    {
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
+      "path": "patches/tmnt-sfii-turbo-v21.bps",
+      "sha256": "d13799cb9ba4d491eb9f6c02e22bca2d26421e6e5993f98f92db4a698b3a16cf",
+      "bytes": 1662614,
+      "roundtrip_exact": true,
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 543821664,
+      "patch_crc32": 3219932751,
+      "command_counts": {
+        "source_read": 208,
+        "target_read": 47041,
+        "source_copy": 43271,
+        "target_copy": 42609
+      },
+      "literal_bytes": 1255551,
+      "moved_source_bytes": 473454
+    },
+    {
+      "source_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
+      "target_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
+      "path": "patches/tmnt-sfii-turbo-v20-to-v21.bps",
+      "sha256": "37c53fbf8a8b49a44acc2ae70c053ef5a1d912c7e9da209a60e4f35e96856e36",
+      "bytes": 421,
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 3455853233,
+      "target_crc32": 543821664,
+      "patch_crc32": 1667787150,
+      "command_counts": {
+        "source_read": 12,
+        "target_read": 26,
+        "source_copy": 6,
+        "target_copy": 17
+      },
+      "literal_bytes": 251,
+      "moved_source_bytes": 20996
+    },
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
       "target_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
@@ -335,5 +377,20 @@
   "stage_palette_changes": [
     "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
   ],
-  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v19 inputs through v19, then applies v19-to-v20."
+  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v20 inputs through v20, then applies v20-to-v21.",
+  "alternate_costumes": {
+    "Leo": "Don (Start confirmation, purple)",
+    "Raph": "Mikey (Start confirmation, orange)"
+  },
+  "alternate_name_scope": {
+    "changed": [
+      "battle HUD",
+      "VS winner banners"
+    ],
+    "canonical": [
+      "select/VS bitmap captions",
+      "aggregate records",
+      "static names"
+    ]
+  }
 }

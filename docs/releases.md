@@ -1,5 +1,18 @@
 # Releases
 
+## v21 — alternate turtle palettes
+
+Target SHA-256: `27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671`.
+
+Adds bold Donatello-purple Leonardo and Michelangelo-orange Raphael alternate
+costumes. Mode-aware palette normalization preserves the blue/red primary
+costumes in Normal and Turbo. Moves, hitboxes, graphics, OAM/DMA, stages and
+other fighters remain unchanged. Runtime verification covers both modes,
+ports, mirrors, alternate defeated portraits, continue routes and a full Arcade
+run through all twelve stages and three bonuses. Confirm Leo/Raph with Start
+for Don/Mikey. Battle HUD and VS winner banners use temporary DON/MIKEY names;
+select/VS bitmap captions, aggregate records and other static names stay LEO/RAPH.
+
 ## v20 — stages, projectile graphics and Casey pose loads
 
 Target SHA-256: `69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb`.

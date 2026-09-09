@@ -1,5 +1,37 @@
 # Verification of the game build
 
+## V21 — 2026-09-09
+
+Tested SHA-256: `27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671`;
+SNES checksum: `1913`.
+
+- Bold purple Don and orange Mikey use the Leo/Raph alternate costumes in Normal
+  and Turbo. Battle HUD and VS winner labels follow the costume. Select/VS bitmap
+  captions and aggregate/static names remain LEO/RAPH.
+- Only 425 ROM bytes change: palette words, display/palette-loader hooks and
+  checksum. All sprite graphics, OAM/DMA, stage resources, moves and hitboxes
+  remain exact. Native actor costume state is preserved.
+- Ten matched controller routes cover both modes, primary/alternate costumes,
+  swapped sides and same-slot mirrors. All 7,200 combat frames have identical
+  fighter-state bytes to v20; all ten initial select screenshots are pixel-exact.
+- Six two-KO VS routes confirm DON/MIKEY winner banners on both sides and in
+  mirror matches. Arcade losses confirm alternate defeated/continue portraits
+  for Normal Don player 1 and Turbo Mikey player 2. Health fixtures are logged;
+  combat delivers the actual KOs.
+- A 45,000-frame Arcade run completes all twelve stages, 24 KOs and three bonuses.
+  KO frame/stage/opponent timing matches v20. Bonus scenery and objects were
+  visually checked; whole-campaign rendered-frame identity is not claimed.
+- Both BPS patches round-trip exactly. Ten actual CLI inputs (original and
+  v12–v20) produce the verified target. Current v21 rejects without creating an
+  output. Header normalization uses a synthetic header over the actual original
+  payload because the pinned headered original was unavailable.
+- Eighteen public tests and the 68-file public-tree audit pass. ROMs and private
+  emulator states are excluded from this repository.
+
+Representative emulator coverage, not original-hardware certification. Previous
+Super Shredder walking004/005 gaps, turtle idle polish, voices, biography stats
+and endings remain separate.
+
 ## V20 — 2026-09-09
 
 Tested SHA-256: `69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb`.

@@ -57,6 +57,7 @@ ALLOW={
     'release.json',
     'scripts/audit_public_tree.py',
     'tests/test_patcher.py',
+    'tests/test_v21_patcher.py',
 }
 PATCHES={
     'patches/tmnt-sfii-turbo-v12-to-v13.bps':'13329af6049b750b3a969c36133eb56eec7730d4ef40295b2e4b6c13c826f1e7',
@@ -77,7 +78,11 @@ ALLOW.update({'patches/tmnt-sfii-turbo-v19.bps', 'patches/tmnt-sfii-turbo-v18-to
 PATCHES.update({'patches/tmnt-sfii-turbo-v19.bps': '055c3ae7aa0fcb99b59a6661e875774702229e17a52a538a168874e8addd2db9', 'patches/tmnt-sfii-turbo-v18-to-v19.bps': '46902d9035ec1d65e3335ae56329938bc18bac16650344d7b6af061a47f9f34b'})
 ALLOW.update({'patches/tmnt-sfii-turbo-v19-to-v20.bps', 'patches/tmnt-sfii-turbo-v20.bps'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v20.bps': '3c8e8488017b868099ad1e3511baedb1a6ec9e57ee65a3189349b83646cab481', 'patches/tmnt-sfii-turbo-v19-to-v20.bps': '771c9269a7a463267118b96ab2001996d651a730adc10156dd710fef5b60f86c'})
+ALLOW.update({'patches/tmnt-sfii-turbo-v21.bps', 'patches/tmnt-sfii-turbo-v20-to-v21.bps'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v21.bps': 'd13799cb9ba4d491eb9f6c02e22bca2d26421e6e5993f98f92db4a698b3a16cf', 'patches/tmnt-sfii-turbo-v20-to-v21.bps': '37c53fbf8a8b49a44acc2ae70c053ef5a1d912c7e9da209a60e4f35e96856e36'})
 
+
+ALLOW.add('assets/alt-turtles-v21.png')
 
 def audit():
     if (ROOT/'.git').is_dir():
