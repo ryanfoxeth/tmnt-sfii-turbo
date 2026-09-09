@@ -1,5 +1,11 @@
 # Releases
 
+## v20 — stages, projectile graphics and Casey pose loads
+
+Target SHA-256: `69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb`.
+
+Scope: Slash's approved Dimension X scrapyard/plain floor with original BG3 foreground fence; Leatherhead's original Brazil scenery with new night palettes and navy backdrop; Casey's hockey-stick Sonic Boom graphics and missing pose 37 auxiliary loads. No moves, hitboxes or gameplay changes.
+
 ## v19 — Splinter standing orientation
 
 Target SHA-256: `a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1`.

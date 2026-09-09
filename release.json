@@ -1,13 +1,57 @@
 {
-  "version": "v19",
+  "version": "v20",
   "date": "2026-09-09",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
+  "target_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
   "target_bytes": 4194304,
-  "snes_checksum": "E93B",
+  "snes_checksum": "67D6",
   "patches": [
+    {
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
+      "path": "patches/tmnt-sfii-turbo-v20.bps",
+      "sha256": "3c8e8488017b868099ad1e3511baedb1a6ec9e57ee65a3189349b83646cab481",
+      "bytes": 1662267,
+      "roundtrip_exact": true,
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 3455853233,
+      "patch_crc32": 1393713435,
+      "command_counts": {
+        "source_read": 205,
+        "target_read": 47016,
+        "source_copy": 43254,
+        "target_copy": 42598
+      },
+      "literal_bytes": 1255320,
+      "moved_source_bytes": 473355
+    },
+    {
+      "source_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
+      "target_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
+      "path": "patches/tmnt-sfii-turbo-v19-to-v20.bps",
+      "sha256": "771c9269a7a463267118b96ab2001996d651a730adc10156dd710fef5b60f86c",
+      "bytes": 21477,
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 853872623,
+      "target_crc32": 3455853233,
+      "patch_crc32": 2266869136,
+      "command_counts": {
+        "source_read": 23,
+        "target_read": 163,
+        "source_copy": 66,
+        "target_copy": 139
+      },
+      "literal_bytes": 20483,
+      "moved_source_bytes": 1132
+    }
+  ],
+  "historical_patches": [
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
       "target_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
@@ -49,9 +93,7 @@
       },
       "literal_bytes": 670,
       "moved_source_bytes": 0
-    }
-  ],
-  "historical_patches": [
+    },
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
       "target_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
@@ -286,10 +328,12 @@
     }
   ],
   "replaces_all_twelve_fighter_slots": true,
-  "custom_stages": 10,
+  "custom_stages": 11,
   "original_stages_retained": [
-    "Blanka/Leatherhead",
-    "Zangief/Slash"
+    "Blanka/Leatherhead"
   ],
-  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v18 inputs through v18, then applies v18-to-v19."
+  "stage_palette_changes": [
+    "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
+  ],
+  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v19 inputs through v19, then applies v19-to-v20."
 }

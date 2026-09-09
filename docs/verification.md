@@ -1,5 +1,30 @@
 # Verification of the game build
 
+## V20 — 2026-09-09
+
+Tested SHA-256: `69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb`.
+
+- Slash’s new scrapyard passes Normal/Turbo camera sweeps, 1,800 idle frames and
+  native KO/outcome checks. The foreground fence stays stable.
+- Leatherhead’s night palette and navy sky persist through Normal/Turbo KOs.
+  Original background graphics and animation lists remain unchanged.
+- Sixteen matched Casey routes cover both player sides, projectile speeds,
+  blocking, collision and Flash Kick. Actor/OAM/health traces match v19;
+  112 sampled images differ only within projectile bounds. Flash Kick is exact.
+- A 45,000-frame Arcade route covers all twelve battle stages, 24 KOs and all
+  three bonuses. The select screen matches v19. Bonus graphics were reviewed
+  before and during destruction; their shared source data remains unchanged.
+- Both BPS patches round-trip exactly. Nine actual CLI inputs (original and
+  v12–v19) produce the exact v20 hash. Header stripping is tested with synthetic
+  fixtures; the pinned physical headered source was unavailable for this run.
+- The current release is rejected without output. Patch hash/CRC, revision and
+  no-overwrite checks remain. The public tree excludes ROMs and save states.
+
+Stage/KO checks use recorded pre-KO health fixtures; the campaign is not claimed
+frame-identical to v19. This is emulator coverage, not original-hardware
+certification. Super Shredder walking poses 004/005, turtle idle polish, most
+voices, biography stats and endings remain separate work.
+
 ## V19 — 2026-09-09
 
 Tested SHA-256: `a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1`.

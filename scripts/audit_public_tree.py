@@ -75,6 +75,8 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v18.bps': '4a4be276c845b43b9e9a36ee09ff
 ALLOW.update({'assets/select-v18.png','assets/cleanup-v18.png'})
 ALLOW.update({'patches/tmnt-sfii-turbo-v19.bps', 'patches/tmnt-sfii-turbo-v18-to-v19.bps'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v19.bps': '055c3ae7aa0fcb99b59a6661e875774702229e17a52a538a168874e8addd2db9', 'patches/tmnt-sfii-turbo-v18-to-v19.bps': '46902d9035ec1d65e3335ae56329938bc18bac16650344d7b6af061a47f9f34b'})
+ALLOW.update({'patches/tmnt-sfii-turbo-v19-to-v20.bps', 'patches/tmnt-sfii-turbo-v20.bps'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v20.bps': '3c8e8488017b868099ad1e3511baedb1a6ec9e57ee65a3189349b83646cab481', 'patches/tmnt-sfii-turbo-v19-to-v20.bps': '771c9269a7a463267118b96ab2001996d651a730adc10156dd710fef5b60f86c'})
 
 
 def audit():
