@@ -4,7 +4,7 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, ten custom stages, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v18.** This repository distributes patches and tools.
+**Current version: v19.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
 ![Repaired select grid](assets/select-v18.png)
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v18.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v19.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v17 releases. Older releases are
-validated through the v16 and v17 intermediates; v17 uses its direct v18 increment.
+512-byte-headered form) and v12 through v18 releases. Older releases are
+validated through the v16, v17, and v18 intermediates; v18 uses its direct v19 increment.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
@@ -61,6 +61,11 @@ backstreet; Shredder, Super Shredder and Krang have distinct Technodrome rooms.
 The original cage and wall-jump mechanics remain on Shredder's stage. V18
 includes the v14 icon-framing and v15 background-animation corrections.
 
+## V19 Splinter orientation
+
+Splinter now faces his opponent while standing on either side. Existing art,
+moves and timing are preserved.
+
 ## V18 cleanup
 
 Seven select icons now use the full bust height, removing the empty bands
@@ -71,8 +76,8 @@ affected waist poses are repaired without changing moves or animation timing.
 
 ## What is included
 
-- Full original-to-v18 and direct v17-to-v18 BPS patches, plus patcher support
-  for original/headered and v12–v17 inputs.
+- Full original-to-v19 and direct v18-to-v19 BPS patches, plus patcher support
+  for original/headered and v12–v18 inputs.
 - Earlier BPS patches, including the historical v13 patches, remain available.
 - A portable, hash-checked Python patcher and format-level tests.
 - Standalone source for v13's scrolling repair and v15's stage-animation fix.
@@ -96,12 +101,9 @@ voice treatment. Some original world-map/biography identity fields remain.
 V18 repairs the transparent belt/waist pixels confirmed in Super Shredder's
 poses 000–003. A subsequent Day 3 video review found that walking poses
 004/005 still have a horizontal waist separation; those two poses remain
-open in the current v18 patch. This is a work in progress.
+open in the current v19 patch. This is a work in progress.
 
-The v18 regression run replays Super Shredder's gameplay in Normal and Turbo
-on both sides, checks six select-grid routes and four outcome routes, then
-all twelve fighting stages, 24 knockouts and all three bonus stages. See [verification](docs/verification.md) for the
-scope and limits; this is not an original-hardware certification.
+The v19 release scope is limited to the Splinter standing orientation. Known Super Shredder walking-pose waist gap 004/005 remains open. See [verification](docs/verification.md) for coverage and limits; this is a work in progress and is not an original-hardware certification.
 
 ## Rights and distribution
 

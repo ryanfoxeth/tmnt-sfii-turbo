@@ -1,5 +1,11 @@
 # Releases
 
+## v19 — Splinter standing orientation
+
+Target SHA-256: `a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1`.
+
+Scope: Splinter standing idle poses 000–011 only, using per-object OAM x-reflection/HFLIP metadata. The patch changes 366 bytes total: 362 OAM x/HFLIP bytes plus the SNES checksum. Existing source tiles, DMA, animation timing, palettes, and ROM allocation are retained. Known Super Shredder walking-pose waist gap 004/005 remains open.
+
 ## v18 — 2026-09-08
 
 Removes empty lower bands from seven select icons using full-height, face-centered

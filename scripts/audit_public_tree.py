@@ -73,6 +73,9 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v17.bps': '41272fcffd6785b504df73494ab6
 ALLOW.update({'patches/tmnt-sfii-turbo-v18.bps', 'patches/tmnt-sfii-turbo-v17-to-v18.bps'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v18.bps': '4a4be276c845b43b9e9a36ee09ffbbc198233f8f8b89d81acf85de76c546e86f', 'patches/tmnt-sfii-turbo-v17-to-v18.bps': '3a4b815ec4ec1aa54e805a3bf11a145825ad92b46d4296c48576272ea381f5a6'})
 ALLOW.update({'assets/select-v18.png','assets/cleanup-v18.png'})
+ALLOW.update({'patches/tmnt-sfii-turbo-v19.bps', 'patches/tmnt-sfii-turbo-v18-to-v19.bps'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v19.bps': '055c3ae7aa0fcb99b59a6661e875774702229e17a52a538a168874e8addd2db9', 'patches/tmnt-sfii-turbo-v18-to-v19.bps': '46902d9035ec1d65e3335ae56329938bc18bac16650344d7b6af061a47f9f34b'})
+
 
 def audit():
     if (ROOT/'.git').is_dir():

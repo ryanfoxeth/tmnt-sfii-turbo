@@ -1,13 +1,57 @@
 {
-  "version": "v18",
-  "date": "2026-09-08",
+  "version": "v19",
+  "date": "2026-09-09",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
+  "target_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
   "target_bytes": 4194304,
-  "snes_checksum": "A353",
+  "snes_checksum": "E93B",
   "patches": [
+    {
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
+      "path": "patches/tmnt-sfii-turbo-v19.bps",
+      "sha256": "055c3ae7aa0fcb99b59a6661e875774702229e17a52a538a168874e8addd2db9",
+      "bytes": 1640958,
+      "roundtrip_exact": true,
+      "source_size": 2621440,
+      "target_size": 4194304,
+      "source_crc32": 2750292709,
+      "target_crc32": 853872623,
+      "patch_crc32": 1443828355,
+      "command_counts": {
+        "source_read": 203,
+        "target_read": 46854,
+        "source_copy": 43192,
+        "target_copy": 42432
+      },
+      "literal_bytes": 1234967,
+      "moved_source_bytes": 473766
+    },
+    {
+      "source_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
+      "target_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
+      "path": "patches/tmnt-sfii-turbo-v18-to-v19.bps",
+      "sha256": "46902d9035ec1d65e3335ae56329938bc18bac16650344d7b6af061a47f9f34b",
+      "bytes": 754,
+      "roundtrip_exact": true,
+      "source_size": 4194304,
+      "target_size": 4194304,
+      "source_crc32": 27192782,
+      "target_crc32": 853872623,
+      "patch_crc32": 3628797441,
+      "command_counts": {
+        "source_read": 19,
+        "target_read": 19,
+        "source_copy": 0,
+        "target_copy": 2
+      },
+      "literal_bytes": 670,
+      "moved_source_bytes": 0
+    }
+  ],
+  "historical_patches": [
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
       "target_sha256": "0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20",
@@ -49,9 +93,7 @@
       },
       "literal_bytes": 2124,
       "moved_source_bytes": 1991
-    }
-  ],
-  "historical_patches": [
+    },
     {
       "source_version": "original",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
@@ -249,5 +291,5 @@
     "Blanka/Leatherhead",
     "Zangief/Slash"
   ],
-  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v16 inputs through v17, then applies v17-to-v18."
+  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v18 inputs through v18, then applies v18-to-v19."
 }

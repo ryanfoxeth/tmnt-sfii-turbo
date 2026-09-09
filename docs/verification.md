@@ -1,5 +1,31 @@
 # Verification of the game build
 
+## V19 — 2026-09-09
+
+Tested SHA-256: `a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1`.
+
+- Scope is Splinter's standing orientation only: logical poses 000–011, with
+  366 changed bytes total (362 OAM x/HFLIP bytes plus four checksum bytes).
+  Source tiles, DMA definitions, animation, palettes, allocation, game code,
+  stages, effects and all other fighter OAM payloads remain byte-exact.
+- Turbo and Normal controller traces cover 578 frames in both ports. Gameplay
+  state traces match the v18 base exactly; Turbo also matches the exact pose-ID
+  sequence, and both players face inward in standing and transition captures.
+- Two Splinter real-KO outcome routes pass, with transitions and visual review:
+  Turbo player-1 win and Normal player-2 loss.
+- Full Arcade covers 45,000 frames, all 15 scenes, 24 knockouts and all three
+  bonus stages. The fresh v18 base reproduces the historical timeline, while
+  v19's late CPU campaign timing diverges first at Rocksteady KO17. Both builds
+  complete the campaign and all 24 KOs; no whole-campaign frame-identity claim
+  is made.
+- Public BPS round-trips and the hash-pinned patcher checks cover the original,
+  verified headered original, v12 through v18 inputs and current-v19 rejection.
+  No ROM, save state or private build material is included.
+
+This is representative emulator coverage, not original-hardware certification.
+The open Super Shredder walking-pose waist gap 004/005 and unrelated turtle
+idle polish remain outside v19.
+
 ## V18 — 2026-09-08
 
 Tested SHA-256: `0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20`.

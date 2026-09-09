@@ -38,6 +38,10 @@ V18_SHA256 = '0e1e06361f4b21cddf425adb8b9fb072157cb32db1609aef609bcec7cadd7c20'
 V18_PATCH = 'tmnt-sfii-turbo-v17-to-v18.bps'
 PATCH_SHA256.update({'tmnt-sfii-turbo-v18.bps': '4a4be276c845b43b9e9a36ee09ffbbc198233f8f8b89d81acf85de76c546e86f', 'tmnt-sfii-turbo-v17-to-v18.bps': '3a4b815ec4ec1aa54e805a3bf11a145825ad92b46d4296c48576272ea381f5a6'})
 
+V19_SHA256 = 'a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1'
+V19_PATCH = 'tmnt-sfii-turbo-v18-to-v19.bps'
+PATCH_SHA256.update({'tmnt-sfii-turbo-v19.bps': '055c3ae7aa0fcb99b59a6661e875774702229e17a52a538a168874e8addd2db9', 'tmnt-sfii-turbo-v18-to-v19.bps': '46902d9035ec1d65e3335ae56329938bc18bac16650344d7b6af061a47f9f34b'})
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -45,8 +49,10 @@ def sha256(data: bytes) -> str:
 
 def choose_patch(input_bytes: bytes):
     digest = sha256(input_bytes)
+    if digest == V19_SHA256:
+        raise BPSError("input is already the v19 release; no patch is needed")
     if digest == V18_SHA256:
-        raise BPSError("input is already the v18 release; no patch is needed")
+        return input_bytes, PATCHES / V19_PATCH
     if digest == V17_SHA256:
         return input_bytes, PATCHES / V18_PATCH
     if digest == V16_SHA256:
@@ -57,13 +63,13 @@ def choose_patch(input_bytes: bytes):
         if len(input_bytes) < 512 or sha256(input_bytes[512:]) != BASE_SHA256:
             raise BPSError("recognized headered ROM did not yield the expected base ROM")
         return input_bytes[512:], PATCHES / V16_PATCHES[BASE_SHA256]
-    raise BPSError("input SHA-256 is not a supported original, v12, v13, v14, v15, v16, or v17 revision")
+    raise BPSError("input SHA-256 is not a supported original, v12, v13, v14, v15, v16, v17, or v18 revision")
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", type=Path, help="supported original, v12, v13, v14, v15, v16, or v17 ROM")
-    parser.add_argument("--out", required=True, type=Path, help="new v18 output file")
+    parser.add_argument("input", type=Path, help="supported original, v12, v13, v14, v15, v16, v17, or v18 ROM")
+    parser.add_argument("--out", required=True, type=Path, help="new v19 output file")
     args = parser.parse_args(argv)
     if args.out.exists():
         parser.error("refusing to overwrite existing output: {}".format(args.out))
@@ -76,7 +82,7 @@ def main(argv=None) -> int:
         if sha256(patch) != expected_patch:
             raise BPSError("patch SHA-256 does not match the published release")
         target, _ = apply_bps(source, patch)
-        if patch_path.name != V18_PATCH:
+        if patch_path.name not in (V18_PATCH, V19_PATCH):
             if patch_path.name != V17_PATCH:
                 if sha256(target) != V16_SHA256:
                     raise BPSError("intermediate ROM SHA-256 does not match v16")
@@ -90,8 +96,15 @@ def main(argv=None) -> int:
             if sha256(upgrade) != PATCH_SHA256[V18_PATCH]:
                 raise BPSError("v18 upgrade patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if sha256(target) != V18_SHA256:
-            raise BPSError("patched ROM SHA-256 does not match the v18 release")
+        if patch_path.name != V19_PATCH:
+            if sha256(target) != V18_SHA256:
+                raise BPSError("intermediate ROM SHA-256 does not match v18")
+            upgrade = (PATCHES / V19_PATCH).read_bytes()
+            if sha256(upgrade) != PATCH_SHA256[V19_PATCH]:
+                raise BPSError("v19 upgrade patch SHA-256 does not match")
+            target, _ = apply_bps(target, upgrade)
+        if sha256(target) != V19_SHA256:
+            raise BPSError("patched ROM SHA-256 does not match the v19 release")
         # Exclusive creation keeps the no-overwrite guarantee even if another
         # process creates the destination after the check above.
         with args.out.open("xb") as output:
@@ -99,7 +112,7 @@ def main(argv=None) -> int:
     except (OSError, BPSError) as error:
         print("error: {}".format(error), file=sys.stderr)
         return 1
-    print("Wrote {} (SHA-256: {})".format(args.out, V18_SHA256))
+    print("Wrote {} (SHA-256: {})".format(args.out, V19_SHA256))
     return 0
 
 
