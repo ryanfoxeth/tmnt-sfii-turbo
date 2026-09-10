@@ -57,7 +57,7 @@ ALLOW={
     'release.json',
     'scripts/audit_public_tree.py',
     'tests/test_patcher.py',
-    'tests/test_v21_patcher.py',
+    'tests/test_v22_patcher.py',
 }
 PATCHES={
     'patches/tmnt-sfii-turbo-v12-to-v13.bps':'13329af6049b750b3a969c36133eb56eec7730d4ef40295b2e4b6c13c826f1e7',
@@ -83,6 +83,9 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v21.bps': 'd13799cb9ba4d491eb9f6c02e22b
 
 
 ALLOW.add('assets/alt-turtles-v21.png')
+# Verified v22 full and incremental BPS artifacts.
+ALLOW.update({'patches/tmnt-sfii-turbo-v22.bps','patches/tmnt-sfii-turbo-v21-to-v22.bps'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v22.bps':'54498426698c7d35ceb347642a4c322784e01d4e5a8f3b5c2a9a93a583a5f437','patches/tmnt-sfii-turbo-v21-to-v22.bps':'bcd2dba4823b5327917c281b5206c5a2669562da981a94f136c36faaae08bb3e'})
 
 def audit():
     if (ROOT/'.git').is_dir():

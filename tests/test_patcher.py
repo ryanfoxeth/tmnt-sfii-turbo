@@ -107,72 +107,71 @@ class CommandTests(unittest.TestCase):
             apply_patch.sha256 = original_sha
 
     def test_v18_upgrade_chain_and_direct_input(self):
-        original, v16, v17, v18, v19, v20, v21 = (b"original", b"v16 fixture", b"v17 fixture",
-                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture")
+        original, v16, v17, v18, v19, v20, v21, v22 = (b"original", b"v16 fixture", b"v17 fixture",
+                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture")
         digest = lambda data: hashlib.sha256(data).hexdigest()
-        first, second, third, fourth, fifth, sixth = (bps(original, v16), bps(v16, v17),
-                                               bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21))
+        first, second, third, fourth, fifth, sixth, seventh = (bps(original, v16), bps(v16, v17),
+                                               bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21), bps(v21, v22))
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
             for name, raw in (("first.bps", first), ("upgrade.bps", second),
-                              ("v18.bps", third), ("v19.bps", fourth), ("v20.bps", fifth), ("v21.bps", sixth)):
+                              ("v18.bps", third), ("v19.bps", fourth), ("v20.bps", fifth), ("v21.bps", sixth), ("v22.bps", seventh)):
                 (directory / name).write_bytes(raw)
             with mock_patch.multiple(apply_patch, PATCHES=directory,
                     V16_SHA256=digest(v16), V17_SHA256=digest(v17), V18_SHA256=digest(v18),
-                    V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V17_PATCH="upgrade.bps", V18_PATCH="v18.bps",
-                    V19_PATCH="v19.bps", V20_PATCH="v20.bps", V21_PATCH="v21.bps", V16_PATCHES={digest(original): "first.bps"},
+                    V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V22_SHA256=digest(v22), V22_PATCH_SHA256=digest(seventh), V17_PATCH="upgrade.bps", V18_PATCH="v18.bps",
+                    V19_PATCH="v19.bps", V20_PATCH="v20.bps", V21_PATCH="v21.bps", V22_PATCH="v22.bps", V16_PATCHES={digest(original): "first.bps"},
                     PATCH_SHA256={"first.bps": digest(first), "upgrade.bps": digest(second),
-                                  "v18.bps": digest(third), "v19.bps": digest(fourth), "v20.bps": digest(fifth), "v21.bps": digest(sixth)}):
-                for number, source in enumerate((original, v16, v17, v18, v19, v20)):
+                                  "v18.bps": digest(third), "v19.bps": digest(fourth), "v20.bps": digest(fifth), "v21.bps": digest(sixth), "v22.bps": digest(seventh)}):
+                for number, source in enumerate((original, v16, v17, v18, v19, v20, v21)):
                     input_path = directory / f"input{number}.sfc"
                     out = directory / f"output{number}.sfc"
                     input_path.write_bytes(source)
                     self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 0)
-                    self.assertEqual(out.read_bytes(), v21)
+                    self.assertEqual(out.read_bytes(), v22)
 
-    def test_current_v18_input_is_reported_without_output(self):
-        current = b"already current"
-        with tempfile.TemporaryDirectory() as directory:
-            directory = Path(directory)
-            source, out = directory / "current.sfc", directory / "out.sfc"
-            source.write_bytes(current)
-            with mock_patch.object(apply_patch, "V18_SHA256", hashlib.sha256(current).hexdigest()):
-                self.assertEqual(apply_patch.main([str(source), "--out", str(out)]), 1)
-                self.assertFalse(out.exists())
+    def test_v18_input_selects_its_supported_upgrade(self):
+        source = b"supported v18 fixture"
+        with mock_patch.object(apply_patch, "V18_SHA256", hashlib.sha256(source).hexdigest()):
+            normalized, selected = apply_patch.choose_patch(source)
+            self.assertEqual(normalized, source)
+            self.assertEqual(selected.name, apply_patch.V19_PATCH)
 
     def test_v20_upgrade_chain_and_direct_input(self):
-        original, v16, v17, v18, v19, v20, v21 = (b"original", b"v16 fixture", b"v17 fixture",
-                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture")
+        original, v16, v17, v18, v19, v20, v21, v22 = (b"original", b"v16 fixture", b"v17 fixture",
+                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture")
         digest = lambda data: hashlib.sha256(data).hexdigest()
-        first, second, third, fourth, fifth, sixth = (bps(original, v16), bps(v16, v17),
-                                                bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21))
+        first, second, third, fourth, fifth, sixth, seventh = (bps(original, v16), bps(v16, v17),
+                                                bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21), bps(v21, v22))
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
             files = {"first.bps": first, "upgrade17.bps": second,
-                     "upgrade18.bps": third, "upgrade19.bps": fourth, "upgrade20.bps": fifth, "upgrade21.bps": sixth}
+                     "upgrade18.bps": third, "upgrade19.bps": fourth, "upgrade20.bps": fifth, "upgrade21.bps": sixth, "upgrade22.bps": seventh}
             for name, raw in files.items():
                 (directory / name).write_bytes(raw)
             with mock_patch.multiple(
                     apply_patch, PATCHES=directory,
                     V16_SHA256=digest(v16), V17_SHA256=digest(v17),
-                    V18_SHA256=digest(v18), V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21),
+                    V18_SHA256=digest(v18), V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V22_SHA256=digest(v22), V22_PATCH_SHA256=digest(seventh),
                     V17_PATCH="upgrade17.bps", V18_PATCH="upgrade18.bps",
-                    V19_PATCH="upgrade19.bps", V20_PATCH="upgrade20.bps", V21_PATCH="upgrade21.bps", V16_PATCHES={digest(original): "first.bps"},
+                    V19_PATCH="upgrade19.bps", V20_PATCH="upgrade20.bps", V21_PATCH="upgrade21.bps", V22_PATCH="upgrade22.bps", V16_PATCHES={digest(original): "first.bps"},
                     PATCH_SHA256={name: digest(raw) for name, raw in files.items()}):
-                for index, source in enumerate((original, v16, v17, v18, v19, v20)):
+                for index, source in enumerate((original, v16, v17, v18, v19, v20, v21)):
                     input_path = directory / f"input{index}.sfc"
                     out = directory / f"output{index}.sfc"
                     input_path.write_bytes(source)
                     self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 0)
-                    self.assertEqual(out.read_bytes(), v21)
+                    self.assertEqual(out.read_bytes(), v22)
 
-    def test_current_v20_input_is_reported_without_output(self):
-        current = b"already current v20"
+    def test_current_v22_input_is_reported_without_output(self):
+        current = b"already current v22"
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
             source, out = directory / "current.sfc", directory / "out.sfc"
             source.write_bytes(current)
-            with mock_patch.object(apply_patch, "V20_SHA256", hashlib.sha256(current).hexdigest()):
+            with mock_patch.object(apply_patch, "V22_SHA256", hashlib.sha256(current).hexdigest()):
+                with self.assertRaisesRegex(BPSError, "already the v22"):
+                    apply_patch.choose_patch(current)
                 self.assertEqual(apply_patch.main([str(source), "--out", str(out)]), 1)
                 self.assertFalse(out.exists())
 
@@ -219,6 +218,15 @@ class CommandTests(unittest.TestCase):
                     V16_PATCHES={digest(source): "first.bps"},
                     PATCH_SHA256={"first.bps": digest(first)}):
                 self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 1)
+                self.assertFalse(out.exists())
+
+    def test_v22_missing_incremental_pin_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            source, out = directory / "v21.sfc", directory / "out.sfc"
+            source.write_bytes(b"recognized-v21")
+            with mock_patch.multiple(apply_patch, V21_SHA256=hashlib.sha256(source.read_bytes()).hexdigest(), V22_PATCH_SHA256=None):
+                self.assertEqual(apply_patch.main([str(source), "--out", str(out)]), 1)
                 self.assertFalse(out.exists())
 
     def test_wrong_revision_does_not_create_output(self):

@@ -1,55 +1,57 @@
 {
-  "version": "v21",
+  "version": "v22",
   "date": "2026-09-09",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
+  "target_sha256": "fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba",
   "target_bytes": 4194304,
-  "snes_checksum": "1913",
+  "snes_checksum": "3527",
   "patches": [
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
-      "target_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
-      "path": "patches/tmnt-sfii-turbo-v21.bps",
-      "sha256": "d13799cb9ba4d491eb9f6c02e22bca2d26421e6e5993f98f92db4a698b3a16cf",
-      "bytes": 1662614,
+      "target_sha256": "fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba",
+      "path": "patches/tmnt-sfii-turbo-v22.bps",
+      "sha256": "54498426698c7d35ceb347642a4c322784e01d4e5a8f3b5c2a9a93a583a5f437",
+      "bytes": 1663433,
       "roundtrip_exact": true,
       "source_size": 2621440,
       "target_size": 4194304,
       "source_crc32": 2750292709,
-      "target_crc32": 543821664,
-      "patch_crc32": 3219932751,
+      "target_crc32": 3439608485,
+      "patch_crc32": 1512340660,
       "command_counts": {
-        "source_read": 208,
-        "target_read": 47041,
-        "source_copy": 43271,
-        "target_copy": 42609
+        "source_read": 211,
+        "target_read": 47084,
+        "source_copy": 43315,
+        "target_copy": 42650
       },
-      "literal_bytes": 1255551,
-      "moved_source_bytes": 473454
+      "literal_bytes": 1255964,
+      "moved_source_bytes": 473634
     },
     {
-      "source_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
-      "target_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
-      "path": "patches/tmnt-sfii-turbo-v20-to-v21.bps",
-      "sha256": "37c53fbf8a8b49a44acc2ae70c053ef5a1d912c7e9da209a60e4f35e96856e36",
-      "bytes": 421,
+      "source_sha256": "27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671",
+      "target_sha256": "fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba",
+      "path": "patches/tmnt-sfii-turbo-v21-to-v22.bps",
+      "sha256": "bcd2dba4823b5327917c281b5206c5a2669562da981a94f136c36faaae08bb3e",
+      "bytes": 935,
       "roundtrip_exact": true,
       "source_size": 4194304,
       "target_size": 4194304,
-      "source_crc32": 3455853233,
-      "target_crc32": 543821664,
-      "patch_crc32": 1667787150,
+      "source_crc32": 543821664,
+      "target_crc32": 3439608485,
+      "patch_crc32": 1007876124,
       "command_counts": {
-        "source_read": 12,
-        "target_read": 26,
-        "source_copy": 6,
-        "target_copy": 17
+        "source_read": 16,
+        "target_read": 49,
+        "source_copy": 48,
+        "target_copy": 42
       },
-      "literal_bytes": 251,
-      "moved_source_bytes": 20996
-    },
+      "literal_bytes": 438,
+      "moved_source_bytes": 4868
+    }
+  ],
+  "historical_patches": [
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
       "target_sha256": "69a71550ed6e9badfd4f2b277b4668b575f7d450ab250cd40604c12ea6dc6fbb",
@@ -91,9 +93,7 @@
       },
       "literal_bytes": 20483,
       "moved_source_bytes": 1132
-    }
-  ],
-  "historical_patches": [
+    },
     {
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
       "target_sha256": "a1cbd12ab115b81cfd7e970f4e331329715d0168ed0edb2c62a67c8ae5f7aec1",
@@ -377,20 +377,41 @@
   "stage_palette_changes": [
     "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
   ],
-  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v20 inputs through v20, then applies v20-to-v21.",
+  "older_input_upgrade": "The patcher upgrades original/headered and v12\u2013v21 inputs through verified intermediate releases, then applies v21-to-v22.",
   "alternate_costumes": {
     "Leo": "Don (Start confirmation, purple)",
     "Raph": "Mikey (Start confirmation, orange)"
   },
   "alternate_name_scope": {
     "changed": [
+      "Arcade and VS character-select gold captions",
+      "Arcade VS and handicap gold captions",
       "battle HUD",
       "VS winner banners"
     ],
-    "canonical": [
-      "select/VS bitmap captions",
-      "aggregate records",
-      "static names"
+    "aggregate_records": "LEO/DON and RAPH/MIKEY identify shared fighter-slot totals",
+    "unchanged": [
+      "generic static text",
+      "biography, ending and credits assets"
+    ]
+  },
+  "release_status": "verified",
+  "changed_bytes": 1282,
+  "caption_name_scope": {
+    "changed": "Costume-aware DON/MIKEY select and VS gold captions; aggregate shared-total LEO/DON and RAPH/MIKEY records.",
+    "unchanged": "Main labels, body/portrait/icon/stage/palette/OAM/DMA/move resources remain v21-exact.",
+    "generic_reader": "No generic-reader changes; dormant generic strings remain unchanged."
+  },
+  "verification": {
+    "document": "docs/verification.md",
+    "passed": true,
+    "coverage": [
+      "Ten Normal/Turbo main/alternate, swapped-side and mirror UI routes; 7,200 fighter-state frames match v21; ten initial select images are pixel-exact.",
+      "Six two-KO outcomes verify DON/MIKEY winner captions on both sides, including mirrors; two Arcade loss routes verify costume-aware portrait transitions.",
+      "A 45,000-frame Arcade route covers all twelve stages, 24 KOs and three bonuses; KO timeline matches v21.",
+      "Four additional Arcade select/VS routes cover both ports and modes; sequential Start confirmation and combined records were visually inspected.",
+      "Both BPS patches round-trip exactly; eleven actual CLI inputs (original and v12\u2013v21) produce the final target. Current v22 is rejected without an output. A synthetic copier-header fixture verifies normalization.",
+      "Nineteen public unit tests pass; public-file allowlist and pinned BPS audit pass."
     ]
   }
 }

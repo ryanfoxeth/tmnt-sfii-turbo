@@ -50,6 +50,21 @@ V21_SHA256 = '27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671'
 V21_PATCH = 'tmnt-sfii-turbo-v20-to-v21.bps'
 PATCH_SHA256.update({'tmnt-sfii-turbo-v21.bps': 'd13799cb9ba4d491eb9f6c02e22bca2d26421e6e5993f98f92db4a698b3a16cf', 'tmnt-sfii-turbo-v20-to-v21.bps': '37c53fbf8a8b49a44acc2ae70c053ef5a1d912c7e9da209a60e4f35e96856e36'})
 
+# v22 BPS artifacts and hashes are pinned by final release metadata.
+V22_SHA256 = 'fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba'
+V22_PATCH = 'tmnt-sfii-turbo-v21-to-v22.bps'
+V22_FULL_PATCH = 'tmnt-sfii-turbo-v22.bps'
+V22_PATCH_SHA256 = 'bcd2dba4823b5327917c281b5206c5a2669562da981a94f136c36faaae08bb3e'
+V22_FULL_PATCH_SHA256 = '54498426698c7d35ceb347642a4c322784e01d4e5a8f3b5c2a9a93a583a5f437'
+
+
+def _require_v22_metadata():
+    if not V22_PATCH_SHA256:
+        raise BPSError('v22 patch metadata is pending final QA and BPS generation')
+    PATCH_SHA256[V22_PATCH] = V22_PATCH_SHA256
+    if V22_FULL_PATCH_SHA256:
+        PATCH_SHA256[V22_FULL_PATCH] = V22_FULL_PATCH_SHA256
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -57,8 +72,10 @@ def sha256(data: bytes) -> str:
 
 def choose_patch(input_bytes: bytes):
     digest = sha256(input_bytes)
+    if digest == V22_SHA256:
+        raise BPSError("input is already the v22 release; no patch is needed")
     if digest == V21_SHA256:
-        raise BPSError("input is already the v21 release; no patch is needed")
+        return input_bytes, PATCHES / V22_PATCH
     if digest == V20_SHA256:
         return input_bytes, PATCHES / V21_PATCH
     if digest == V19_SHA256:
@@ -75,17 +92,18 @@ def choose_patch(input_bytes: bytes):
         if len(input_bytes) < 512 or sha256(input_bytes[512:]) != BASE_SHA256:
             raise BPSError("recognized headered ROM did not yield the expected base ROM")
         return input_bytes[512:], PATCHES / V16_PATCHES[BASE_SHA256]
-    raise BPSError("input SHA-256 is not a supported original, v12, v13, v14, v15, v16, v17, v18, v19, or v20 revision")
+    raise BPSError("input SHA-256 is not a supported original, v12, v13, v14, v15, v16, v17, v18, v19, v20, or v21 revision")
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", type=Path, help="supported original, v12, v13, v14, v15, v16, v17, v18, v19, or v20 ROM")
-    parser.add_argument("--out", required=True, type=Path, help="new v21 output file")
+    parser.add_argument("input", type=Path, help="supported original, v12, v13, v14, v15, v16, v17, v18, v19, v20, or v21 ROM")
+    parser.add_argument("--out", required=True, type=Path, help="new v22 output file")
     args = parser.parse_args(argv)
     if args.out.exists():
         parser.error("refusing to overwrite existing output: {}".format(args.out))
     try:
+        _require_v22_metadata()
         source, patch_path = choose_patch(args.input.read_bytes())
         patch = patch_path.read_bytes()
         expected_patch = PATCH_SHA256.get(patch_path.name, "")
@@ -94,7 +112,7 @@ def main(argv=None) -> int:
         if sha256(patch) != expected_patch:
             raise BPSError("patch SHA-256 does not match the published release")
         target, _ = apply_bps(source, patch)
-        if patch_path.name not in (V18_PATCH, V19_PATCH, V20_PATCH, V21_PATCH):
+        if patch_path.name not in (V18_PATCH, V19_PATCH, V20_PATCH, V21_PATCH, V22_PATCH):
             if patch_path.name != V17_PATCH:
                 if sha256(target) != V16_SHA256:
                     raise BPSError("intermediate ROM SHA-256 does not match v16")
@@ -108,29 +126,36 @@ def main(argv=None) -> int:
             if sha256(upgrade) != PATCH_SHA256[V18_PATCH]:
                 raise BPSError("v18 upgrade patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V19_PATCH, V20_PATCH, V21_PATCH):
+        if patch_path.name not in (V19_PATCH, V20_PATCH, V21_PATCH, V22_PATCH):
             if sha256(target) != V18_SHA256:
                 raise BPSError("intermediate ROM SHA-256 does not match v18")
             upgrade = (PATCHES / V19_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V19_PATCH]:
                 raise BPSError("v19 upgrade patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V20_PATCH, V21_PATCH) and sha256(target) != V19_SHA256:
+        if patch_path.name not in (V20_PATCH, V21_PATCH, V22_PATCH) and sha256(target) != V19_SHA256:
             raise BPSError("patched ROM SHA-256 does not match the v19 release")
-        if patch_path.name not in (V20_PATCH, V21_PATCH):
+        if patch_path.name not in (V20_PATCH, V21_PATCH, V22_PATCH):
             upgrade = (PATCHES / V20_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V20_PATCH]:
                 raise BPSError("v20 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name != V21_PATCH:
+        if patch_path.name not in (V21_PATCH, V22_PATCH):
             if sha256(target) != V20_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v20 release")
             upgrade = (PATCHES / V21_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V21_PATCH]:
                 raise BPSError("v21 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if sha256(target) != V21_SHA256:
-            raise BPSError("patched ROM SHA-256 does not match the v21 release")
+        if patch_path.name != V22_PATCH:
+            if sha256(target) != V21_SHA256:
+                raise BPSError("patched ROM SHA-256 does not match the v21 release")
+            upgrade = (PATCHES / V22_PATCH).read_bytes()
+            if sha256(upgrade) != PATCH_SHA256[V22_PATCH]:
+                raise BPSError("v22 patch SHA-256 does not match")
+            target, _ = apply_bps(target, upgrade)
+        if sha256(target) != V22_SHA256:
+            raise BPSError("patched ROM SHA-256 does not match the v22 release")
         # Exclusive creation keeps the no-overwrite guarantee even if another
         # process creates the destination after the check above.
         with args.out.open("xb") as output:
@@ -138,7 +163,7 @@ def main(argv=None) -> int:
     except (OSError, BPSError) as error:
         print("error: {}".format(error), file=sys.stderr)
         return 1
-    print("Wrote {} (SHA-256: {})".format(args.out, V21_SHA256))
+    print("Wrote {} (SHA-256: {})".format(args.out, V22_SHA256))
     return 0
 
 

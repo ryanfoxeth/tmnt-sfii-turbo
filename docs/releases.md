@@ -1,5 +1,13 @@
 # Releases
 
+## v22 — costume-aware turtle captions
+
+Target SHA-256: `fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba`; SNES checksum: `3527`.
+
+Select and VS gold captions follow alternate turtle costumes: alternate Leo displays DON and alternate Raph displays MIKEY. Aggregate records use shared totals labeled LEO/DON and RAPH/MIKEY. Main labels remain LEO/RAPH. All body, portrait, icon, stage, palette, OAM/DMA and move resources remain v21-exact.
+
+Verification covers: Ten Normal/Turbo main/alternate, swapped-side and mirror UI routes; 7,200 fighter-state frames match v21; ten initial select images are pixel-exact. Six two-KO outcomes verify DON/MIKEY winner captions on both sides, including mirrors; two Arcade loss routes verify costume-aware portrait transitions. A 45,000-frame Arcade route covers all twelve stages, 24 KOs and three bonuses; KO timeline matches v21.
+
 ## v21 — alternate turtle palettes
 
 Target SHA-256: `27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671`.

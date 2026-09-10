@@ -1,5 +1,16 @@
 # Verification of the game build
 
+## V22 — 2026-09-09
+
+Tested SHA-256: `fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba`; SNES checksum: `3527`; changed bytes: 1,282.
+
+- UI coverage completed: ten Normal/Turbo main/alternate, swapped-side and mirror routes; 7,200 fighter-state frames match v21; ten initial select images match v21; palette/HUD checks and visual gold DON/MIKEY VS/handicap captures are recorded.
+- Six two-KO outcomes verify DON/MIKEY winner captions on both sides, including mirrors; two Arcade loss routes verify costume-aware portrait transitions.
+- A 45,000-frame Arcade route covers all twelve stages, 24 KOs and three bonuses; KO timeline matches v21.
+- Four additional Arcade select/VS routes cover both ports and modes. Sequential Start confirmation and settled combined records were visually inspected.
+- Both BPS patches round-trip exactly. Eleven actual CLI inputs (original and v12–v21) produce this target; current v22 rejects without output. Header normalization uses a synthetic 512-byte header over the actual original payload.
+- Nineteen public tests and the 70-file allowlist/BPS audit pass. No ROM or private emulator state is included.
+
 ## V21 — 2026-09-09
 
 Tested SHA-256: `27bab79c6cf21c284f9aa52d396088cdc8f1d8bd7983683d1e51e1a826dc8671`;
