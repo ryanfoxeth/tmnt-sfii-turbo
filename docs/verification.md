@@ -1,5 +1,19 @@
 # Verification of the game build
 
+## V24 — verified localized ending motion
+
+Tested target SHA-256: `c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0`; SNES checksum: `B238`; changed bytes: 11,473 compared with v23.
+
+- Fourteen localized environmental loops add subtle native motion to the accepted illustrated endings. Every accepted base illustration, story page, credit card and gameplay resource remains preserved; this is not a set of full character cutscenes. Each loop runs for 1.20–1.92 seconds at the native 50.00698 fps.
+- The bounded runtime uses 272 bytes and 13,120 bytes of motion data in existing reserved space. Each scheduled update is bounded to 16 tiles / 512 bytes.
+- The component allocation proof reports 1,964 live graphics consumers unchanged, all 27 scene-loader graphs exact, and all prior fighter DMA records exact. Its 11,473 changed bytes are restricted to the two ending hooks, new runtime/data and checksum.
+- Runtime verification covers all 14 identities, 98 native pages and 15,134 rendered frames. Both localized loops per page completed; every complete phase payload was exact. All CGRAM and all VRAM/pixels outside the localized effect match the corresponding v23 page exactly.
+- Fourteen Turbo and two Normal Don/Mikey cold-boot campaigns traversed all twelve stages, three bonuses, pages 1–7, title and menu. The matrix observed 382 health-fixture KOs and never forced an ending.
+- Both v24 BPS routes round-trip exactly. The private patcher produces this target from all 13 canonical inputs: original and v12 through v23. Current v24 input and a missing v23-to-v24 increment both fail without creating output.
+- Twenty-seven staged public tests pass. The 77-file public allowlist, pinned patch hashes, private-path/secret scan and ROM/state exclusion audit pass.
+
+This is emulator evidence, not original-hardware certification.
+
 ## V23 — 2026-09-10
 
 Tested SHA-256: `44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1`; SNES checksum: `F9AD`.

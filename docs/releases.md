@@ -1,5 +1,13 @@
 # Releases
 
+## v24 — verified localized ending motion
+
+Released 2026-09-10. Target SHA-256: `c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0`; SNES checksum: `B238`.
+
+Fourteen localized environmental loops add subtle native motion to the illustrated endings while preserving all accepted base art, stories, credits and gameplay. The 272-byte runtime and 13,120-byte data block use existing space; updates are bounded to 16 tiles / 512 bytes, with 1.20–1.92 second loops at native 50.00698 fps. This is not a full character-cutscene system.
+
+Runtime QA covers 14 identities, 98 native pages and 15,134 rendered frames. Both loops per page completed with every phase payload exact. All CGRAM and all VRAM/pixels outside the localized effects remain exact against the corresponding v23 page. Fourteen Turbo and two Normal Don/Mikey cold-boot campaigns traversed all twelve stages, three bonuses, pages 1–7, title and menu with 382 observed health-fixture KOs and no ending forcing. See the [verification record](verification.md).
+
 ## v23 — illustrated endings and Mikey victory repair
 
 Released 2026-09-10. Target SHA-256: `44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1`; SNES checksum: `F9AD`.
