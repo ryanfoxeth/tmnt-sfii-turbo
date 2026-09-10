@@ -1,5 +1,18 @@
 # Technical notes
 
+## V27 private voice tuning
+
+Resources 3D/3E belong exclusively to Super Shredder, actor ID 9. Their four
+big-endian tuning words change from 07A8 to 06D2, a requested ratio of about
+−2 semitones. All BRR data and pointers, sound envelopes and event sequences
+remain exact. No allocation or code changes are needed.
+
+Measured DSP pitch in the focused routes changes from 944 to 848 for P1 and
+960 to 848 for P2. Quantization and native route differences mean the live
+shift is about −1.86/−2.15 semitones. The original short sample gate remains;
+slower playback can still shorten its tail. The moderate option was selected
+after audition; it does not replace Sagat's spoken wording.
+
 ## V26 private victory samples
 
 Resources 52/53 belong exclusively to fighter ID 11. The new short/long BRR samples occupy 1,278/4,383 bytes within their existing 1,467/4,788-byte slots, with zero-history first blocks, one final end flag and no looping. The short directory loop pointer now points at sample start; the attack sample/directory/instrument stays unchanged. No ROM/APU expansion or code hooks.

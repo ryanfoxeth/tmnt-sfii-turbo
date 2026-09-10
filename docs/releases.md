@@ -1,5 +1,17 @@
 # Releases
 
+## V27 — Super Shredder voice pitch
+
+September 10, 2026. Target SHA-256: `766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1`; checksum `828B`.
+
+Super Shredder's two private voice samples now play about two semitones lower,
+using the approved moderate audition. This changes four tuning words and the
+checksum: 12 bytes total. The sample recordings, event timing, envelopes,
+impacts, music, graphics and gameplay are preserved, including Shredder's v26
+victory voices. Original-to-v27 and v26-to-v27 BPS patches are supplied.
+Casey and Splinter movie/cartoon voice candidates remain separate auditions;
+no additional voice sources are included in this release.
+
 ## V26 — Shredder victory voices
 
 September 10, 2026. Target SHA-256: `3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957`; checksum `81E7`.

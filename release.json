@@ -1,26 +1,26 @@
 {
-  "version": "v26",
+  "version": "v27",
   "date": "2026-09-10",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+  "target_sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1",
   "target_bytes": 4194304,
   "patches": [
     {
-      "path": "patches/tmnt-sfii-turbo-v26.bps",
+      "path": "patches/tmnt-sfii-turbo-v27.bps",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
-      "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
-      "sha256": "e00a7806fa4fce748780dcdc535f3db03df42600224c0adf633fc10e1d68e87f",
-      "bytes": 1763404,
+      "target_sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1",
+      "sha256": "e9f566ea5176f8388cf40107262740ed0360b943b2bcca3c0d77acafff0fd96d",
+      "bytes": 1763422,
       "roundtrip_exact": true
     },
     {
-      "path": "patches/tmnt-sfii-turbo-v25-to-v26.bps",
-      "source_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
-      "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
-      "sha256": "1602a8a253e97be83fdc44489c1c6ea48ec9a35daf7e721c575e1fbf1142d36d",
-      "bytes": 5739,
+      "path": "patches/tmnt-sfii-turbo-v26-to-v27.bps",
+      "source_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+      "target_sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1",
+      "sha256": "481405fccc22dac9f70d630b50b3c3b5045f802dc64ded9ce85fb1683bc5cd09",
+      "bytes": 61,
       "roundtrip_exact": true
     }
   ],
@@ -440,6 +440,22 @@
       "sha256": "06e82705d37f373edcba57b7721477875a66db2c647f60e0c07e0d0a09cf99c8",
       "bytes": 694,
       "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v26.bps",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+      "sha256": "e00a7806fa4fce748780dcdc535f3db03df42600224c0adf633fc10e1d68e87f",
+      "bytes": 1763404,
+      "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v25-to-v26.bps",
+      "source_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+      "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+      "sha256": "1602a8a253e97be83fdc44489c1c6ea48ec9a35daf7e721c575e1fbf1142d36d",
+      "bytes": 5739,
+      "roundtrip_exact": true
     }
   ],
   "replaces_all_twelve_fighter_slots": true,
@@ -450,7 +466,7 @@
   "stage_palette_changes": [
     "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
   ],
-  "older_input_upgrade": "Exact original/headered and v12-v25 inputs follow hash-checked intermediate patches to v26.",
+  "older_input_upgrade": "Exact original/headered and v12-v26 inputs follow hash-checked intermediate patches to v27.",
   "alternate_costumes": {
     "Leo": "Don (Start confirmation, purple)",
     "Raph": "Mikey (Start confirmation, orange)",
@@ -471,15 +487,15 @@
     "verification_version": "v22"
   },
   "release_status": "release-qa-passed-scope-bounded",
-  "changed_bytes": 12264,
-  "changed_bytes_compared_to": "v25",
+  "changed_bytes": 12,
+  "changed_bytes_compared_to": "v26",
   "caption_name_scope": {
-    "verification_version": "v26",
-    "changed": "No caption-name changes in v26.",
+    "verification_version": "v27",
+    "changed": "No caption-name changes in v27.",
     "inherited": "v22 costume-aware DON/MIKEY select, VS, HUD, and winner-caption behavior is retained.",
     "generic_reader": "No generic-reader changes; inherited static strings remain unchanged."
   },
-  "scope": "Replace only Shredder’s two private victory voices with a classic boss laugh, lowered about two semitones from its source audition. Attack voice, all impacts/non-vocal effects, other voices, music, gameplay, graphics and endings remain v25-exact. Music replacement is paused.",
+  "scope": "Lower only Super Shredder private voice tuning by about two semitones. All samples, effects, music, Shredder v26 audio, graphics and gameplay are preserved.",
   "ending_motion": {
     "loops": 14,
     "scope": "Localized environmental motion; not full character cutscenes.",
@@ -545,64 +561,98 @@
     "verification_version": "v23"
   },
   "verification": {
-    "verification_version": "v26",
+    "verification_version": "v27",
     "voice_routes": {
-      "p1-shredder-raph/mixed": {
-        "frames": 3040,
-        "passed": true,
-        "gameplay_oam_pixels_match": true,
-        "nonvoice_dsp_error_count": 0,
-        "attack_dsp_differences": 0,
-        "attack_pcm_frames_checked": 370,
-        "pcm_equal": false
+      "p1-super": {
+        "frames": 450,
+        "initial_ids_match": true,
+        "fighter_oam_pixels_exact": true,
+        "live_brr_exact": true,
+        "live_brr": {
+          "0x1e": {
+            "start": "0xa08e",
+            "bytes": 1683,
+            "sha256": "0cde851621997571fb9f0b83d210db631374643a395015d6953b26d3a65f1058"
+          },
+          "0x1f": {
+            "start": "0xa721",
+            "bytes": 2142,
+            "sha256": "a1042ebe195b051827162cdcee01e9449840bf15b75b4395c2a5b6bdc91e3103"
+          }
+        },
+        "active_nonvoice_dsp_errors": 0,
+        "first_errors": [],
+        "target_active_events": 120,
+        "target_pitch_pairs": [
+          [
+            "0x1e",
+            944,
+            848
+          ],
+          [
+            "0x1f",
+            944,
+            848
+          ]
+        ],
+        "passed": true
       },
-      "p1-shredder-raph/isolated": {
-        "frames": 3040,
-        "passed": true,
-        "gameplay_oam_pixels_match": true,
-        "nonvoice_dsp_error_count": 0,
-        "attack_dsp_differences": 0,
-        "attack_pcm_frames_checked": 370,
-        "pcm_equal": false
+      "p2-super": {
+        "frames": 450,
+        "initial_ids_match": true,
+        "fighter_oam_pixels_exact": true,
+        "live_brr_exact": true,
+        "live_brr": {
+          "0x26": {
+            "start": "0xc4fa",
+            "bytes": 1683,
+            "sha256": "0cde851621997571fb9f0b83d210db631374643a395015d6953b26d3a65f1058"
+          },
+          "0x27": {
+            "start": "0xcb8d",
+            "bytes": 2142,
+            "sha256": "a1042ebe195b051827162cdcee01e9449840bf15b75b4395c2a5b6bdc91e3103"
+          }
+        },
+        "active_nonvoice_dsp_errors": 0,
+        "first_errors": [],
+        "target_active_events": 120,
+        "target_pitch_pairs": [
+          [
+            "0x26",
+            960,
+            848
+          ],
+          [
+            "0x27",
+            960,
+            848
+          ]
+        ],
+        "passed": true
       },
-      "p2-bebop-shredder/mixed": {
-        "frames": 3040,
-        "passed": true,
-        "gameplay_oam_pixels_match": true,
-        "nonvoice_dsp_error_count": 0,
-        "attack_dsp_differences": 0,
-        "attack_pcm_frames_checked": 333,
-        "pcm_equal": false
-      },
-      "p2-bebop-shredder/isolated": {
-        "frames": 3040,
-        "passed": true,
-        "gameplay_oam_pixels_match": true,
-        "nonvoice_dsp_error_count": 0,
-        "attack_dsp_differences": 0,
-        "attack_pcm_frames_checked": 333,
-        "pcm_equal": false
-      },
-      "leo-raph-control/mixed": {
-        "frames": 558,
-        "passed": true,
-        "gameplay_oam_pixels_match": true,
-        "nonvoice_dsp_error_count": 0,
-        "attack_dsp_differences": 0,
-        "attack_pcm_frames_checked": 0,
-        "pcm_equal": true
+      "leo-raph-control": {
+        "frames": 250,
+        "initial_ids_match": true,
+        "fighter_oam_pixels_exact": true,
+        "live_brr_exact": true,
+        "live_brr": {},
+        "active_nonvoice_dsp_errors": 0,
+        "first_errors": [],
+        "target_active_events": 0,
+        "target_pitch_pairs": [],
+        "passed": true
       }
     },
-    "byte_ownership": "All bytes outside the two Shredder private victory samples, tuning words, short-loop pointers and checksum are v25-exact.",
-    "native_sample_payloads_match_authored_brr": true,
-    "campaign_coverage": "No broad campaign repeated for this isolated audio change; retained v25/v24 evidence is historical.",
-    "package_routes": "passed: both BPS roundtrips, actual original/headered and v12-v25 inputs, current-v26 refusal;33 tests and83-file public audit"
+    "byte_ownership": "Only four Super Shredder private instrument tuning words and SNES checksum differ from v26.",
+    "campaign_coverage": "No broad campaign repeated for this isolated tuning adjustment. Prior v26/v25/v24 evidence retains its original scope.",
+    "package_routes": "passed: both BPS roundtrips; actual original/headered and v12-v26 inputs; current-v27 refusal; 35 tests and 86-file public audit"
   },
-  "tested_rom_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
-  "checksum": "81E7",
+  "tested_rom_sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1",
+  "checksum": "828B",
   "source_release": {
-    "version": "v25",
-    "sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78"
+    "version": "v26",
+    "sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957"
   },
   "historical_verification": {
     "v25": {
@@ -670,6 +720,60 @@
         "controller_only": true,
         "native_stage_song_reloaded": true
       }
+    },
+    "v26": {
+      "verification_version": "v26",
+      "voice_routes": {
+        "p1-shredder-raph/mixed": {
+          "frames": 3040,
+          "passed": true,
+          "gameplay_oam_pixels_match": true,
+          "nonvoice_dsp_error_count": 0,
+          "attack_dsp_differences": 0,
+          "attack_pcm_frames_checked": 370,
+          "pcm_equal": false
+        },
+        "p1-shredder-raph/isolated": {
+          "frames": 3040,
+          "passed": true,
+          "gameplay_oam_pixels_match": true,
+          "nonvoice_dsp_error_count": 0,
+          "attack_dsp_differences": 0,
+          "attack_pcm_frames_checked": 370,
+          "pcm_equal": false
+        },
+        "p2-bebop-shredder/mixed": {
+          "frames": 3040,
+          "passed": true,
+          "gameplay_oam_pixels_match": true,
+          "nonvoice_dsp_error_count": 0,
+          "attack_dsp_differences": 0,
+          "attack_pcm_frames_checked": 333,
+          "pcm_equal": false
+        },
+        "p2-bebop-shredder/isolated": {
+          "frames": 3040,
+          "passed": true,
+          "gameplay_oam_pixels_match": true,
+          "nonvoice_dsp_error_count": 0,
+          "attack_dsp_differences": 0,
+          "attack_pcm_frames_checked": 333,
+          "pcm_equal": false
+        },
+        "leo-raph-control/mixed": {
+          "frames": 558,
+          "passed": true,
+          "gameplay_oam_pixels_match": true,
+          "nonvoice_dsp_error_count": 0,
+          "attack_dsp_differences": 0,
+          "attack_pcm_frames_checked": 0,
+          "pcm_equal": true
+        }
+      },
+      "byte_ownership": "All bytes outside the two Shredder private victory samples, tuning words, short-loop pointers and checksum are v25-exact.",
+      "native_sample_payloads_match_authored_brr": true,
+      "campaign_coverage": "No broad campaign repeated for this isolated audio change; retained v25/v24 evidence is historical.",
+      "package_routes": "passed: both BPS roundtrips, actual original/headered and v12-v25 inputs, current-v26 refusal;33 tests and83-file public audit"
     }
   },
   "voice_replacement": {
@@ -708,5 +812,23 @@
     "converter_commit": "5b809f171d6a8fe436f09cd883f26994e58feb35",
     "attack_voice_changed": false,
     "event_timing_or_envelopes_changed": false
+  },
+  "super_shredder_voice_pitch": {
+    "resources": [
+      "3D",
+      "3E"
+    ],
+    "tuning_before": 1960,
+    "tuning_after": 1746,
+    "live_dsp_pitch_after": 848,
+    "samples_events_envelopes_changed": false,
+    "live_dsp_pitch_before_by_route": {
+      "p1": 944,
+      "p2": 960
+    },
+    "actual_semitones_by_route": {
+      "p1": -1.856671137583704,
+      "p2": -2.1476416925438326
+    }
   }
 }

@@ -1,5 +1,23 @@
 # Verification of the game build
 
+## V27 — focused native pitch checks
+
+Tested target SHA-256: `766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1`; checksum `828B`.
+
+- Two 450-frame controller routes exercise both private voice placements,
+  projectile and uppercut. A 250-frame Leo/Raph route checks a match without
+  Super Shredder. Fighter RAM, OAM and rendered pixels match v26 in all 1,150
+  paired frames; active non-vocal DSP register differences are zero.
+- Live loaded BRR samples remain exact in both sound banks. Both target slots
+  play at DSP pitch 848. All ROM bytes outside four tuning words and checksum
+  are v26-exact, preserving Shredder's accepted v26 voices and all music.
+- Both BPS artifacts round-trip to the exact target. Package route results
+  are recorded in release.json after the final package checks.
+
+This is focused validation of an isolated tuning change. No full campaign,
+new audio recording, or physical-console certification is claimed. Earlier
+release matrices below retain their original scope.
+
 ## V26 — focused native voice checks
 
 Tested target SHA-256: `3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957`; checksum `81E7`.

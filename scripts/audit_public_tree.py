@@ -102,6 +102,9 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v25.bps': '289a465f3a431cdd5c9bbbb34915
 ALLOW.update({'patches/tmnt-sfii-turbo-v26.bps','patches/tmnt-sfii-turbo-v25-to-v26.bps','tests/test_v26_patcher.py'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v26.bps': 'e00a7806fa4fce748780dcdc535f3db03df42600224c0adf633fc10e1d68e87f', 'patches/tmnt-sfii-turbo-v25-to-v26.bps': '1602a8a253e97be83fdc44489c1c6ea48ec9a35daf7e721c575e1fbf1142d36d'})
 
+ALLOW.update({'patches/tmnt-sfii-turbo-v27.bps', 'patches/tmnt-sfii-turbo-v26-to-v27.bps', 'tests/test_v27_patcher.py'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v27.bps': 'e9f566ea5176f8388cf40107262740ed0360b943b2bcca3c0d77acafff0fd96d', 'patches/tmnt-sfii-turbo-v26-to-v27.bps': '481405fccc22dac9f70d630b50b3c3b5045f802dc64ded9ce85fb1683bc5cd09'})
+
 def audit():
     if (ROOT/'.git').is_dir():
         files=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')

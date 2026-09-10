@@ -4,7 +4,7 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, eleven replaced backgrounds, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v26.** This repository distributes patches and tools.
+**Current version: v27.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
 ![Repaired select grid](assets/select-v18.png)
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v26.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v27.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v25 releases. Older releases are
-validated through the v16 through v25 intermediates.
+512-byte-headered form) and v12 through v26 releases. Older releases are
+validated through the v16 through v26 intermediates.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
