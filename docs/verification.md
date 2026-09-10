@@ -1,5 +1,18 @@
 # Verification of the game build
 
+## V23 — 2026-09-10
+
+Tested SHA-256: `44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1`; SNES checksum: `F9AD`.
+
+- Fourteen fresh-boot Turbo Arcade campaigns select the real character/costume, reach their native endings, display all seven ending/credit pages, return to the title and open the Turbo/Normal menu. Health-only fixtures accelerate fights; ending IDs, scenes and phases are never forced.
+- Two additional Normal-mode campaigns verify Don and Mikey, including the native alternate winner costume 0x40 and their distinct endings.
+- All 98 Turbo ending captures match their exact authored VRAM tiles, maps, palettes, font and text. Displayed illustrations preserve geometry; RGB conversion differs by at most two levels.
+- Ten Normal/Turbo UI/combat routes preserve the v22 initial select screens and 7,200 fighter-state frames.
+- Mikey/Raph raised-arm pose 073 restores its omitted second graphics upload. The reported P2 Mikey victory was replayed and the indexed pose matches the accepted complete artwork. P1 raised-arm behavior is covered structurally by the shared loader; it was not separately recorded.
+- All 1,962 existing fighter/scene/portrait graphics consumers are preserved, including all 27 scene streams. The new ending allocations are separate. Other fighter DMA rows and the animation-script bank remain exact.
+- Both new BPS routes round-trip exactly. Twelve actual CLI inputs (original and v12 through v22) produce the exact target. Current v23 is rejected without output; synthetic copier-header normalization is checked.
+- Twenty-one public tests pass. The public allowlist, secret/path checks and pinned BPS audit exclude ROMs and emulator states.
+
 ## V22 — 2026-09-09
 
 Tested SHA-256: `fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba`; SNES checksum: `3527`; changed bytes: 1,282.

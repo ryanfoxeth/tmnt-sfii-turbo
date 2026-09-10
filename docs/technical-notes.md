@@ -1,5 +1,29 @@
 # Technical notes
 
+## V23 ending player and victory DMA contract
+
+The shared Arcade-ending dispatcher at C0:32F8 now enters a native 65816 player.
+It reads the stock winner selector at WRAM1965 and the saved costume at18B5.
+For Leo/Raph, alternate selection means costume minus mode1C84 equals20hex;
+this preserves the native Turbo00/20 and Normal20/40 costume convention.
+Fourteen packets occupy previously unused audited ROM ranges302000..30F000
+and313000..31CC00; code/text/font data stay within31D000..320000. The ROM
+remains4MiB. Do not overwrite these reservations with an older whole-bank tool.
+
+Each still uses192 4bpp tiles, a16x12 tilemap and three16-color BG palettes.
+BG1 art occupies VRAM2000..3800, its map8000, and palette groups2..4. Private
+BG3 glyphs use4000..4800 and map7000; the original font atA000 stays intact
+for ranking/menu restoration. Native text uses two8x8 tiles per8x16 glyph.
+The ordinary scanline IRQ must remain enabled: it releases frame gate1842.
+NMI-only mode81 freezes the scheduler after the first ending page; modeB1
+and the standard non-split NMI route preserve normal frame progression.
+
+Mikey/Raph victory pose073 retained its OAM and graphics but lost one DMA
+record in an earlier turtle repack. Its two loads are now3A1380/1664bytes to
+VRAME000 followed by3A2D80/1984bytes toE400. The second packet covers the
+OAM's otherwise missing tiles42..93. The descriptor uses owned table slack
+at4097A..40984. Preserve that auxiliary load in future body repacks.
+
 ## V20 stage and projectile ownership
 
 Slash's new scenery uses BG1 with BG2 blank. The original BG3 foreground fence

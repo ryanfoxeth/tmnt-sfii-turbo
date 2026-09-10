@@ -1,5 +1,11 @@
 # Releases
 
+## v23 — illustrated endings and Mikey victory repair
+
+Released 2026-09-10. Target SHA-256: `44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1`; SNES checksum: `F9AD`.
+
+Fourteen distinct TMNT endings include Don and Mikey; each has a new 128x96 illustration and two story pages, followed by five shared credit cards. The shared Arcade-ending dispatcher replaces all stock character ending/credit branches. The native title/menu returns normally. Raph/Mikey pose073 restores its missing second graphics load; other combat resources and moves are preserved. See the [verification record](verification.md).
+
 ## v22 — costume-aware turtle captions
 
 Target SHA-256: `fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba`; SNES checksum: `3527`.

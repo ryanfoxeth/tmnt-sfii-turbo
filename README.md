@@ -4,7 +4,7 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, eleven replaced backgrounds, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v22.** This repository distributes patches and tools.
+**Current version: v23.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
 ![Repaired select grid](assets/select-v18.png)
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v22.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v23.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v21 releases. Older releases are
-validated through the v16, v17, v18, v19, v20 and v21 intermediates.
+512-byte-headered form) and v12 through v22 releases. Older releases are
+validated through the v16 through v22 intermediates.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
@@ -61,6 +61,19 @@ TMNT cartoon and the NES/SNES games. Leonardo has a tight Japanese night
 backstreet; Shredder, Super Shredder and Krang have distinct Technodrome rooms.
 The original cage and wall-jump mechanics remain on Shredder's stage. V18
 includes the v14 icon-framing and v15 background-animation corrections.
+
+## V23 — endings, credits and Mikey raised-arm repair
+
+Every fighter now has an illustrated TMNT ending, including separate stories for Don and Mikey: fourteen pictures, two story pages each, and a new five-card credits sequence. Pages advance automatically, or with a fresh Start press. The sequence returns to the title menu.
+
+Mikey and Raph’s raised-arm victory pose also loads its missing graphics correctly. Original moves, damage and timing are preserved.
+
+<details>
+<summary>Preview the new endings (spoilers)</summary>
+
+![Fourteen in-game endings](assets/endings-v23.png)
+
+</details>
 
 ## V22 — costume-aware select and VS captions
 
@@ -104,8 +117,8 @@ affected waist poses are repaired without changing moves or animation timing.
 
 ## What is included
 
-- Full original-to-v22 and direct v21-to-v22 BPS patches, plus patcher support
-  for original/headered and v12–v21 inputs.
+- Full original-to-v23 and direct v22-to-v23 BPS patches, plus patcher support
+  for original/headered and v12–v22 inputs.
 - Earlier BPS patches, including the historical v13 patches, remain available.
 - A portable, hash-checked Python patcher and format-level tests.
 - Standalone source for v13's scrolling repair and v15's stage-animation fix.
@@ -122,19 +135,12 @@ patch to the verified original.
 
 ## Current limits
 
-Turtle idle animation still needs polish. Endings and credits are mostly
-original, and their story artwork still needs a later pass. Most replacement
-fighters retain their original voices; Shredder has the earlier lowered
+Turtle idle animation and Super Shredder walking poses 004/005 still need polish.
+Most fighters retain their original voices; Shredder has the earlier lowered
 voice treatment. Some original world-map/biography identity fields remain.
-V18 repairs the transparent belt/waist pixels confirmed in Super Shredder's
-poses 000–003. A subsequent Day 3 video review found that walking poses
-004/005 still have a horizontal waist separation; those two poses remain
-open in the current v19 patch. This is a work in progress.
-
-The v21 palette release scope is limited to alternate Leo/Raph costume colors.
-Known Super Shredder walking-pose waist gap 004/005 and turtle idle polish remain
-open. See [verification](docs/verification.md) for coverage and limits; this is a
-work in progress and is not an original-hardware certification.
+The ending illustrations are still images with timed story/credit pages.
+See [verification](docs/verification.md) for measured coverage; testing uses
+an emulator, rather than original-hardware certification.
 
 ## Rights and distribution
 
