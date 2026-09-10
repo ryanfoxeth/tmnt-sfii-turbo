@@ -1,5 +1,11 @@
 # Releases
 
+## V26 — Shredder victory voices
+
+September 10, 2026. Target SHA-256: `3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957`; checksum `81E7`.
+
+Replaced both Shredder victory voices with a short/full classic TMNT boss laugh, lowered approximately two semitones from the source audition. His approved attack voice stays exact. Changes are limited to existing private voice slots and tuning; all impacts, other voices, music, gameplay and graphics are unchanged from v25. Original-to-v26 and v25-to-v26 patches are provided. Music replacement is paused.
+
 ## v25 — release QA passed
 
 Target SHA-256: `59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78`.

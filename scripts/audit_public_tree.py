@@ -98,6 +98,10 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v24.bps': '82692fca5805e9a6fac796242459
 ALLOW.update({'patches/tmnt-sfii-turbo-v25.bps','patches/tmnt-sfii-turbo-v24-to-v25.bps','tests/test_v25_patcher.py'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v25.bps': '289a465f3a431cdd5c9bbbb3491547ad92ab62718be726eff130134698e67471','patches/tmnt-sfii-turbo-v24-to-v25.bps': '06e82705d37f373edcba57b7721477875a66db2c647f60e0c07e0d0a09cf99c8'})
 
+# v26 bounded Shredder victory-voice additions.
+ALLOW.update({'patches/tmnt-sfii-turbo-v26.bps','patches/tmnt-sfii-turbo-v25-to-v26.bps','tests/test_v26_patcher.py'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v26.bps': 'e00a7806fa4fce748780dcdc535f3db03df42600224c0adf633fc10e1d68e87f', 'patches/tmnt-sfii-turbo-v25-to-v26.bps': '1602a8a253e97be83fdc44489c1c6ea48ec9a35daf7e721c575e1fbf1142d36d'})
+
 def audit():
     if (ROOT/'.git').is_dir():
         files=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')

@@ -1,5 +1,19 @@
 # Verification of the game build
 
+## V26 — focused native voice checks
+
+Tested target SHA-256: `3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957`; checksum `81E7`.
+
+- Independent cold-boot controller routes: 3,040 frames Shredder/Raph and 3,040 frames Bebop/Shredder, each with mixed and isolated audio, plus 558 frames Leo/Raph mixed control. Both private sound-bank placements and both victory events are exercised.
+- Fighter RAM, OAM and rendered pixels match v25 throughout. Active non-vocal DSP differences: 0. Silent stale pitch-register differences after voice reuse are explicitly classified and excluded only when both envelopes are zero and all other register fields match.
+- All 370 P1 and 333 P2 active attack frames have exact PCM and unchanged DSP/BRR. The entire 558-frame no-Shredder control has bit-exact mixed PCM. Live APU victory payloads match the authored BRR hashes in both placements.
+- The short laugh plays for 22 active frames; the long laugh for 62–63. Both events retain their original trigger frames and finish naturally before the original gates.
+- All 12,264 changed ROM bytes are restricted to private victory sample slots, tuning/short-loop pointers and checksum. Every other byte matches v25. No broad campaign or physical-hardware retest is claimed for this isolated change.
+
+- Both BPS patches round-trip exactly. Sixteen actual CLI routes (original, verified headered original and v12–v25) produce the exact target; current v26 rejects without output. All 33 public tests and the 83-file pinned-patch/ROM-exclusion audit pass.
+
+Earlier release matrices below remain evidence for their stated versions.
+
 ## V25 — release-QA record
 
 Tested target SHA-256: `59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78`. Package validation covers exact BPS round-trips and all supported original/v12–v24 patcher routes.

@@ -107,28 +107,28 @@ class CommandTests(unittest.TestCase):
             apply_patch.sha256 = original_sha
 
     def test_v18_upgrade_chain_and_direct_input(self):
-        original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25 = (b"original", b"v16 fixture", b"v17 fixture",
-                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture", b"v23 fixture", b"v24 fixture", b"v25 fixture")
+        original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26 = (b"original", b"v16 fixture", b"v17 fixture",
+                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture", b"v23 fixture", b"v24 fixture", b"v25 fixture", b"v26 fixture")
         digest = lambda data: hashlib.sha256(data).hexdigest()
-        first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth = (bps(original, v16), bps(v16, v17),
-                                               bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21), bps(v21, v22), bps(v22, v23), bps(v23, v24), bps(v24, v25))
+        first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh = (bps(original, v16), bps(v16, v17),
+                                               bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21), bps(v21, v22), bps(v22, v23), bps(v23, v24), bps(v24, v25), bps(v25, v26))
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
             for name, raw in (("first.bps", first), ("upgrade.bps", second),
-                              ("v18.bps", third), ("v19.bps", fourth), ("v20.bps", fifth), ("v21.bps", sixth), ("v22.bps", seventh), ("v23.bps", eighth), ("v24.bps", ninth), ("v25.bps", tenth)):
+                              ("v18.bps", third), ("v19.bps", fourth), ("v20.bps", fifth), ("v21.bps", sixth), ("v22.bps", seventh), ("v23.bps", eighth), ("v24.bps", ninth), ("v25.bps", tenth), ("v26.bps", eleventh)):
                 (directory / name).write_bytes(raw)
             with mock_patch.multiple(apply_patch, PATCHES=directory,
                     V16_SHA256=digest(v16), V17_SHA256=digest(v17), V18_SHA256=digest(v18),
-                    V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V22_SHA256=digest(v22), V23_SHA256=digest(v23), V24_SHA256=digest(v24), V25_SHA256=digest(v25), V22_PATCH_SHA256=digest(seventh), V23_PATCH_SHA256=digest(eighth), V24_PATCH_SHA256=digest(ninth), V25_PATCH_SHA256=digest(tenth), V17_PATCH="upgrade.bps", V18_PATCH="v18.bps",
-                    V19_PATCH="v19.bps", V20_PATCH="v20.bps", V21_PATCH="v21.bps", V22_PATCH="v22.bps", V23_PATCH="v23.bps", V24_PATCH="v24.bps", V25_PATCH="v25.bps", V16_PATCHES={digest(original): "first.bps"},
+                    V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V22_SHA256=digest(v22), V23_SHA256=digest(v23), V24_SHA256=digest(v24), V25_SHA256=digest(v25), V22_PATCH_SHA256=digest(seventh), V23_PATCH_SHA256=digest(eighth), V24_PATCH_SHA256=digest(ninth), V25_PATCH_SHA256=digest(tenth), V26_SHA256=digest(v26), V26_PATCH_SHA256=digest(eleventh), V17_PATCH="upgrade.bps", V18_PATCH="v18.bps",
+                    V19_PATCH="v19.bps", V20_PATCH="v20.bps", V21_PATCH="v21.bps", V22_PATCH="v22.bps", V23_PATCH="v23.bps", V24_PATCH="v24.bps", V25_PATCH="v25.bps", V26_PATCH="v26.bps", V16_PATCHES={digest(original): "first.bps"},
                     PATCH_SHA256={"first.bps": digest(first), "upgrade.bps": digest(second),
                                   "v18.bps": digest(third), "v19.bps": digest(fourth), "v20.bps": digest(fifth), "v21.bps": digest(sixth), "v22.bps": digest(seventh), "v23.bps": digest(eighth), "v24.bps": digest(ninth), "v25.bps": digest(tenth)}):
-                for number, source in enumerate((original, v16, v17, v18, v19, v20, v21, v22, v23, v24)):
+                for number, source in enumerate((original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25)):
                     input_path = directory / f"input{number}.sfc"
                     out = directory / f"output{number}.sfc"
                     input_path.write_bytes(source)
                     self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 0)
-                    self.assertEqual(out.read_bytes(), v25)
+                    self.assertEqual(out.read_bytes(), v26)
 
     def test_v18_input_selects_its_supported_upgrade(self):
         source = b"supported v18 fixture"
@@ -138,39 +138,39 @@ class CommandTests(unittest.TestCase):
             self.assertEqual(selected.name, apply_patch.V19_PATCH)
 
     def test_v20_upgrade_chain_and_direct_input(self):
-        original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25 = (b"original", b"v16 fixture", b"v17 fixture",
-                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture", b"v23 fixture", b"v24 fixture", b"v25 fixture")
+        original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26 = (b"original", b"v16 fixture", b"v17 fixture",
+                                             b"v18 fixture", b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture", b"v23 fixture", b"v24 fixture", b"v25 fixture", b"v26 fixture")
         digest = lambda data: hashlib.sha256(data).hexdigest()
-        first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth = (bps(original, v16), bps(v16, v17),
-                                                bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21), bps(v21, v22), bps(v22, v23), bps(v23, v24), bps(v24, v25))
+        first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh = (bps(original, v16), bps(v16, v17),
+                                                bps(v17, v18), bps(v18, v19), bps(v19, v20), bps(v20, v21), bps(v21, v22), bps(v22, v23), bps(v23, v24), bps(v24, v25), bps(v25, v26))
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
             files = {"first.bps": first, "upgrade17.bps": second,
-                     "upgrade18.bps": third, "upgrade19.bps": fourth, "upgrade20.bps": fifth, "upgrade21.bps": sixth, "upgrade22.bps": seventh, "upgrade23.bps": eighth, "upgrade24.bps": ninth, "upgrade25.bps": tenth}
+                     "upgrade18.bps": third, "upgrade19.bps": fourth, "upgrade20.bps": fifth, "upgrade21.bps": sixth, "upgrade22.bps": seventh, "upgrade23.bps": eighth, "upgrade24.bps": ninth, "upgrade25.bps": tenth, "upgrade26.bps": eleventh}
             for name, raw in files.items():
                 (directory / name).write_bytes(raw)
             with mock_patch.multiple(
                     apply_patch, PATCHES=directory,
                     V16_SHA256=digest(v16), V17_SHA256=digest(v17),
-                    V18_SHA256=digest(v18), V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V22_SHA256=digest(v22), V23_SHA256=digest(v23), V24_SHA256=digest(v24), V25_SHA256=digest(v25), V22_PATCH_SHA256=digest(seventh), V23_PATCH_SHA256=digest(eighth), V24_PATCH_SHA256=digest(ninth), V25_PATCH_SHA256=digest(tenth),
+                    V18_SHA256=digest(v18), V19_SHA256=digest(v19), V20_SHA256=digest(v20), V21_SHA256=digest(v21), V22_SHA256=digest(v22), V23_SHA256=digest(v23), V24_SHA256=digest(v24), V25_SHA256=digest(v25), V22_PATCH_SHA256=digest(seventh), V23_PATCH_SHA256=digest(eighth), V24_PATCH_SHA256=digest(ninth), V25_PATCH_SHA256=digest(tenth), V26_SHA256=digest(v26), V26_PATCH_SHA256=digest(eleventh),
                     V17_PATCH="upgrade17.bps", V18_PATCH="upgrade18.bps",
-                    V19_PATCH="upgrade19.bps", V20_PATCH="upgrade20.bps", V21_PATCH="upgrade21.bps", V22_PATCH="upgrade22.bps", V23_PATCH="upgrade23.bps", V24_PATCH="upgrade24.bps", V25_PATCH="upgrade25.bps", V16_PATCHES={digest(original): "first.bps"},
+                    V19_PATCH="upgrade19.bps", V20_PATCH="upgrade20.bps", V21_PATCH="upgrade21.bps", V22_PATCH="upgrade22.bps", V23_PATCH="upgrade23.bps", V24_PATCH="upgrade24.bps", V25_PATCH="upgrade25.bps", V26_PATCH="upgrade26.bps", V16_PATCHES={digest(original): "first.bps"},
                     PATCH_SHA256={name: digest(raw) for name, raw in files.items()}):
-                for index, source in enumerate((original, v16, v17, v18, v19, v20, v21, v22, v23, v24)):
+                for index, source in enumerate((original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25)):
                     input_path = directory / f"input{index}.sfc"
                     out = directory / f"output{index}.sfc"
                     input_path.write_bytes(source)
                     self.assertEqual(apply_patch.main([str(input_path), "--out", str(out)]), 0)
-                    self.assertEqual(out.read_bytes(), v25)
+                    self.assertEqual(out.read_bytes(), v26)
 
-    def test_current_v25_input_is_reported_without_output(self):
-        current = b"already current v25"
+    def test_current_v26_input_is_reported_without_output(self):
+        current = b"already current v26"
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
             source, out = directory / "current.sfc", directory / "out.sfc"
             source.write_bytes(current)
-            with mock_patch.object(apply_patch, "V25_SHA256", hashlib.sha256(current).hexdigest()):
-                with self.assertRaisesRegex(BPSError, "already the v25"):
+            with mock_patch.object(apply_patch, "V26_SHA256", hashlib.sha256(current).hexdigest()):
+                with self.assertRaisesRegex(BPSError, "already the v26"):
                     apply_patch.choose_patch(current)
                 self.assertEqual(apply_patch.main([str(source), "--out", str(out)]), 1)
                 self.assertFalse(out.exists())
@@ -249,6 +249,61 @@ class CommandTests(unittest.TestCase):
                 apply_patch.main([str(input_path), "--out", str(out)])
             self.assertEqual(out.read_bytes(), b"keep")
 
+
+
+class V26ChainTests(unittest.TestCase):
+    def test_full_synthetic_chain_through_v26(self):
+        original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26 = (
+            b"original", b"v16 fixture", b"v17 fixture", b"v18 fixture",
+            b"v19 fixture", b"v20 fixture", b"v21 fixture", b"v22 fixture",
+            b"v23 fixture", b"v24 fixture", b"v25 fixture", b"v26 fixture")
+        values = (original, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26)
+        names = ("first.bps", "upgrade17.bps", "upgrade18.bps", "upgrade19.bps",
+                 "upgrade20.bps", "upgrade21.bps", "upgrade22.bps", "upgrade23.bps",
+                 "upgrade24.bps", "upgrade25.bps", "upgrade26.bps")
+        patches = {name: bps(values[i], values[i + 1]) for i, name in enumerate(names)}
+        digest = lambda data: hashlib.sha256(data).hexdigest()
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            for name, raw in patches.items():
+                (directory / name).write_bytes(raw)
+            with mock_patch.multiple(
+                    apply_patch, PATCHES=directory,
+                    V16_SHA256=digest(v16), V17_SHA256=digest(v17),
+                    V18_SHA256=digest(v18), V19_SHA256=digest(v19),
+                    V20_SHA256=digest(v20), V21_SHA256=digest(v21),
+                    V22_SHA256=digest(v22), V23_SHA256=digest(v23),
+                    V24_SHA256=digest(v24), V25_SHA256=digest(v25),
+                    V26_SHA256=digest(v26), V22_PATCH_SHA256=digest(patches["upgrade22.bps"]),
+                    V23_PATCH_SHA256=digest(patches["upgrade23.bps"]),
+                    V24_PATCH_SHA256=digest(patches["upgrade24.bps"]),
+                    V25_PATCH_SHA256=digest(patches["upgrade25.bps"]),
+                    V26_PATCH_SHA256=digest(patches["upgrade26.bps"]),
+                    V17_PATCH="upgrade17.bps", V18_PATCH="upgrade18.bps",
+                    V19_PATCH="upgrade19.bps", V20_PATCH="upgrade20.bps",
+                    V21_PATCH="upgrade21.bps", V22_PATCH="upgrade22.bps",
+                    V23_PATCH="upgrade23.bps", V24_PATCH="upgrade24.bps",
+                    V25_PATCH="upgrade25.bps", V26_PATCH="upgrade26.bps",
+                    V16_PATCHES={digest(original): "first.bps"},
+                    PATCH_SHA256={name: digest(raw) for name, raw in patches.items()}):
+                for index, source in enumerate(values[:-1]):
+                    inp = directory / f"input{index}.sfc"
+                    out = directory / f"output{index}.sfc"
+                    inp.write_bytes(source)
+                    self.assertEqual(apply_patch.main([str(inp), "--out", str(out)]), 0)
+                    self.assertEqual(out.read_bytes(), v26)
+
+    def test_missing_v26_increment_fails_without_output(self):
+        source = b"recognized-v25"
+        digest = hashlib.sha256(source).hexdigest()
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            inp, out = directory / "v25.sfc", directory / "out.sfc"
+            inp.write_bytes(source)
+            with mock_patch.multiple(apply_patch, V25_SHA256=digest,
+                                     V26_PATCH_SHA256=None):
+                self.assertEqual(apply_patch.main([str(inp), "--out", str(out)]), 1)
+                self.assertFalse(out.exists())
 
 if __name__ == "__main__":
     unittest.main()

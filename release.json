@@ -1,26 +1,26 @@
 {
-  "version": "v25",
+  "version": "v26",
   "date": "2026-09-10",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+  "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
   "target_bytes": 4194304,
   "patches": [
     {
-      "path": "patches/tmnt-sfii-turbo-v25.bps",
+      "path": "patches/tmnt-sfii-turbo-v26.bps",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
-      "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
-      "sha256": "289a465f3a431cdd5c9bbbb3491547ad92ab62718be726eff130134698e67471",
-      "bytes": 1757720,
+      "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+      "sha256": "e00a7806fa4fce748780dcdc535f3db03df42600224c0adf633fc10e1d68e87f",
+      "bytes": 1763404,
       "roundtrip_exact": true
     },
     {
-      "path": "patches/tmnt-sfii-turbo-v24-to-v25.bps",
-      "source_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
-      "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
-      "sha256": "06e82705d37f373edcba57b7721477875a66db2c647f60e0c07e0d0a09cf99c8",
-      "bytes": 694,
+      "path": "patches/tmnt-sfii-turbo-v25-to-v26.bps",
+      "source_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+      "target_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+      "sha256": "1602a8a253e97be83fdc44489c1c6ea48ec9a35daf7e721c575e1fbf1142d36d",
+      "bytes": 5739,
       "roundtrip_exact": true
     }
   ],
@@ -424,6 +424,22 @@
       "source_sha256": "fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba",
       "target_sha256": "44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1",
       "bytes": 88870
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v25.bps",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+      "sha256": "289a465f3a431cdd5c9bbbb3491547ad92ab62718be726eff130134698e67471",
+      "bytes": 1757720,
+      "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v24-to-v25.bps",
+      "source_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
+      "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+      "sha256": "06e82705d37f373edcba57b7721477875a66db2c647f60e0c07e0d0a09cf99c8",
+      "bytes": 694,
+      "roundtrip_exact": true
     }
   ],
   "replaces_all_twelve_fighter_slots": true,
@@ -434,7 +450,7 @@
   "stage_palette_changes": [
     "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
   ],
-  "older_input_upgrade": "Exact original/headered and v12-v24 inputs follow hash-checked intermediate patches to v25.",
+  "older_input_upgrade": "Exact original/headered and v12-v25 inputs follow hash-checked intermediate patches to v26.",
   "alternate_costumes": {
     "Leo": "Don (Start confirmation, purple)",
     "Raph": "Mikey (Start confirmation, orange)",
@@ -455,15 +471,15 @@
     "verification_version": "v22"
   },
   "release_status": "release-qa-passed-scope-bounded",
-  "changed_bytes": 1516,
-  "changed_bytes_compared_to": "v24",
+  "changed_bytes": 12264,
+  "changed_bytes_compared_to": "v25",
   "caption_name_scope": {
-    "verification_version": "v25",
-    "changed": "No caption-name changes in v25.",
+    "verification_version": "v26",
+    "changed": "No caption-name changes in v26.",
     "inherited": "v22 costume-aware DON/MIKEY select, VS, HUD, and winner-caption behavior is retained.",
     "generic_reader": "No generic-reader changes; inherited static strings remain unchanged."
   },
-  "scope": "204-pixel Super Shredder walking 004/005 repair; twelve readable native biography text packets; original native ending cue 28 with native fade before stock ranking/title. Voices, stage songs and turtle idle unchanged; selective voice treatment awaits user approval; title/map/geography retained; new stage music remains future work.",
+  "scope": "Replace only Shredder’s two private victory voices with a classic boss laugh, lowered about two semitones from its source audition. Attack voice, all impacts/non-vocal effects, other voices, music, gameplay, graphics and endings remain v25-exact. Music replacement is paused.",
   "ending_motion": {
     "loops": 14,
     "scope": "Localized environmental motion; not full character cutscenes.",
@@ -529,71 +545,168 @@
     "verification_version": "v23"
   },
   "verification": {
-    "verification_version": "v25",
-    "package_routes": "passed: exact BPS round-trips and original/v12-v24 inputs",
-    "campaigns": {
-      "turbo_leo": {
-        "stages": 12,
-        "bonuses": 3,
-        "ending_pages": 7,
-        "title_menu": true,
-        "observed_health_fixture_kos": 24
+    "verification_version": "v26",
+    "voice_routes": {
+      "p1-shredder-raph/mixed": {
+        "frames": 3040,
+        "passed": true,
+        "gameplay_oam_pixels_match": true,
+        "nonvoice_dsp_error_count": 0,
+        "attack_dsp_differences": 0,
+        "attack_pcm_frames_checked": 370,
+        "pcm_equal": false
       },
-      "normal_mikey": {
-        "stages": 12,
-        "bonuses": 3,
-        "ending_pages": 7,
-        "title_menu": true,
-        "observed_health_fixture_kos": 23
+      "p1-shredder-raph/isolated": {
+        "frames": 3040,
+        "passed": true,
+        "gameplay_oam_pixels_match": true,
+        "nonvoice_dsp_error_count": 0,
+        "attack_dsp_differences": 0,
+        "attack_pcm_frames_checked": 370,
+        "pcm_equal": false
       },
-      "observed_health_fixture_kos_total": 47,
-      "ending_forcing": false
-    },
-    "audio": {
-      "identities": [
-        "leo",
-        "mikey"
-      ],
-      "continuous_cue28_full_seconds": 36,
-      "fade_tail_rms": 0.0,
-      "fade_tail_peak": 0.0,
-      "next_native_cues": [
-        "2F",
-        "11"
-      ],
-      "initial_pages_and_cgram_exact_v24": 14
-    },
-    "biographies": {
-      "static_native_text_packets_patched": 12,
-      "live_slash_receipt": "passed: two settled screenshots against v2 reference; scope bounded"
-    },
-    "components": {
-      "verification_version": "v25",
-      "super_turbo_p1": {
-        "frames": 1728,
-        "component_rom_sha256": "c8f83e35795bd6f8a9f11f6398b9730c43753d22b3616a2d6c59819e23eb1c17",
-        "combined_actor_ram_and_oam_exact": true,
-        "walking_004_005_png_pixels_exact": true
+      "p2-bebop-shredder/mixed": {
+        "frames": 3040,
+        "passed": true,
+        "gameplay_oam_pixels_match": true,
+        "nonvoice_dsp_error_count": 0,
+        "attack_dsp_differences": 0,
+        "attack_pcm_frames_checked": 333,
+        "pcm_equal": false
       },
-      "slash_biography": {
-        "frames": 25000,
-        "method": "cold boot with no controller input, no RAM/core writes, no cross-ROM state loads",
-        "reference_rom_sha256": "e6776c46c53e2ec708fb6f24ebee4ee1f219a399c9d1f5829fb8a9351dc992d7",
-        "settled_scene00_script06_pngs_exact": 2,
-        "scope": "two settled screenshots; not a full biography or attract-mode audit"
+      "p2-bebop-shredder/isolated": {
+        "frames": 3040,
+        "passed": true,
+        "gameplay_oam_pixels_match": true,
+        "nonvoice_dsp_error_count": 0,
+        "attack_dsp_differences": 0,
+        "attack_pcm_frames_checked": 333,
+        "pcm_equal": false
+      },
+      "leo-raph-control/mixed": {
+        "frames": 558,
+        "passed": true,
+        "gameplay_oam_pixels_match": true,
+        "nonvoice_dsp_error_count": 0,
+        "attack_dsp_differences": 0,
+        "attack_pcm_frames_checked": 0,
+        "pcm_equal": true
       }
     },
-    "post_ending_match": {
-      "passed": true,
-      "fighters": [
-        "Casey",
-        "Splinter"
-      ],
-      "stage": "Casey",
-      "controller_only": true,
-      "native_stage_song_reloaded": true
+    "byte_ownership": "All bytes outside the two Shredder private victory samples, tuning words, short-loop pointers and checksum are v25-exact.",
+    "native_sample_payloads_match_authored_brr": true,
+    "campaign_coverage": "No broad campaign repeated for this isolated audio change; retained v25/v24 evidence is historical.",
+    "package_routes": "passed: both BPS roundtrips, actual original/headered and v12-v25 inputs, current-v26 refusal;33 tests and83-file public audit"
+  },
+  "tested_rom_sha256": "3b7cdb3d32752fbd348e9e51ee765a472b9b8362d3a6becf003eb51e6cb4c957",
+  "checksum": "81E7",
+  "source_release": {
+    "version": "v25",
+    "sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78"
+  },
+  "historical_verification": {
+    "v25": {
+      "verification_version": "v25",
+      "package_routes": "passed: exact BPS round-trips and original/v12-v24 inputs",
+      "campaigns": {
+        "turbo_leo": {
+          "stages": 12,
+          "bonuses": 3,
+          "ending_pages": 7,
+          "title_menu": true,
+          "observed_health_fixture_kos": 24
+        },
+        "normal_mikey": {
+          "stages": 12,
+          "bonuses": 3,
+          "ending_pages": 7,
+          "title_menu": true,
+          "observed_health_fixture_kos": 23
+        },
+        "observed_health_fixture_kos_total": 47,
+        "ending_forcing": false
+      },
+      "audio": {
+        "identities": [
+          "leo",
+          "mikey"
+        ],
+        "continuous_cue28_full_seconds": 36,
+        "fade_tail_rms": 0.0,
+        "fade_tail_peak": 0.0,
+        "next_native_cues": [
+          "2F",
+          "11"
+        ],
+        "initial_pages_and_cgram_exact_v24": 14
+      },
+      "biographies": {
+        "static_native_text_packets_patched": 12,
+        "live_slash_receipt": "passed: two settled screenshots against v2 reference; scope bounded"
+      },
+      "components": {
+        "verification_version": "v25",
+        "super_turbo_p1": {
+          "frames": 1728,
+          "component_rom_sha256": "c8f83e35795bd6f8a9f11f6398b9730c43753d22b3616a2d6c59819e23eb1c17",
+          "combined_actor_ram_and_oam_exact": true,
+          "walking_004_005_png_pixels_exact": true
+        },
+        "slash_biography": {
+          "frames": 25000,
+          "method": "cold boot with no controller input, no RAM/core writes, no cross-ROM state loads",
+          "reference_rom_sha256": "e6776c46c53e2ec708fb6f24ebee4ee1f219a399c9d1f5829fb8a9351dc992d7",
+          "settled_scene00_script06_pngs_exact": 2,
+          "scope": "two settled screenshots; not a full biography or attract-mode audit"
+        }
+      },
+      "post_ending_match": {
+        "passed": true,
+        "fighters": [
+          "Casey",
+          "Splinter"
+        ],
+        "stage": "Casey",
+        "controller_only": true,
+        "native_stage_song_reloaded": true
+      }
     }
   },
-  "tested_rom_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
-  "checksum": "A60A"
+  "voice_replacement": {
+    "fighter": "Shredder/Vega ID11",
+    "events": [
+      "short victory",
+      "long victory"
+    ],
+    "resource_placements": [
+      "52",
+      "53"
+    ],
+    "new_brr_bytes": [
+      1278,
+      4383
+    ],
+    "encoded_rates_hz": [
+      5500,
+      7000
+    ],
+    "live_dsp_pitch": [
+      640,
+      800
+    ],
+    "nominal_playback_rates_hz": [
+      5000,
+      6250
+    ],
+    "source_pitch_lowering_semitones": [
+      1.65,
+      1.96
+    ],
+    "source_attribution": "Generic Boss Laugh 1 from arcade Turtles in Time; archive does not attribute it specifically to Shredder.",
+    "source_page": "https://sounds.spriters-resource.com/arcade/teenagemutantninjaturtlesturtlesintime/asset/409875/",
+    "converter": "https://github.com/Optiroc/BRRtools",
+    "converter_commit": "5b809f171d6a8fe436f09cd883f26994e58feb35",
+    "attack_voice_changed": false,
+    "event_timing_or_envelopes_changed": false
+  }
 }

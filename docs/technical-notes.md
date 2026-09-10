@@ -1,5 +1,13 @@
 # Technical notes
 
+## V26 private victory samples
+
+Resources 52/53 belong exclusively to fighter ID 11. The new short/long BRR samples occupy 1,278/4,383 bytes within their existing 1,467/4,788-byte slots, with zero-history first blocks, one final end flag and no looping. The short directory loop pointer now points at sample start; the attack sample/directory/instrument stays unchanged. No ROM/APU expansion or code hooks.
+
+Private tuning words 09B6/06D2 yield live DSP pitches 640/800, nominal 5,000/6,250 Hz against encoded rates 5,500/7,000 Hz. This lowers the new source by about 1.65/1.96 semitones after driver quantization. Native event timing and envelopes are unchanged; both clips finish before their former gates. The short clip uses source 0.42–0.83 s with a 40 ms tail fade.
+
+Source: [Turtles in Time arcade Voices](https://sounds.spriters-resource.com/arcade/teenagemutantninjaturtlesturtlesintime/asset/409875/), generic Boss Laugh 1 (not specifically attributed to Shredder). Encoded with [BRRtools](https://github.com/Optiroc/BRRtools), commit `5b809f171d6a8fe436f09cd883f26994e58feb35`. Source recordings and emulator states are not bundled. The tooling license does not license third-party recordings or patch content.
+
 ## V25 final-package constraints
 
 The ending starts original native sequence cue 28 and exits with native `F6 Y08` before stock ranking cue 2F and title cue 11. The two audio receipts record 36 full seconds of continuous cue 28 and zero fade-tail RMS/peak before the next native cues.

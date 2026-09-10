@@ -4,7 +4,7 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, eleven replaced backgrounds, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v25.** This repository distributes patches and tools.
+**Current version: v26.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
 ![Repaired select grid](assets/select-v18.png)
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v25.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v26.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v24 releases. Older releases are
-validated through the v16 through v24 intermediates.
+512-byte-headered form) and v12 through v25 releases. Older releases are
+validated through the v16 through v25 intermediates.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
@@ -61,6 +61,12 @@ TMNT cartoon and the NES/SNES games. Leonardo has a tight Japanese night
 backstreet; Shredder, Super Shredder and Krang have distinct Technodrome rooms.
 The original cage and wall-jump mechanics remain on Shredder's stage. V18
 includes the v14 icon-framing and v15 background-animation corrections.
+
+## V26 — Shredder’s deeper victory laugh
+
+Shredder’s two victory celebrations now use a classic TMNT boss laugh, lowered roughly two semitones from the source audition. The short celebration uses a brief chuckle; the longer one uses the full laugh. His existing attack voice stays unchanged.
+
+Both sound-bank placements pass native playback checks. Every ROM byte outside the private victory samples, their tuning/loop pointers and checksum is unchanged from v25: punches, impacts, other voices, music, graphics, moves and endings are preserved. Replacement music is paused; the experimental Music Lab remains separate from this release.
 
 ## V25 — biography, pose, and ending-music repair
 
@@ -131,8 +137,8 @@ affected waist poses are repaired without changing moves or animation timing.
 
 ## What is included
 
-- Full original-to-v25 and direct v24-to-v25 BPS patches, plus patcher support
-  for original/headered and v12–v24 inputs.
+- Full original-to-v26 and direct v25-to-v26 BPS patches, plus patcher support
+  for original/headered and v12–v25 inputs.
 - Earlier BPS patches, including the historical v13 patches, remain available.
 - A portable, hash-checked Python patcher and format-level tests.
 - Standalone source for v13's scrolling repair and v15's stage-animation fix.
@@ -150,7 +156,7 @@ patch to the verified original.
 ## Current limits
 
 Super Shredder walking poses 004/005 have the v25 204-pixel waist repair, and all twelve native biography text packets use readable TMNT presentation text. Static packet checks cover all twelve. A no-input Slash replay also matches two settled biography screens against its v2 reference; this is not a full biography or attract-mode audit. The ending music runs for 36 full seconds and fades before stock ranking and title music.
-Voices, stage songs and turtle idle remain unchanged. Selective voice treatment awaits user approval, and new stage music remains future work. Existing title, map and geography presentation is retained. V24's localized environmental motion remains limited to the illustrated endings rather than full character cutscenes.
+V26 replaces only Shredder’s two victory voices; other voices and turtle idle retain their previous behavior. Further voice choices remain open. Replacement music is paused and the release retains its original soundtrack. Existing title, map and geography presentation is retained. V24's localized environmental motion remains limited to the illustrated endings rather than full character cutscenes.
 See [verification](docs/verification.md) for measured coverage; testing uses
 an emulator, rather than original-hardware certification.
 
