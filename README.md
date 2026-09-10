@@ -4,7 +4,7 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, eleven replaced backgrounds, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v27.** This repository distributes patches and tools.
+**Current version: v28.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
 ![Repaired select grid](assets/select-v18.png)
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v27.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v28.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v26 releases. Older releases are
-validated through the v16 through v26 intermediates.
+512-byte-headered form) and v12 through v27 releases. Older releases are
+validated through the v16 through v27 intermediates.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
@@ -61,6 +61,10 @@ TMNT cartoon and the NES/SNES games. Leonardo has a tight Japanese night
 backstreet; Shredder, Super Shredder and Krang have distinct Technodrome rooms.
 The original cage and wall-jump mechanics remain on Shredder's stage. V18
 includes the v14 icon-framing and v15 background-animation corrections.
+
+## V28 — voice and fire-effect repairs
+
+V28 adds the requested slightly deeper Casey “Fore!” voice and Splinter’s approved “Practice harder” voice. It also repairs the Slash and Leatherhead burn effects, which had mapped their burn silhouettes to the wrong body, and restores Splinter’s flame OAM. These repairs retain the original effects while correcting their visual mapping. Fighting moves, impacts, other voices, and the original music are preserved. The separate replacement-music experiment remains paused.
 
 ## V26 — Shredder’s deeper victory laugh
 
@@ -178,3 +182,6 @@ Background: [U.S. Copyright Office on derivative works](https://www.copyright.go
 and [GitHub's DMCA policy](https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy).
 Please do not upload ROMs, emulator save states, extracted original game
 assets or ROM-download links in issues, pull requests or releases.
+
+
+V28 adds the requested slightly deeper Casey voice and Splinter’s approved voice, and repairs the Leatherhead and Slash burn silhouettes plus Splinter flame OAM. Original music is retained; the separate replacement-music experiment remains paused. Turtle-idle polish remains open.
