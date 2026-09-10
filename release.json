@@ -1,26 +1,26 @@
 {
-  "version": "v24",
+  "version": "v25",
   "date": "2026-09-10",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
+  "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
   "target_bytes": 4194304,
   "patches": [
     {
-      "path": "patches/tmnt-sfii-turbo-v24.bps",
+      "path": "patches/tmnt-sfii-turbo-v25.bps",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
-      "target_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
-      "sha256": "82692fca5805e9a6fac7962424591c82d98d8b5a51262f0b7c6929b032b71b35",
-      "bytes": 1757181,
+      "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+      "sha256": "289a465f3a431cdd5c9bbbb3491547ad92ab62718be726eff130134698e67471",
+      "bytes": 1757720,
       "roundtrip_exact": true
     },
     {
-      "path": "patches/tmnt-sfii-turbo-v23-to-v24.bps",
-      "source_sha256": "44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1",
-      "target_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
-      "sha256": "17f46bf12b21a657584bb7c208b845eeb27c88af8d16ab26f6abc3673e351e6a",
-      "bytes": 5713,
+      "path": "patches/tmnt-sfii-turbo-v24-to-v25.bps",
+      "source_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
+      "target_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+      "sha256": "06e82705d37f373edcba57b7721477875a66db2c647f60e0c07e0d0a09cf99c8",
+      "bytes": 694,
       "roundtrip_exact": true
     }
   ],
@@ -394,6 +394,36 @@
       "sha256": "37c53fbf8a8b49a44acc2ae70c053ef5a1d912c7e9da209a60e4f35e96856e36",
       "bytes": 421,
       "historical": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v24.bps",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
+      "sha256": "82692fca5805e9a6fac7962424591c82d98d8b5a51262f0b7c6929b032b71b35",
+      "bytes": 1757181,
+      "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v23-to-v24.bps",
+      "source_sha256": "44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1",
+      "target_sha256": "c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0",
+      "sha256": "17f46bf12b21a657584bb7c208b845eeb27c88af8d16ab26f6abc3673e351e6a",
+      "bytes": 5713,
+      "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v23.bps",
+      "sha256": "4df54d5cffe9acbb1370278a34120d7926bd09b180d7e0ce835827e47052e6f5",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1",
+      "bytes": 1751513
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v22-to-v23.bps",
+      "sha256": "27519ca0023ccafcda6a3d7a39b62d4f6ede9152f86298d5ff44318ec438519b",
+      "source_sha256": "fe12e8693eb985e1318f1652a9be837090ad4c4ceff4eaa0fef880eb5749ddba",
+      "target_sha256": "44bed3f90b327db71377a3b09542cc287e35a95fcb6eafffedeb81683bb2cdb1",
+      "bytes": 88870
     }
   ],
   "replaces_all_twelve_fighter_slots": true,
@@ -404,10 +434,11 @@
   "stage_palette_changes": [
     "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
   ],
-  "older_input_upgrade": "Exact original/headered and v12-v23 inputs follow hash-checked intermediate patches to v24.",
+  "older_input_upgrade": "Exact original/headered and v12-v24 inputs follow hash-checked intermediate patches to v25.",
   "alternate_costumes": {
     "Leo": "Don (Start confirmation, purple)",
-    "Raph": "Mikey (Start confirmation, orange)"
+    "Raph": "Mikey (Start confirmation, orange)",
+    "verification_version": "v21"
   },
   "alternate_name_scope": {
     "changed": [
@@ -419,20 +450,20 @@
     ],
     "aggregate_records": "LEO/DON and RAPH/MIKEY identify shared fighter-slot totals",
     "unchanged": [
-      "Some generic static text and biography fields"
-    ]
+      "Original map/title presentation; biography panels use shared turtle-slot descriptions rather than separate Don/Mikey panels."
+    ],
+    "verification_version": "v22"
   },
-  "release_status": "verified",
-  "snes_checksum": "B238",
-  "changed_bytes": 11473,
-  "changed_bytes_compared_to": "v23",
+  "release_status": "release-qa-passed-scope-bounded",
+  "changed_bytes": 1516,
+  "changed_bytes_compared_to": "v24",
   "caption_name_scope": {
-    "changed": "No caption changes in v24.",
-    "unchanged": "All v23 costume-aware DON/MIKEY captions and gameplay resources are preserved.",
-    "historical_v23": "Mikey/Raph pose073 restored its missing DMA load in v23; v24 preserves that repair.",
-    "generic_reader": "No generic-reader changes; dormant generic strings remain unchanged."
+    "verification_version": "v25",
+    "changed": "No caption-name changes in v25.",
+    "inherited": "v22 costume-aware DON/MIKEY select, VS, HUD, and winner-caption behavior is retained.",
+    "generic_reader": "No generic-reader changes; inherited static strings remain unchanged."
   },
-  "scope": "Subtle native animation in all 14 illustrated endings; accepted base art, stories, credits and gameplay preserved.",
+  "scope": "204-pixel Super Shredder walking 004/005 repair; twelve readable native biography text packets; original native ending cue 28 with native fade before stock ranking/title. Voices, stage songs and turtle idle unchanged; selective voice treatment awaits user approval; title/map/geography retained; new stage music remains future work.",
   "ending_motion": {
     "loops": 14,
     "scope": "Localized environmental motion; not full character cutscenes.",
@@ -447,7 +478,7 @@
       1.92
     ],
     "component_proof": "1,964 live consumers and all 27 scene graphs exact; prior DMA records exact.",
-    "runtime_qa": "passed",
+    "runtime_qa": "passed (v24 matrix; not fresh v25 runtime coverage)",
     "runtime_coverage": {
       "identities": 14,
       "native_pages": 98,
@@ -455,17 +486,28 @@
       "loops_per_page": 2,
       "complete_phase_payloads_exact": true,
       "cgram_exact": true,
-      "outside_effect_vram_pixels_exact": true
+      "outside_effect_vram_pixels_exact": true,
+      "verification_version": "v24"
     },
     "campaign_coverage": {
       "turbo_coldboots": 14,
       "normal_don_mikey_coldboots": 2,
       "stages": 12,
       "bonuses": 3,
-      "ending_pages": [1, 2, 3, 4, 5, 6, 7],
+      "ending_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
       "observed_health_fixture_kos": 382,
-      "ending_forcing": false
-    }
+      "ending_forcing": false,
+      "verification_version": "v24"
+    },
+    "verification_version": "v24"
   },
   "endings": {
     "identities": 14,
@@ -483,6 +525,75 @@
       "Mikey"
     ],
     "return": "Original ranking/title/menu path; native font preserved",
-    "localized_animation": true
-  }
+    "localized_animation": true,
+    "verification_version": "v23"
+  },
+  "verification": {
+    "verification_version": "v25",
+    "package_routes": "passed: exact BPS round-trips and original/v12-v24 inputs",
+    "campaigns": {
+      "turbo_leo": {
+        "stages": 12,
+        "bonuses": 3,
+        "ending_pages": 7,
+        "title_menu": true,
+        "observed_health_fixture_kos": 24
+      },
+      "normal_mikey": {
+        "stages": 12,
+        "bonuses": 3,
+        "ending_pages": 7,
+        "title_menu": true,
+        "observed_health_fixture_kos": 23
+      },
+      "observed_health_fixture_kos_total": 47,
+      "ending_forcing": false
+    },
+    "audio": {
+      "identities": [
+        "leo",
+        "mikey"
+      ],
+      "continuous_cue28_full_seconds": 36,
+      "fade_tail_rms": 0.0,
+      "fade_tail_peak": 0.0,
+      "next_native_cues": [
+        "2F",
+        "11"
+      ],
+      "initial_pages_and_cgram_exact_v24": 14
+    },
+    "biographies": {
+      "static_native_text_packets_patched": 12,
+      "live_slash_receipt": "passed: two settled screenshots against v2 reference; scope bounded"
+    },
+    "components": {
+      "verification_version": "v25",
+      "super_turbo_p1": {
+        "frames": 1728,
+        "component_rom_sha256": "c8f83e35795bd6f8a9f11f6398b9730c43753d22b3616a2d6c59819e23eb1c17",
+        "combined_actor_ram_and_oam_exact": true,
+        "walking_004_005_png_pixels_exact": true
+      },
+      "slash_biography": {
+        "frames": 25000,
+        "method": "cold boot with no controller input, no RAM/core writes, no cross-ROM state loads",
+        "reference_rom_sha256": "e6776c46c53e2ec708fb6f24ebee4ee1f219a399c9d1f5829fb8a9351dc992d7",
+        "settled_scene00_script06_pngs_exact": 2,
+        "scope": "two settled screenshots; not a full biography or attract-mode audit"
+      }
+    },
+    "post_ending_match": {
+      "passed": true,
+      "fighters": [
+        "Casey",
+        "Splinter"
+      ],
+      "stage": "Casey",
+      "controller_only": true,
+      "native_stage_song_reloaded": true
+    }
+  },
+  "tested_rom_sha256": "59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78",
+  "checksum": "A60A"
 }

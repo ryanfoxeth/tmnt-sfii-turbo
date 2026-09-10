@@ -94,6 +94,10 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v23.bps': '4df54d5cffe9acbb1370278a3412
 ALLOW.update({'patches/tmnt-sfii-turbo-v24.bps','patches/tmnt-sfii-turbo-v23-to-v24.bps','tests/test_v24_patcher.py'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v24.bps': '82692fca5805e9a6fac7962424591c82d98d8b5a51262f0b7c6929b032b71b35','patches/tmnt-sfii-turbo-v23-to-v24.bps': '17f46bf12b21a657584bb7c208b845eeb27c88af8d16ab26f6abc3673e351e6a'})
 
+# v25 private staging additions.
+ALLOW.update({'patches/tmnt-sfii-turbo-v25.bps','patches/tmnt-sfii-turbo-v24-to-v25.bps','tests/test_v25_patcher.py'})
+PATCHES.update({'patches/tmnt-sfii-turbo-v25.bps': '289a465f3a431cdd5c9bbbb3491547ad92ab62718be726eff130134698e67471','patches/tmnt-sfii-turbo-v24-to-v25.bps': '06e82705d37f373edcba57b7721477875a66db2c647f60e0c07e0d0a09cf99c8'})
+
 def audit():
     if (ROOT/'.git').is_dir():
         files=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')

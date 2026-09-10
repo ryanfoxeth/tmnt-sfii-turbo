@@ -1,5 +1,11 @@
 # Technical notes
 
+## V25 final-package constraints
+
+The ending starts original native sequence cue 28 and exits with native `F6 Y08` before stock ranking cue 2F and title cue 11. The two audio receipts record 36 full seconds of continuous cue 28 and zero fade-tail RMS/peak before the next native cues.
+
+V25 repairs 204 Super Shredder waist pixels across walking poses 004/005 and patches all twelve native biography text packets. The combined Turbo P1 check covers 1,728 frames with exact actor RAM/OAM and pixel-exact poses 004/005. A 25,000-frame no-input Slash cold boot matches two settled scene00/script06 screens to the v2 reference; it is not a full biography or attract-mode audit. Voices, stage songs and turtle idle remain unchanged. Selective voice work requires user approval; new stage music remains future work. Existing title, map and geography presentation is retained.
+
 ## V23 ending player and victory DMA contract
 
 The shared Arcade-ending dispatcher at C0:32F8 now enters a native 65816 player.

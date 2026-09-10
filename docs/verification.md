@@ -1,5 +1,18 @@
 # Verification of the game build
 
+## V25 — release-QA record
+
+Tested target SHA-256: `59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78`. Package validation covers exact BPS round-trips and all supported original/v12–v24 patcher routes.
+
+- Fresh Turbo Leo and Normal Mikey Arcade campaigns each reached all twelve stages, three bonuses, ending pages 1–7, the native title, and the menu. They used only health fixtures in live fighter rooms, with no ending or scene forcing, and recorded 24 and 23 observed KOs respectively (47 total).
+- The two audio receipts confirm the original native ending music plays continuously for 36 full seconds, then fades fully before stock ranking and title music. Both have zero measured fade-tail RMS and peak. All fourteen initial ending pages and their CGRAM palettes are v24-exact; this is initial-page/palette coverage, not a new all-identity motion matrix.
+- The combined Super Shredder component check covers 1,728 Turbo P1 frames: actor RAM and OAM are exact, and walking poses 004 and 005 are pixel-exact against the dedicated waist component.
+- All twelve native biography text packets are statically patched. The no-input Slash check runs 25,000 cold-boot frames and matches two settled scene00/script06 screenshots against the v2 reference, without RAM/core writes or cross-ROM state loads. It is not a full biography or attract-mode audit.
+- After the complete Turbo Leo ending, controller-only navigation reaches a new Casey/Splinter VS match and correctly reloads its native stage music.
+- Voices, stage songs, turtle idle, and title/map/geography presentation remain unchanged. Selective voice treatment awaits user approval; new stage music remains future work.
+
+The v24 localized-ending-motion matrix below remains historical v24 evidence. This is emulator evidence, not original-hardware certification.
+
 ## V24 — verified localized ending motion
 
 Tested target SHA-256: `c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0`; SNES checksum: `B238`; changed bytes: 11,473 compared with v23.

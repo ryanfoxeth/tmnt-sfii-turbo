@@ -1,5 +1,15 @@
 # Releases
 
+## v25 — release QA passed
+
+Target SHA-256: `59a52734d56110ba15c862d2966856c4e3d8cb69a54e9ccc774e4815c27e6f78`.
+
+V25 repairs 204 pixels across Super Shredder walking poses 004/005 and patches all twelve native biography text packets with readable TMNT presentation text. The combined Turbo P1 check covers 1,728 frames with exact actor RAM/OAM and pixel-exact poses 004/005. A 25,000-frame cold-boot Slash replay matches two settled biography screenshots to the v2 reference; it does not claim a full biography or attract-mode audit.
+
+The ending plays the original native music continuously for 36 full seconds, then fades before stock ranking and title music. Fresh Turbo Leo and Normal Mikey Arcade campaigns each reached all twelve stages, three bonuses, ending pages 1–7, the native title, and the menu, with 47 observed health-fixture KOs total. Both audio receipts confirm all fourteen ending initial pages and palettes remain v24-exact. See the [verification record](verification.md).
+
+Voices, stage songs, turtle idle, and title/map/geography presentation are unchanged. Selective voice treatment awaits user approval; new stage music remains future work.
+
 ## v24 — verified localized ending motion
 
 Released 2026-09-10. Target SHA-256: `c629124fd0020bbca92803ac4e6b8bc630c9e98385e6750fcc5cb644762c19a0`; SNES checksum: `B238`.

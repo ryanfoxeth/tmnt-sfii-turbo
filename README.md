@@ -4,7 +4,7 @@ A fan-made visual overhaul of **Street Fighter II Turbo for SNES**: twelve TMNT
 characters, eleven replaced backgrounds, and the original fighting moves underneath.
 Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 
-**Current version: v24.** This repository distributes patches and tools.
+**Current version: v25.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
 ![Repaired select grid](assets/select-v18.png)
@@ -17,7 +17,7 @@ You supply the matching original game; no complete game ROM is included.
 3. With Python 3.9 or newer, run:
 
    ```bash
-   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v24.sfc"
+   python3 apply_patch.py "/path/to/original.smc" --out "TMNT-SFII-v25.sfc"
    ```
 
    On Windows, use `py -3` in place of `python3`.
@@ -28,8 +28,8 @@ You supply the matching original game; no complete game ROM is included.
 The patcher runs locally on Linux, macOS or Windows. It checks the input
 revision, patch checksums and final output hash, and refuses to overwrite
 an existing file. It accepts the exact original (including the verified
-512-byte-headered form) and v12 through v23 releases. Older releases are
-validated through the v16 through v23 intermediates.
+512-byte-headered form) and v12 through v24 releases. Older releases are
+validated through the v16 through v24 intermediates.
 It never downloads a ROM or sends your file anywhere.
 
 For a graphical patcher, the `.bps` files in `patches/` work with
@@ -61,6 +61,14 @@ TMNT cartoon and the NES/SNES games. Leonardo has a tight Japanese night
 backstreet; Shredder, Super Shredder and Krang have distinct Technodrome rooms.
 The original cage and wall-jump mechanics remain on Shredder's stage. V18
 includes the v14 icon-framing and v15 background-animation corrections.
+
+## V25 — biography, pose, and ending-music repair
+
+V25 repairs 204 pixels across Super Shredder walking poses 004/005 and patches all twelve native biography text packets with readable TMNT presentation text. Static packet checks cover all twelve biographies. A no-input Slash replay also matches two settled biography screens against its v2 reference; this is not a full biography or attract-mode audit.
+
+The ending plays the original native music continuously for 36 full seconds, then fades before the stock ranking and title music. Fresh Turbo Leo and Normal Mikey Arcade campaigns each reached all twelve stages, three bonuses, ending pages 1–7, the native title, and the menu; they recorded 47 health-fixture KOs in total. The two audio receipts also confirm all fourteen ending initial pages and palettes remain v24-exact.
+
+Voice resources, stage songs, turtle idle, and the existing title, map, and geography presentation are unchanged. Selective voice treatment awaits user approval; new stage music remains future work.
 
 ## V24 — subtle ending motion
 
@@ -100,7 +108,7 @@ enforce different costumes, respecting the first confirmed selection.
 
 Large portraits and defeated/continue portraits follow the costume. The battle
 HUD and VS winner banners temporarily say **DON/MIKEY**. Select/VS bitmap
-captions, aggregate records and other static names remain **LEO/RAPH**.
+captions, aggregate records and other static names remain **LEO/RAPH** in this v21 history entry. [V22](docs/releases.md#v22--costume-aware-turtle-captions) later adds costume-aware select and VS captions.
 
 ![Regular and alternate turtles](assets/alt-turtles-v21.png)
 
@@ -123,8 +131,8 @@ affected waist poses are repaired without changing moves or animation timing.
 
 ## What is included
 
-- Full original-to-v24 and direct v23-to-v24 BPS patches, plus patcher support
-  for original/headered and v12–v23 inputs.
+- Full original-to-v25 and direct v24-to-v25 BPS patches, plus patcher support
+  for original/headered and v12–v24 inputs.
 - Earlier BPS patches, including the historical v13 patches, remain available.
 - A portable, hash-checked Python patcher and format-level tests.
 - Standalone source for v13's scrolling repair and v15's stage-animation fix.
@@ -141,10 +149,8 @@ patch to the verified original.
 
 ## Current limits
 
-Turtle idle animation and Super Shredder walking poses 004/005 still need polish.
-Most fighters retain their original voices; Shredder has the earlier lowered
-voice treatment. Some original world-map/biography identity fields remain.
-V24 adds localized environmental motion to the illustrated endings; it does not add full character cutscenes. The historical v23 release remains static illustrations with timed story/credit pages.
+Super Shredder walking poses 004/005 have the v25 204-pixel waist repair, and all twelve native biography text packets use readable TMNT presentation text. Static packet checks cover all twelve. A no-input Slash replay also matches two settled biography screens against its v2 reference; this is not a full biography or attract-mode audit. The ending music runs for 36 full seconds and fades before stock ranking and title music.
+Voices, stage songs and turtle idle remain unchanged. Selective voice treatment awaits user approval, and new stage music remains future work. Existing title, map and geography presentation is retained. V24's localized environmental motion remains limited to the illustrated endings rather than full character cutscenes.
 See [verification](docs/verification.md) for measured coverage; testing uses
 an emulator, rather than original-hardware certification.
 
