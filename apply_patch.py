@@ -99,6 +99,13 @@ V28_FULL_PATCH = 'tmnt-sfii-turbo-v28.bps'
 V28_PATCH_SHA256 = 'fc7af3e8e51304b146ea88bd516e31c1d35f06a0736fdf80f734904d3bb41095'
 V28_FULL_PATCH_SHA256 = '8084b6f6f3582894b5d8eb982c3175eeca3dbbf45ba5e479cbc90f188c453919'
 
+# v29 all-fighter voice release.
+V29_SHA256 = '03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a'
+V29_PATCH = 'tmnt-sfii-turbo-v28-to-v29.bps'
+V29_FULL_PATCH = 'tmnt-sfii-turbo-v29.bps'
+V29_PATCH_SHA256 = '193a288865eaa3929b30b6ad5add44978e3651141d03fd6aa985f72c07ed4f2b'
+V29_FULL_PATCH_SHA256 = '12696e6843d1b94039ead4e426a33d32d9ee293261fa8f3187cec898a6a1d7d3'
+
 def _require_release_metadata():
     if not V22_PATCH_SHA256:
         raise BPSError('v22 patch metadata is pending final QA and BPS generation')
@@ -128,6 +135,10 @@ def _require_release_metadata():
     if not V28_PATCH_SHA256: raise BPSError("v28 incremental patch metadata is missing")
     PATCH_SHA256[V28_PATCH] = V28_PATCH_SHA256
     PATCH_SHA256[V28_FULL_PATCH] = V28_FULL_PATCH_SHA256
+    if not V29_PATCH_SHA256:
+        raise BPSError('v29 incremental patch metadata is missing')
+    PATCH_SHA256[V29_PATCH] = V29_PATCH_SHA256
+    PATCH_SHA256[V29_FULL_PATCH] = V29_FULL_PATCH_SHA256
     PATCH_SHA256[V27_FULL_PATCH] = V27_FULL_PATCH_SHA256
     PATCH_SHA256[V26_PATCH] = V26_PATCH_SHA256
     if V26_FULL_PATCH_SHA256:
@@ -140,8 +151,10 @@ def sha256(data: bytes) -> str:
 
 def choose_patch(input_bytes: bytes):
     digest = sha256(input_bytes)
+    if digest == V29_SHA256:
+        raise BPSError("input is already the v29 release; no patch is needed")
     if digest == V28_SHA256:
-        raise BPSError("input is already the v28 release; no patch is needed")
+        return input_bytes, PATCHES / V29_PATCH
     if digest == V27_SHA256:
         return input_bytes, PATCHES / V28_PATCH
     if digest == V26_SHA256:
@@ -172,13 +185,13 @@ def choose_patch(input_bytes: bytes):
         if len(input_bytes) < 512 or sha256(input_bytes[512:]) != BASE_SHA256:
             raise BPSError("recognized headered ROM did not yield the expected base ROM")
         return input_bytes[512:], PATCHES / V16_PATCHES[BASE_SHA256]
-    raise BPSError("input SHA-256 is not a supported original, v12 through v27 revision")
+    raise BPSError("input SHA-256 is not a supported original, v12 through v28 revision")
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", type=Path, help="supported original, v12 through v27 ROM")
-    parser.add_argument("--out", required=True, type=Path, help="new v28 output file")
+    parser.add_argument("input", type=Path, help="supported original, v12 through v28 ROM")
+    parser.add_argument("--out", required=True, type=Path, help="new v29 output file")
     args = parser.parse_args(argv)
     if args.out.exists():
         parser.error("refusing to overwrite existing output: {}".format(args.out))
@@ -192,7 +205,7 @@ def main(argv=None) -> int:
         if sha256(patch) != expected_patch:
             raise BPSError("patch SHA-256 does not match the published release")
         target, _ = apply_bps(source, patch)
-        if patch_path.name not in (V18_PATCH, V19_PATCH, V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V18_PATCH, V19_PATCH, V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if patch_path.name != V17_PATCH:
                 if sha256(target) != V16_SHA256:
                     raise BPSError("intermediate ROM SHA-256 does not match v16")
@@ -206,69 +219,72 @@ def main(argv=None) -> int:
             if sha256(upgrade) != PATCH_SHA256[V18_PATCH]:
                 raise BPSError("v18 upgrade patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V19_PATCH, V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V19_PATCH, V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V18_SHA256:
                 raise BPSError("intermediate ROM SHA-256 does not match v18")
             upgrade = (PATCHES / V19_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V19_PATCH]:
                 raise BPSError("v19 upgrade patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH) and sha256(target) != V19_SHA256:
+        if patch_path.name not in (V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH) and sha256(target) != V19_SHA256:
             raise BPSError("patched ROM SHA-256 does not match the v19 release")
-        if patch_path.name not in (V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V20_PATCH, V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             upgrade = (PATCHES / V20_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V20_PATCH]:
                 raise BPSError("v20 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V21_PATCH, V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V20_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v20 release")
             upgrade = (PATCHES / V21_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V21_PATCH]:
                 raise BPSError("v21 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V22_PATCH, V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V21_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v21 release")
             upgrade = (PATCHES / V22_PATCH).read_bytes()
             if sha256(upgrade) != PATCH_SHA256[V22_PATCH]:
                 raise BPSError("v22 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V23_PATCH, V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V22_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v22 release")
             upgrade=(PATCHES / V23_PATCH).read_bytes()
             if sha256(upgrade) != V23_PATCH_SHA256:
                 raise BPSError("v23 patch SHA-256 does not match")
             target,_=apply_bps(target,upgrade)
-        if patch_path.name not in (V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V24_PATCH, V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V23_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v23 release")
             upgrade = (PATCHES / V24_PATCH).read_bytes()
             if sha256(upgrade) != V24_PATCH_SHA256:
                 raise BPSError("v24 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V25_PATCH, V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V24_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v24 release")
             upgrade = (PATCHES / V25_PATCH).read_bytes()
             if sha256(upgrade) != V25_PATCH_SHA256:
                 raise BPSError("v25 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V26_PATCH, V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V26_PATCH, V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V25_SHA256:
                 raise BPSError("patched ROM SHA-256 does not match the v25 release")
             upgrade = (PATCHES / V26_PATCH).read_bytes()
             if sha256(upgrade) != V26_PATCH_SHA256:
                 raise BPSError("v26 patch SHA-256 does not match")
             target, _ = apply_bps(target, upgrade)
-        if patch_path.name not in (V27_PATCH, V28_PATCH):
+        if patch_path.name not in (V27_PATCH, V28_PATCH, V29_PATCH):
             if sha256(target) != V26_SHA256: raise BPSError("patched ROM SHA-256 does not match v26")
             target, _ = apply_bps(target, (PATCHES / V27_PATCH).read_bytes())
-        if patch_path.name != V28_PATCH:
+        if patch_path.name not in (V28_PATCH, V29_PATCH):
             if sha256(target) != V27_SHA256: raise BPSError("patched ROM SHA-256 does not match v27")
             target, _ = apply_bps(target, (PATCHES / V28_PATCH).read_bytes())
-        if sha256(target) != V28_SHA256: raise BPSError("patched ROM SHA-256 does not match v28")
+        if patch_path.name != V29_PATCH:
+            if sha256(target) != V28_SHA256: raise BPSError("patched ROM SHA-256 does not match v28")
+            target, _ = apply_bps(target, (PATCHES / V29_PATCH).read_bytes())
+        if sha256(target) != V29_SHA256: raise BPSError("patched ROM SHA-256 does not match v29")
         # Exclusive creation keeps the no-overwrite guarantee even if another
         # process creates the destination after the check above.
         with args.out.open("xb") as output:
@@ -276,7 +292,7 @@ def main(argv=None) -> int:
     except (OSError, BPSError) as error:
         print("error: {}".format(error), file=sys.stderr)
         return 1
-    print("Wrote {} (SHA-256: {})".format(args.out, V28_SHA256))
+    print("Wrote {} (SHA-256: {})".format(args.out, V29_SHA256))
     return 0
 
 

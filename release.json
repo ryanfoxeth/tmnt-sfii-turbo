@@ -1,26 +1,26 @@
 {
-  "version": "v28",
+  "version": "v29",
   "date": "2026-09-10",
   "game": "Street Fighter II Turbo",
   "platform": "SNES",
   "region_revision": "Europe/PAL 1.0",
-  "target_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
+  "target_sha256": "03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a",
   "target_bytes": 4194304,
   "patches": [
     {
-      "path": "patches/tmnt-sfii-turbo-v28.bps",
+      "path": "patches/tmnt-sfii-turbo-v29.bps",
       "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
-      "target_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
-      "sha256": "8084b6f6f3582894b5d8eb982c3175eeca3dbbf45ba5e479cbc90f188c453919",
-      "bytes": 1768209,
+      "target_sha256": "03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a",
+      "sha256": "12696e6843d1b94039ead4e426a33d32d9ee293261fa8f3187cec898a6a1d7d3",
+      "bytes": 1791353,
       "roundtrip_exact": true
     },
     {
-      "path": "patches/tmnt-sfii-turbo-v27-to-v28.bps",
-      "source_sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1",
-      "target_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
-      "sha256": "fc7af3e8e51304b146ea88bd516e31c1d35f06a0736fdf80f734904d3bb41095",
-      "bytes": 5479,
+      "path": "patches/tmnt-sfii-turbo-v28-to-v29.bps",
+      "source_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
+      "target_sha256": "03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a",
+      "sha256": "193a288865eaa3929b30b6ad5add44978e3651141d03fd6aa985f72c07ed4f2b",
+      "bytes": 23198,
       "roundtrip_exact": true
     }
   ],
@@ -472,6 +472,22 @@
       "sha256": "481405fccc22dac9f70d630b50b3c3b5045f802dc64ded9ce85fb1683bc5cd09",
       "bytes": 61,
       "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v28.bps",
+      "source_sha256": "b8ee1b5b9deae5c84fa209815515030109cc271b645a18de882aaf1b254cda1f",
+      "target_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
+      "sha256": "8084b6f6f3582894b5d8eb982c3175eeca3dbbf45ba5e479cbc90f188c453919",
+      "bytes": 1768209,
+      "roundtrip_exact": true
+    },
+    {
+      "path": "patches/tmnt-sfii-turbo-v27-to-v28.bps",
+      "source_sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1",
+      "target_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
+      "sha256": "fc7af3e8e51304b146ea88bd516e31c1d35f06a0736fdf80f734904d3bb41095",
+      "bytes": 5479,
+      "roundtrip_exact": true
     }
   ],
   "replaces_all_twelve_fighter_slots": true,
@@ -482,7 +498,7 @@
   "stage_palette_changes": [
     "Leatherhead stage 2 uses the v20 Brazil night palette and backdrop"
   ],
-  "older_input_upgrade": "Exact original/headered and v12-v27 inputs upgrade through hash-checked patches to v28.",
+  "older_input_upgrade": "Exact original/headered and v12-v28 inputs upgrade through hash-checked patches to v29.",
   "alternate_costumes": {
     "Leo": "Don (Start confirmation, purple)",
     "Raph": "Mikey (Start confirmation, orange)",
@@ -502,16 +518,16 @@
     ],
     "verification_version": "v22"
   },
-  "release_status": "private-staging-pending-runtime-qa",
-  "changed_bytes": 2056,
-  "changed_bytes_compared_to": "v27",
+  "release_status": "released v29; r5 runtime QA passed",
+  "changed_bytes": 68486,
+  "changed_bytes_compared_to": "v28",
   "caption_name_scope": {
     "verification_version": "v27",
     "changed": "No caption-name changes in v27.",
     "inherited": "v22 costume-aware DON/MIKEY select, VS, HUD, and winner-caption behavior is retained.",
     "generic_reader": "No generic-reader changes; inherited static strings remain unchanged."
   },
-  "scope": "Requested slightly deeper Casey Fore and approved Splinter Practice harder private voices; Leatherhead burn pose 89, Slash burn pose 84, and Splinter flame poses 111\u2013117 fire graphics repaired. Original music, impacts, gameplay and other voices retained.",
+  "scope": "Voice updates only. Original music, hits, and non-vocal FX are retained. Accepted Casey, Splinter, Shredder, and Super Shredder voices remain. New turtle shared movie calls, April, Bebop, and Leatherhead voices are included, with actor-specific Slash, Krang, and Rocksteady voices.",
   "ending_motion": {
     "loops": 14,
     "scope": "Localized environmental motion; not full character cutscenes.",
@@ -577,14 +593,35 @@
     "verification_version": "v23"
   },
   "verification": {
-    "verification_version": "v28",
-    "status": "pending runtime QA"
+    "verification_version": "v29-r5",
+    "status": "passed",
+    "static_preservation": {
+      "changed_bytes_from_v28": 68486,
+      "graphics_consumers_exact": 1962,
+      "scene_graphs_exact": 27,
+      "original_song_resources_exact": 34,
+      "common_02_33_exact": true,
+      "approved_voice_resources_exact": ["3B", "3C", "3D", "3E", "3F", "40", "52", "53"],
+      "r4_to_r5_only_direct_page_guard_and_checksum": true
+    },
+    "native_routes": {
+      "r4_voice_routes_passed": 24,
+      "r5_focused_routes_passed": 4,
+      "r5_ko_placements_passed": 6,
+      "slash_arcade": {"frames": 39163, "knockouts": 24, "battle_stages": 12, "ending_pages": 7}
+    },
+    "package_routes": {
+      "actual_successful_cli_routes": 19,
+      "inputs": "exact original, verified headered original, and v12 through v28",
+      "target_sha256": "03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a",
+      "current_v29_refused_without_output": true
+    }
   },
-  "tested_rom_sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b",
-  "checksum": "F1F0",
+  "tested_rom_sha256": "03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a",
+  "checksum": "9AE3",
   "source_release": {
-    "version": "v27",
-    "sha256": "766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1"
+    "version": "v28",
+    "sha256": "72d15ae80928b3ede4a94a3e58ff46a3ae93a9d786151b4e4f5f3ca26a4e2a3b"
   },
   "historical_verification": {
     "v25": {
@@ -794,6 +831,10 @@
       "byte_ownership": "Only four Super Shredder private instrument tuning words and SNES checksum differ from v26.",
       "campaign_coverage": "No broad campaign repeated for this isolated tuning adjustment. Prior v26/v25/v24 evidence retains its original scope.",
       "package_routes": "passed: both BPS roundtrips; actual original/headered and v12-v26 inputs; current-v27 refusal; 35 tests and 86-file public audit"
+    },
+    "v28": {
+      "verification_version": "v28",
+      "status": "pending runtime QA"
     }
   },
   "voice_replacement": {

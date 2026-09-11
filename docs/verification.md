@@ -1,5 +1,14 @@
 # Verification of the game build
 
+## V29 — fighter-voice release QA
+
+Tested target SHA-256: `03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a`; checksum `9AE3`; 68,486 bytes differ from v28.
+
+- Static preservation checks report 1,962 graphics consumers and all 27 scene graphs exact. The 34 original song resources, common resources 02/33, and approved resources 3B–40/52/53 remain exact. R5 changes only the guarded Slash direct-page hook and checksum from r4.
+- Twenty-four r4 voice routes passed. R5 adds four focused routes and six KO placements. Stock shared short hurt grunts and April’s KO voice remain stock.
+- A fresh Slash Arcade campaign runs 39,163 frames through all 12 battle stages, bonuses 12–14, 24 KOs, seven ending/credit pages, title, and menu. It uses health fixtures only in live fighter rooms; no ending, scene, script, phase, or title writes are used.
+- Package checks cover the exact original, verified headered original, and v12–v28 inputs, each producing the target hash. Current v29 input is rejected without output. This is focused emulator coverage, not an exhaustive or frame-identical claim.
+
 ## V27 — focused native pitch checks
 
 Tested target SHA-256: `766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1`; checksum `828B`.

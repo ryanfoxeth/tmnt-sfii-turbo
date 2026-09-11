@@ -1,5 +1,11 @@
 # Releases
 
+## V29 — fighter voices
+
+September 10, 2026. Target SHA-256: `03e1060d04be410d93d7a87e6668b51e6189d99ba887c526404f2c113df9001a`; checksum `9AE3`.
+
+V29 retains the approved Casey, Splinter, Shredder, and Super Shredder voices, then adds shared turtle movie calls and voices for April, Bebop, Leatherhead, Slash, Krang, and Rocksteady. Slash, Krang, and Rocksteady use actor-specific routes. Stock shared short hurt grunts and April’s KO voice remain. Original music, hits, and other non-vocal effects are preserved. Original-to-v29 and v28-to-v29 BPS patches are supplied; v12–v28 inputs continue through the hash-checked chain.
+
 ## V27 — Super Shredder voice pitch
 
 September 10, 2026. Target SHA-256: `766216af20b5d38acd63cfb334819ca92c5463e7e27a7a7b6e56839311794ed1`; checksum `828B`.
