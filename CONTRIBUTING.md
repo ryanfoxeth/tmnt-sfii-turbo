@@ -26,6 +26,7 @@ to submit it. The tool-code license does not grant rights to third-party
 characters or game assets. Please do not copy sprite sheets from commercial
 games into this repository.
 
-The full art-authoring workspace is not yet part of this public distribution.
-Open an issue to coordinate a new fighter or importer before starting a large
-change; avoid promising a complete native rebuild from this repository alone.
+For authoring work, start with the [complete AI handoff](docs/handoff/README.md)
+and [new-reskin playbook](docs/handoff/NEW-RESKIN-PLAYBOOK.md). The private
+workbench and full source transfer are separate from this public distribution.
+Avoid promising a complete native source rebuild from this repository alone.

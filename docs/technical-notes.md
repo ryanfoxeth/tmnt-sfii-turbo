@@ -1,3 +1,5 @@
+> **Current engineering entry point:** [AI handoff](handoff/README.md), audited September 12, 2026. The version sections below preserve their original release context; older input-support and deferred-work statements do not override current v29 status.
+
 # Technical notes
 
 ## V27 private voice tuning

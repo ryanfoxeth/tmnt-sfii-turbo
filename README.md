@@ -7,6 +7,8 @@ Built with Ryan's creative direction and Codex/Astra assistance on Linux.
 **Current version: v29.** This repository distributes patches and tools.
 You supply the matching original game; no complete game ROM is included.
 
+**Continue or build another reskin:** read the [complete AI handoff](docs/handoff/README.md). It covers source restoration on another device, every tool/workflow area, known pitfalls, current limits and ready-to-paste continuation prompts. Authored development tools live in the separate [private workbench](https://github.com/ryanfoxeth/sf2-reskin-workbench); full private art/media/evidence transfer is documented there.
+
 ![Repaired select grid](assets/select-v18.png)
 
 ## Play
@@ -82,7 +84,7 @@ V25 repairs 204 pixels across Super Shredder walking poses 004/005 and patches a
 
 The ending plays the original native music continuously for 36 full seconds, then fades before the stock ranking and title music. Fresh Turbo Leo and Normal Mikey Arcade campaigns each reached all twelve stages, three bonuses, ending pages 1–7, the native title, and the menu; they recorded 47 health-fixture KOs in total. The two audio receipts also confirm all fourteen ending initial pages and palettes remain v24-exact.
 
-Voice resources, stage songs, turtle idle, and the existing title, map, and geography presentation are unchanged. Selective voice treatment awaits user approval; new stage music remains future work.
+In this historical v25 step, voice resources, stage songs, turtle idle, and title/map/geography were unchanged. V26–v29 later completed the selected voice pass; replacement music was paused. See the [current status](docs/handoff/STATUS.md).
 
 ## V24 — subtle ending motion
 
@@ -185,6 +187,3 @@ Background: [U.S. Copyright Office on derivative works](https://www.copyright.go
 and [GitHub's DMCA policy](https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy).
 Please do not upload ROMs, emulator save states, extracted original game
 assets or ROM-download links in issues, pull requests or releases.
-
-
-V28 adds the requested slightly deeper Casey voice and Splinter’s approved voice, and repairs the Leatherhead and Slash burn silhouettes plus Splinter flame OAM. Original music is retained; the separate replacement-music experiment remains paused. Turtle-idle polish remains open.

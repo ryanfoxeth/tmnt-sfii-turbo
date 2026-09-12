@@ -111,6 +111,9 @@ PATCHES.update({'patches/tmnt-sfii-turbo-v28.bps': '8084b6f6f3582894b5d8eb982c31
 ALLOW.update({'patches/tmnt-sfii-turbo-v29.bps','patches/tmnt-sfii-turbo-v28-to-v29.bps','tests/test_v29_patcher.py'})
 PATCHES.update({'patches/tmnt-sfii-turbo-v29.bps':'12696e6843d1b94039ead4e426a33d32d9ee293261fa8f3187cec898a6a1d7d3','patches/tmnt-sfii-turbo-v28-to-v29.bps':'193a288865eaa3929b30b6ad5add44978e3651141d03fd6aa985f72c07ed4f2b'})
 
+# September 12 comprehensive AI handoff; exact public-file additions.
+ALLOW.update({'docs/handoff/STATUS.md', 'docs/handoff/GRAPHICS-STAGES-UI.md', 'docs/handoff/CONTINUE.md', 'docs/handoff/NEW-RESKIN-PLAYBOOK.md', 'docs/handoff/VERIFICATION-AND-VIDEO.md', 'docs/handoff/AUDIO-AND-ENDINGS.md', 'docs/handoff/TOOLS-AND-PORTABILITY.md', 'AGENTS.md', 'docs/handoff/README.md'})
+
 def audit():
     if (ROOT/'.git').is_dir():
         files=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
